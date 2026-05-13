@@ -6,11 +6,13 @@ public class Arbitro extends Persona {
      */
 
     private int aniosExperiencia;
+    private Pais pais;
 
     //Constructores
-    Arbitro(String nombre, int fecNacimiento, int aniosExperiencia) {
+    Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais) {
         super(nombre, fecNacimiento);
         this.aniosExperiencia = aniosExperiencia;
+        this.pais = pais;
     }
     Arbitro() {
 
@@ -20,7 +22,13 @@ public class Arbitro extends Persona {
     public int getAniosExperiencia() {
         return aniosExperiencia;
     }
+    public Pais getPais() {
+        return pais;
+    }
     public void setAniosExperiencia(int aniosExperiencia) {
         this.aniosExperiencia = aniosExperiencia;
+    }
+    public void setPais(Pais pais) {
+        this.pais = pais;
     }
 }
