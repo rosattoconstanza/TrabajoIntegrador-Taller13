@@ -1,4 +1,5 @@
 package modelo;
+import java.util.ArrayList<>;
 
 public class Jugador extends Persona {
     /** Clase Jugador hereda de Persona.
@@ -9,6 +10,7 @@ public class Jugador extends Persona {
     private  Posicion posicion;
     private float peso;
     private float altura;
+    private ArrayList<Evento> eventos;
 
     //Constructores
     Jugador(String nombre, int fecNacimiento, int dorsal, Posicion posicion, float peso, float altura) {
@@ -17,6 +19,15 @@ public class Jugador extends Persona {
         this.posicion = posicion;
         this.peso = peso;
         this.altura = altura;
+    }
+    //Constructores
+    Jugador(String nombre, int fecNacimiento, int dorsal, Posicion posicion, float peso, float altura) {
+        super(nombre, fecNacimiento);
+        this.dorsal = dorsal;
+        this.posicion = posicion;
+        this.peso = peso;
+        this.altura = altura;
+        this.eventos= new ArrayList<>();
     }
     Jugador() {
 
@@ -47,4 +58,10 @@ public class Jugador extends Persona {
     public void setAltura(float altura) {
         this.altura = altura;
     }
+
+    //Agregar Jugadores
+    public void agregarEvento(Evento e){
+        eventos.add(e); //0 o mas eventos por Jugador
+    }
 }
+

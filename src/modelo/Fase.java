@@ -23,10 +23,6 @@ public class Fase {
         return partidos;
     }
 
-    public void setPartidos(Partido partido) {
-        this.partidos.add(partido);
-    }
-
     public NombreFase getNombre() {
         return nombre;
     }
@@ -41,6 +37,10 @@ public class Fase {
 
     public void setGrupos(Grupo grupo) {
         this.grupos.add(grupo);
+    }
+
+    public void agregarPartidos(Partido partido){
+        partidos.add(partido); //1 o mas partidos por Fase
     }
 
 }
