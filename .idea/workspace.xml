@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="919614c4-50ab-43ab-a056-cf499abbc01b" name="Changes" comment="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;" />
+    <list default="true" id="919614c4-50ab-43ab-a056-cf499abbc01b" name="Changes" comment="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;">
+      <change afterPath="$PROJECT_DIR$/src/modelo/Estadio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/Evento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/Fase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/Grupo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/NombreFase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/Participacion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/Partido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/Seleccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Mundial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Mundial.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,12 +23,12 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <servers />
   </component>
