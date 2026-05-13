@@ -1,0 +1,1111 @@
+Index: src/modelo/NombreFase.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/modelo/NombreFase.java b/src/modelo/NombreFase.java
+new file mode 100644
+--- /dev/null	(date 1778707419473)
++++ b/src/modelo/NombreFase.java	(date 1778707419473)
+@@ -0,0 +1,5 @@
++package modelo;
++
++public enum NombreFase {
++    Grupos,Dieciseisavos,Octavos,Cuartos,Semifinal,Final
++}
+Index: src/modelo/Mundial.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package modelo;\r\n\r\npublic class Mundial {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/modelo/Mundial.java b/src/modelo/Mundial.java
+--- a/src/modelo/Mundial.java	(revision 003cf0787d9cedbe65167a142a6f3fba8f7606e1)
++++ b/src/modelo/Mundial.java	(date 1778707419472)
+@@ -1,4 +1,84 @@
+ package modelo;
+ 
++import java.util.ArrayList;
++
+ public class Mundial {
+-}
++    private int anio;
++    private String mascota;
++    private int fechaDesde;
++    private int fechaHasta;
++    private ArrayList<Sede> sedes; //En la clase componente (Sede) no hay referencia a la clase contenedora (Mundial)
++
++    /**Constructor parametrizado
++     *
++     */
++    public Mundial(int anio, String mascota, int fechaDesde, int fechaHasta) {
++        this.anio = anio;
++        this.mascota = mascota;
++        this.fechaDesde = fechaDesde;
++        this.fechaHasta = fechaHasta;
++        this.sedes = new ArrayList<>();
++    }
++
++    /**Constructor por defecto
++     *
++     */
++    public Mundial(){
++    }
++
++    /**Getters
++     *
++     */
++    public int getAnio() {
++        return anio;
++    }
++
++    public String getMascota() {
++        return mascota;
++    }
++
++    public int getFechaDesde() {
++        return fechaDesde;
++    }
++
++    public int getFechaHasta() {
++        return fechaHasta;
++    }
++
++    public ArrayList<Sede> getSedes() {
++        return sedes;
++    }
++
++    /**Setters
++     *
++     */
++    public void setSedes(ArrayList<Sede> sedes) {
++        this.sedes = sedes;
++    }
++
++    public void setFechaHasta(int fechaHasta) {
++        this.fechaHasta = fechaHasta;
++    }
++
++    public void setFechaDesde(int fechaDesde) {
++        this.fechaDesde = fechaDesde;
++    }
++
++    public void setMascota(String mascota) {
++        this.mascota = mascota;
++    }
++
++    public void setAnio(int anio) {
++        this.anio = anio;
++    }
++
++
++    /** Multiplicidades/Asosiciacion con Sede
++     *
++     */
++
++    public void agregarSede(Sede sede){
++        sedes.add(sede); //1 o mas sedes por Mundial
++    }
++
++}
+\ No newline at end of file
+Index: src/modelo/Estadio.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/modelo/Estadio.java b/src/modelo/Estadio.java
+new file mode 100644
+--- /dev/null	(date 1778707419469)
++++ b/src/modelo/Estadio.java	(date 1778707419469)
+@@ -0,0 +1,72 @@
++package modelo;
++
++import java.util.ArrayList;
++
++public class Estadio {
++    private String nombre;
++    private int capacidad;
++    private Sede sede;
++    private ArrayList<Partido> partidos;
++
++    /**Constructor parametrizado
++     *
++     */
++    public Estadio(String nombre, int capacidad, Sede sede) {
++        this.nombre = nombre;
++        this.capacidad = capacidad;
++        this.sede = sede;
++        this.partidos= new ArrayList<>();
++    }
++
++    /**Constructor por defecto
++     *
++     */
++    public Estadio(){
++    }
++
++    /**Getters
++     *
++     */
++    public String getNombre() {
++        return nombre;
++    }
++
++    public int getCapacidad() {
++        return capacidad;
++    }
++
++    public Sede getSede() {
++        return sede;
++    }
++
++    public ArrayList<Partido> getPartidos() {
++        return partidos;
++    }
++
++    /**Setters
++     *
++     */
++    public void setNombre(String nombre) {
++        this.nombre = nombre;
++    }
++
++    public void setCapacidad(int capacidad) {
++        this.capacidad = capacidad;
++    }
++
++    public void setSede(Sede sede) {
++        this.sede = sede;
++    }
++
++    public void setPartidos(ArrayList<Partido> partidos) {
++        this.partidos = partidos;
++    }
++
++    /**Multiplicidad/Asociacion con Partido
++     *
++     */
++    public void agregarPartidos(Partido partido){
++        partidos.add(partido); //1 o mas partidos por Estadio
++    }
++
++}
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1778707419463)
++++ b/.idea/.gitignore	(date 1778707419463)
+@@ -0,0 +1,10 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Ignored default folder with query files
++/queries/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: src/modelo/Pais.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/modelo/Pais.java b/src/modelo/Pais.java
+new file mode 100644
+--- /dev/null	(date 1778708349081)
++++ b/src/modelo/Pais.java	(date 1778708349081)
+@@ -0,0 +1,85 @@
++import modelo.Arbitro;
++import modelo.Seleccion;
++
++import java.util.ArrayList;
++
++public class Pais {
++    private String nombre;
++    private String bandera;
++    private ArrayList<Sede> sedes;
++    private Seleccion seleccion;
++    private ArrayList<Arbitro> arbitros;
++
++    /** Constructor parametrizado
++     *
++     */
++    public Pais(String nombre, String bandera,Seleccion seleccion) {
++        this.nombre = nombre;
++        this.bandera = bandera;
++        this.sedes = new ArrayList<>();
++        this.seleccion= seleccion;
++        this.arbitros= new ArrayList<>();
++    }
++
++    /** Constructor por defecto
++     *
++     */
++    public Pais(){
++    }
++
++    /** Getters
++     *
++     */
++    public String getNombre() {
++        return nombre;
++    }
++
++    public String getBandera() {
++        return bandera;
++    }
++
++    public ArrayList<Sede> getSedes() {
++        return sedes;
++    }
++
++    public Seleccion getSeleccion() {
++        return seleccion;
++    }
++
++    public ArrayList<Arbitro> getArbitros() {
++        return arbitros;
++    }
++
++    /** Setters
++     *
++     */
++    public void setNombre(String nombre) {
++        this.nombre = nombre;
++    }
++
++    public void setBandera(String bandera) {
++        this.bandera = bandera;
++    }
++
++    public void setSedes(ArrayList<Sede> sedes) {
++        this.sedes = sedes;
++    }
++
++    public void setSeleccion(Seleccion seleccion) {
++        this.seleccion = seleccion;
++    }
++
++    public void setArbitros(ArrayList<Arbitro> arbitros) {
++        this.arbitros = arbitros;
++    }
++
++    /** Multiplicidades/Asosiciacion con Sede y Arbitro
++     *
++     */
++    public void agregarSede(Sede sede){
++        sedes.add(sede); //Ninguna o mas sedes por Pais
++    }
++    public void agregarArbitro(Arbitro arbitro){
++        arbitros.add(arbitro); //Ninguno o mas arbitros por Pais
++    }
++}
+\ No newline at end of file
+Index: src/modelo/Rol.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package modelo;\r\n\r\npublic enum Rol {\r\n    AyudanteCampo, PreparadorFisico, Medico, Kinesiologo, EntrenadorArqueros, AnalistaVideos, Nutricionista, Psicologo\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/modelo/Rol.java b/src/modelo/Rol.java
+--- a/src/modelo/Rol.java	(revision 003cf0787d9cedbe65167a142a6f3fba8f7606e1)
++++ b/src/modelo/Rol.java	(date 1778707465427)
+@@ -1,5 +1,5 @@
+ package modelo;
+ 
+ public enum Rol {
+-    AyudanteCampo, PreparadorFisico, Medico, Kinesiologo, EntrenadorArqueros, AnalistaVideos, Nutricionista, Psicologo
++
+ }
+Index: .idea/TrabajoIntegrador-Taller13.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/TrabajoIntegrador-Taller13.iml b/.idea/TrabajoIntegrador-Taller13.iml
+new file mode 100644
+--- /dev/null	(date 1778707419464)
++++ b/.idea/TrabajoIntegrador-Taller13.iml	(date 1778707419464)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"919614c4-50ab-43ab-a056-cf499abbc01b\" name=\"Changes\" comment=\"&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"TaskManager\">\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 003cf0787d9cedbe65167a142a6f3fba8f7606e1)
++++ b/.idea/workspace.xml	(date 1778707970565)
+@@ -1,21 +1,95 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="919614c4-50ab-43ab-a056-cf499abbc01b" name="Changes" comment="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;" />
++    <list default="true" id="919614c4-50ab-43ab-a056-cf499abbc01b" name="Changes" comment="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;">
++      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/TrabajoIntegrador-Taller13.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/modelo/Estadio.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/modelo/Evento.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/modelo/Fase.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/modelo/Grupo.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/modelo/NombreFase.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/modelo/Pais.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/modelo/Participacion.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/modelo/Partido.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/modelo/Sede.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/modelo/Seleccion.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/modelo/Mundial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Mundial.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/modelo/Rol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Rol.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;,
++    &quot;assignee&quot;: &quot;rosattoconstanza&quot;
++  }
++}</component>
++  <component name="GithubPullRequestsUISettings">{
++  &quot;selectedUrlAndAccountId&quot;: {
++    &quot;url&quot;: &quot;https://github.com/rosattoconstanza/TrabajoIntegrador-Taller13.git&quot;,
++    &quot;accountId&quot;: &quot;6f20a80a-87fc-429a-a621-2e33d1effb83&quot;
++  }
++}</component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 6,
++  &quot;fromUser&quot;: false
++}</component>
++  <component name="ProjectId" id="3DgdDK5oAP4Jod4zc86bFG9HlrB" />
+   <component name="ProjectLevelVcsManager">
+     <ConfirmationsSetting value="2" id="Add" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true"
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
++    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;Merging master&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="TaskManager">
++    <task id="LOCAL-00001" summary="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;">
++      <option name="closed" value="true" />
++      <created>1778707401661</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1778707401661</updated>
++    </task>
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="919614c4-50ab-43ab-a056-cf499abbc01b" name="Changes" comment="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;" />
++      <created>1778707527266</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1778707527266</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;" />
++    <option name="LAST_COMMIT_MESSAGE" value="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision 003cf0787d9cedbe65167a142a6f3fba8f7606e1)
++++ b/.idea/vcs.xml	(date 1778707627367)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" default=\"true\" project-jdk-name=\"26\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 003cf0787d9cedbe65167a142a6f3fba8f7606e1)
++++ b/.idea/misc.xml	(date 1778707627365)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" default="true" project-jdk-name="26" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" project-jdk-name="26" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectModuleManager\">\r\n    <modules>\r\n      <module fileurl=\"file://$PROJECT_DIR$/TrabajoIntegrador-Taller13.iml\" filepath=\"$PROJECT_DIR$/TrabajoIntegrador-Taller13.iml\" />\r\n    </modules>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+--- a/.idea/modules.xml	(revision 003cf0787d9cedbe65167a142a6f3fba8f7606e1)
++++ b/.idea/modules.xml	(date 1778707627366)
+@@ -2,7 +2,7 @@
+ <project version="4">
+   <component name="ProjectModuleManager">
+     <modules>
+-      <module fileurl="file://$PROJECT_DIR$/TrabajoIntegrador-Taller13.iml" filepath="$PROJECT_DIR$/TrabajoIntegrador-Taller13.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/TrabajoIntegrador-Taller13.iml" filepath="$PROJECT_DIR$/.idea/TrabajoIntegrador-Taller13.iml" />
+     </modules>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/.name
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Main.java
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.name b/.idea/.name
+--- a/.idea/.name	(revision 003cf0787d9cedbe65167a142a6f3fba8f7606e1)
++++ b/.idea/.name	(date 1778707630160)
+@@ -1,1 +1,1 @@
+-Main.java
+\ No newline at end of file
++Evento.java
+\ No newline at end of file
+Index: src/modelo/Evento.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/modelo/Evento.java b/src/modelo/Evento.java
+new file mode 100644
+--- /dev/null	(date 1778707419470)
++++ b/src/modelo/Evento.java	(date 1778707419470)
+@@ -0,0 +1,52 @@
++package modelo;
++
++public class Evento {
++
++    private TipoEvento tipo;
++    private int minuto;
++    private Jugador jugador;
++
++    /**Constructor parametrizado
++     *
++     */
++    public Evento(TipoEvento tipo, int minuto, Jugador jugador) {
++        this.tipo = tipo;
++        this.minuto = minuto;
++        this.jugador = jugador;
++    }
++    /**Constructor por defecto
++     *
++     */
++    public Evento(){
++    }
++
++    /**Getters
++     *
++     */
++    public TipoEvento getTipo() {
++        return tipo;
++    }
++
++    public int getMinuto() {
++        return minuto;
++    }
++
++    public Jugador getJugador() {
++        return jugador;
++    }
++
++    /**Setters
++     *
++     */
++    public void setTipo(TipoEvento tipo) {
++        this.tipo = tipo;
++    }
++
++    public void setMinuto(int minuto) {
++        this.minuto = minuto;
++    }
++
++    public void setJugador(Jugador jugador) {
++        this.jugador = jugador;
++    }
++}
+\ No newline at end of file
+Index: src/modelo/Grupo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/modelo/Grupo.java b/src/modelo/Grupo.java
+new file mode 100644
+--- /dev/null	(date 1778707419471)
++++ b/src/modelo/Grupo.java	(date 1778707419471)
+@@ -0,0 +1,56 @@
++package modelo;
++import java.util.ArrayList;
++
++public class Grupo {
++    private String identificacion;
++    private String descripcion;
++    private Fase fase;
++    private ArrayList<Seleccion> seleccion = new ArrayList<>();
++
++    public Grupo(){
++
++    }
++
++    public Grupo(String identificacion, String descripcion, Fase fase) {
++        this.identificacion = identificacion;
++        this.descripcion = descripcion;
++        this.fase = fase;
++    }
++
++    public String getIdentificacion() {
++        return identificacion;
++    }
++
++    public void setIdentificacion(String identificacion) {
++        this.identificacion = identificacion;
++    }
++
++    public String getDescripcion() {
++        return descripcion;
++    }
++
++    public void setDescripcion(String descripcion) {
++        this.descripcion = descripcion;
++    }
++
++    public int obtenerPuntos(Seleccion s){
++        return 1; // Ver mas adelante
++    }
++
++    public Fase getFase() {
++        return fase;
++    }
++
++    public void setFase(Fase fase) {
++        this.fase = fase;
++    }
++
++    public void addSeleccion(Seleccion seleccion) {
++        this.seleccion.add(seleccion);
++    }
++
++    public ArrayList<Seleccion> getSeleccion() {
++        return seleccion;
++    }
++
++}
+Index: src/modelo/Participacion.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/modelo/Participacion.java b/src/modelo/Participacion.java
+new file mode 100644
+--- /dev/null	(date 1778707419474)
++++ b/src/modelo/Participacion.java	(date 1778707419474)
+@@ -0,0 +1,53 @@
++package modelo;
++import java.util.ArrayList;
++
++public class Participacion {
++    private boolean esLocal;
++    private Seleccion [] selecciones = new Seleccion [2];
++    private ArrayList<Partido> partido = new ArrayList<>();
++
++    public Participacion(){
++
++    }
++
++    public Participacion(boolean esLocal) {
++        this.esLocal = esLocal;
++    }
++
++    public boolean isEsLocal() {
++        return esLocal;
++    }
++
++    public void setEsLocal(boolean esLocal) {
++        this.esLocal = esLocal;
++    }
++
++    public int cantidadGoles(){
++        return 1;
++    }
++    public int cantidadTarjAmarillas(){
++        return 1;
++    }
++    public int cantidadTarjRojas(){
++        return 1;
++    }
++
++    public void setSeleccion(Seleccion seleccion1, Seleccion seleccion2){
++        selecciones[0] = seleccion1;
++        selecciones[1] = seleccion2;
++
++    }
++    public Seleccion[] getSeleccion(){
++        return selecciones;
++    }
++
++    public void addPartido(Partido partido) {
++        this.partido.add(partido);
++    }
++
++    public ArrayList<Partido> getPartido() {
++        return partido;
++    }
++
++
++}
+Index: src/modelo/Seleccion.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/modelo/Seleccion.java b/src/modelo/Seleccion.java
+new file mode 100644
+--- /dev/null	(date 1778707419478)
++++ b/src/modelo/Seleccion.java	(date 1778707419478)
+@@ -0,0 +1,127 @@
++package modelo;
++import java.util.ArrayList;
++
++public class Seleccion {
++    private String nombreFederacion;
++    private String camisetaPrincipal;
++    private String camisetaSecundaria;
++    private boolean cabezaGrupo;
++    private int rankingFIFA;
++    private Participacion participacion;
++    private Grupo grupo;
++    private Pais pais;
++    private ArrayList<Jugador> jugadores = new ArrayList<>();
++    private ArrayList<DirectorTecnico> directoresTecnicos = new ArrayList<>();
++    private ArrayList<CuerpoTecnico> cuerposTecnicos = new ArrayList<>();
++
++    public Seleccion(String nombreFederacion, String camisetaPrincipal, String camisetaSecundaria, boolean cabezaGrupo,
++                     int rankingFIFA) {
++        this.nombreFederacion = nombreFederacion;
++        this.camisetaPrincipal = camisetaPrincipal;
++        this.camisetaSecundaria = camisetaSecundaria;
++        this.cabezaGrupo = cabezaGrupo;
++        this.rankingFIFA = rankingFIFA;
++    }
++
++
++    public Seleccion(String nombreFederacion, String camisetaPrincipal, String camisetaSecundaria, boolean cabezaGrupo,
++                     int rankingFIFA, Grupo grupo) {
++        this.nombreFederacion = nombreFederacion;
++        this.camisetaPrincipal = camisetaPrincipal;
++        this.camisetaSecundaria = camisetaSecundaria;
++        this.cabezaGrupo = cabezaGrupo;
++        this.rankingFIFA = rankingFIFA;
++        this.grupo = grupo;
++    }
++
++
++    public Seleccion(String nombreFederacion, String camisetaPrincipal, String camisetaSecundaria, boolean cabezaGrupo,
++                     int rankingFIFA, Participacion participacion, Grupo grupo, Pais pais) {
++        this.nombreFederacion = nombreFederacion;
++        this.camisetaPrincipal = camisetaPrincipal;
++        this.camisetaSecundaria = camisetaSecundaria;
++        this.cabezaGrupo = cabezaGrupo;
++        this.rankingFIFA = rankingFIFA;
++        this.participacion = participacion;
++        this.grupo = grupo;
++        this.pais = pais;
++    }
++
++
++    public Seleccion() {
++
++    }
++
++    public String getNombreFederacion() {
++        return nombreFederacion;
++    }
++
++    public void setNombreFederacion(String nombreFederacion) {
++        this.nombreFederacion = nombreFederacion;
++    }
++
++    public String getCamisetaPrincipal() {
++        return camisetaPrincipal;
++    }
++
++    public void setCamisetaPrincipal(String camisetaPrincipal) {
++        this.camisetaPrincipal = camisetaPrincipal;
++    }
++
++    public String getCamisetaSecundaria() {
++        return camisetaSecundaria;
++    }
++
++    public void setCamisetaSecundaria(String camisetaSecundaria) {
++        this.camisetaSecundaria = camisetaSecundaria;
++    }
++
++    public boolean isCabezaGrupo() {
++        return cabezaGrupo;
++    }
++
++    public void setCabezaGrupo(boolean cabezaGrupo) {
++        this.cabezaGrupo = cabezaGrupo;
++    }
++
++    public int getRankingFIFA() {
++        return rankingFIFA;
++    }
++
++    public void setRankingFIFA(int rankingFIFA) {
++        this.rankingFIFA = rankingFIFA;
++    }
++
++    public void setParticipacion(Participacion participacion) {
++        this.participacion = participacion;
++    }
++
++
++    public void setGrupo(Grupo grupo) {
++        this.grupo = grupo;
++    }
++
++
++    public void setPais(Pais pais) {
++        this.pais = pais;
++    }
++
++
++    public void setJugadores(Jugador jugador) {
++        this.jugadores.add(jugador);
++    }
++
++
++    public void setDirectoresTecnicos(DirectorTecnico directorTecnico) {
++        this.directoresTecnicos.add(directorTecnico);
++    }
++
++
++    public void setCuerposTecnicos(CuerpoTecnico cuerposTecnico) {
++        this.cuerposTecnicos.add(cuerposTecnico);
++    }
++
++
++}
++
++
+Index: src/modelo/Partido.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/modelo/Partido.java b/src/modelo/Partido.java
+new file mode 100644
+--- /dev/null	(date 1778707419475)
++++ b/src/modelo/Partido.java	(date 1778707419475)
+@@ -0,0 +1,107 @@
++package modelo;
++import java.util.ArrayList;
++
++public class Partido {
++    private LocalDate fecha;
++    private LocalTime horario;
++    private int duracion;
++    private int tiempoAdicional;
++    private Estadio estadio;
++    private Fase fase;
++    private Participacion participacion;
++    private Arbitraje arbitraje;
++    private ArrayList<Evento> eventos = new ArrayList<>();
++
++    public Partido(){
++
++    }
++
++    public Partido(LocalDate fecha, LocalTime horario, int duracion, int tiempoAdicional) {
++        this.fecha = fecha;
++        this.horario = horario;
++        this.duracion = duracion;
++        this.tiempoAdicional = tiempoAdicional;
++    }
++
++    public Partido(LocalDate fecha, LocalTime horario, int duracion, int tiempoAdicional, Estadio estadio) {
++        this.fecha = fecha;
++        this.horario = horario;
++        this.duracion = duracion;
++        this.tiempoAdicional = tiempoAdicional;
++        this.estadio = estadio;
++    }
++
++    public Partido(LocalDate fecha, LocalTime horario, int duracion, int tiempoAdicional, Estadio estadio, Fase fase) {
++        this.fecha = fecha;
++        this.horario = horario;
++        this.duracion = duracion;
++        this.tiempoAdicional = tiempoAdicional;
++        this.estadio = estadio;
++        this.fase = fase;
++    }
++
++
++    public Partido(LocalDate fecha, LocalTime horario, int duracion, int tiempoAdicional, Estadio estadio, Fase fase,
++                   Participacion participacion) {
++        this.fecha = fecha;
++        this.horario = horario;
++        this.duracion = duracion;
++        this.tiempoAdicional = tiempoAdicional;
++        this.estadio = estadio;
++        this.fase = fase;
++        this.participacion = participacion;
++    }
++
++    public LocalDate getFecha() {
++        return fecha;
++    }
++
++    public void setFecha(LocalDate fecha) {
++        this.fecha = fecha;
++    }
++
++    public LocalTime getHorario() {
++        return horario;
++    }
++
++    public void setHorario(LocalTime horario) {
++        this.horario = horario;
++    }
++
++    public int getDuracion() {
++        return duracion;
++    }
++
++    public void setDuracion(int duracion) {
++        this.duracion = duracion;
++    }
++
++    public int getTiempoAdicional() {
++        return tiempoAdicional;
++    }
++
++    public void setTiempoAdicional(int tiempoAdicional) {
++        this.tiempoAdicional = tiempoAdicional;
++    }
++
++    public void setEstadio(Estadio estadio) {
++        this.estadio = estadio;
++    }
++
++    public void setFase(Fase fase) {
++        this.fase = fase;
++    }
++
++    public void setParticipacion(Participacion participacion) {
++        this.participacion = participacion;
++    }
++
++    public void setEventos(TipoEvento tipo, int min) {
++        this.eventos.add(new Evento(tipo, min));
++    }
++
++    public void setArbitraje(Arbitraje arbitraje) {
++        this.arbitraje = arbitraje;
++    }
++
++}
+Index: src/modelo/Sede.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/modelo/Sede.java b/src/modelo/Sede.java
+new file mode 100644
+--- /dev/null	(date 1778707419477)
++++ b/src/modelo/Sede.java	(date 1778707419477)
+@@ -0,0 +1,63 @@
++import java.util.ArrayList;
++
++public class Sede {
++    private String ciudad;
++    private float alturaNivelMar;
++    private String clima;
++    private String zonaHoraria;
++    private ArrayList<Estadio> estadios;
++    private Pais pais;
++
++    /**Constructor parametrizado
++     *
++     */
++    public Sede(String ciudad, float alturaNivelMar, String clima, String zonaHoraria,Pais pais) {
++        this.ciudad = ciudad;
++        this.alturaNivelMar = alturaNivelMar;
++        this.clima = clima;
++        this.zonaHoraria = zonaHoraria;
++        this.estadios= new ArrayList<>();
++        this.pais=pais;
++    }
++    /**Constructor por defecto
++     *
++     */
++    public Sede(){
++    }
++
++    /**Getters
++     *
++     */
++    public String getCiudad() {
++        return ciudad;
++    }
++
++    public float getAlturaNivelMar() {
++        return alturaNivelMar;
++    }
++
++    public String getClima() {
++        return clima;
++    }
++
++    public String getZonaHoraria() {
++        return zonaHoraria;
++    }
++
++    public ArrayList<Estadio> getEstadios() {
++        return estadios;
++    }
++
++    public Pais getPais() {
++        return pais;
++    }
++
++    /**Setters
++     *
++     */
++
++    public void agregarEstadio(Estadio estadio){
++        estadios.add(estadio); //1 o mas Estadios por Sede
++    }
++
++}
+\ No newline at end of file
+Index: src/modelo/Fase.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/modelo/Fase.java b/src/modelo/Fase.java
+new file mode 100644
+--- /dev/null	(date 1778707419470)
++++ b/src/modelo/Fase.java	(date 1778707419470)
+@@ -0,0 +1,46 @@
++package modelo;
++import java.util.ArrayList;
++
++public class Fase {
++    private NombreFase nombre;
++    private ArrayList<Grupo> grupos = new ArrayList<>();
++    private ArrayList<Partido> partidos = new ArrayList<>();
++
++    public Fase(){
++
++    }
++
++    public Fase(NombreFase nombre) {
++        this.nombre = nombre;
++    }
++
++
++    public void setGrupos(ArrayList<Grupo> grupos) {
++        this.grupos = grupos;
++    }
++
++    public ArrayList<Partido> getPartidos() {
++        return partidos;
++    }
++
++    public void setPartidos(Partido partido) {
++        this.partidos.add(partido);
++    }
++
++    public NombreFase getNombre() {
++        return nombre;
++    }
++
++    public void setNombre(NombreFase nombre) {
++        this.nombre = nombre;
++    }
++
++    public ArrayList<Grupo> getGrupos() {
++        return grupos;
++    }
++
++    public void setGrupos(Grupo grupo) {
++        this.grupos.add(grupo);
++    }
++
++}
