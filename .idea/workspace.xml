@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="919614c4-50ab-43ab-a056-cf499abbc01b" name="Changes" comment="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/CuerpoTecnico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/CuerpoTecnico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/DirectorTecnico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/DirectorTecnico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Fase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Fase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Grupo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Grupo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Pais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Pais.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Participacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Participacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Arbitro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Arbitro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,22 +13,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "valerou-bot"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;valerou-bot&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/rosattoconstanza/TrabajoIntegrador-Taller13.git",
-    "accountId": "112d33ea-f5a0-48db-8d28-7f8432043d56"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/rosattoconstanza/TrabajoIntegrador-Taller13.git&quot;,
+    &quot;accountId&quot;: &quot;112d33ea-f5a0-48db-8d28-7f8432043d56&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 6
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="3DibPkiR0BaVf694y0PaXLXeK6R" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -52,6 +46,9 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -78,9 +75,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778767817664</updated>
-      <workItem from="1778767820407" duration="5094000" />
+      <workItem from="1778767820407" duration="5427000" />
+      <workItem from="1778853300046" duration="1204000" />
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;">
+      <option name="closed" value="true" />
+      <created>1778852366837</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1778852366837</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

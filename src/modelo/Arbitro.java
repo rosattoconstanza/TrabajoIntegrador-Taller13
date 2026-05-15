@@ -7,12 +7,14 @@ public class Arbitro extends Persona {
 
     private int aniosExperiencia;
     private Pais pais;
+    private Arbitraje arbitraje;
 
     //Constructores
-    Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais) {
+    Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais, Arbitraje arbitraje) {
         super(nombre, fecNacimiento);
         this.aniosExperiencia = aniosExperiencia;
         this.pais = pais;
+        this.arbitraje=arbitraje;
     }
     Arbitro() {
 
