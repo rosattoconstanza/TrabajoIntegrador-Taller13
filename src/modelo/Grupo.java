@@ -2,6 +2,9 @@ package modelo;
 import java.util.ArrayList;
 
 public class Grupo {
+    /**Clase Grupo.
+     * Asociada con clase Fase y Selección.
+     */
     private String identificacion;
     private String descripcion;
     private Fase fase;

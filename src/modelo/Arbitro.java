@@ -33,4 +33,5 @@ public class Arbitro extends Persona {
     public void setPais(Pais pais) {
         this.pais = pais;
     }
+    public void setArbitraje(Arbitraje arbitraje) {this.arbitraje = arbitraje;}
 }

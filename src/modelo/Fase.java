@@ -2,6 +2,9 @@ package modelo;
 import java.util.ArrayList;
 
 public class Fase {
+    /**Clase Fase.
+     * Asociada con clase Grupo y Partido.
+     */
     private NombreFase nombre;
     private ArrayList<Grupo> grupos = new ArrayList<>();
     private ArrayList<Partido> partidos = new ArrayList<>();

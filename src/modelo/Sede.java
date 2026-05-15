@@ -2,6 +2,9 @@ package modelo;
 import java.util.ArrayList;
 
 public class Sede {
+    /**Clase Sede.
+     * Asociada con clase Pais, Estadio y agregación con Mundial.
+     */
     private String ciudad;
     private float alturaNivelMar;
     private String clima;

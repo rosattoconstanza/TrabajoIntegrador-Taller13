@@ -2,6 +2,9 @@
 import java.util.ArrayList;
 
 public class Pais {
+    /**Clase Pais.
+     * Asociada con clase Sede, Seleccion y Arbitro.
+     */
     private String nombre;
     private String bandera;
     private ArrayList<Sede> sedes;

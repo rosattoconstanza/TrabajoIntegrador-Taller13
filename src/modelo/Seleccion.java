@@ -2,6 +2,9 @@ package modelo;
 import java.util.ArrayList;
 
 public class Seleccion {
+    /**Clase Seleccion.
+     * Asociada con clase Grupo, Pais, Jugador, Director Tecnico y Cuerpo Tecnico.
+     */
     private String nombreFederacion;
     private String camisetaPrincipal;
     private String camisetaSecundaria;

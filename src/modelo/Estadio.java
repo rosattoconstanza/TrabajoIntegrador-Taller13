@@ -3,6 +3,9 @@ package modelo;
 import java.util.ArrayList;
 
 public class Estadio {
+    /**Clase Estadio.
+     * Asociada con clase Sede y Partido.
+     */
     private String nombre;
     private int capacidad;
     private Sede sede;

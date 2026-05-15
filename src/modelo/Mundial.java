@@ -3,6 +3,9 @@ package modelo;
 import java.util.ArrayList;
 
 public class Mundial {
+    /**Clase Mundial.
+     * Asociada con clase Sede.
+     */
     private int anio;
     private String mascota;
     private int fechaDesde;

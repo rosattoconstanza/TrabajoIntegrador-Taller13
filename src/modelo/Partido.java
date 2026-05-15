@@ -1,7 +1,12 @@
 package modelo;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Partido {
+    /**Clase Partido.
+     * Asociada con clase Evento, Fase y Estadio.
+     */
     private LocalDate fecha;
     private LocalTime horario;
     private int duracion;
@@ -17,7 +22,7 @@ public class Partido {
     }
 
     public Partido(LocalDate fecha, LocalTime horario, int duracion, int tiempoAdicional, Estadio estadio, Fase fase,
-                   Participacion participacion) {
+                   Participacion participacion,Arbitraje arbitraje) {
         this.fecha = fecha;
         this.horario = horario;
         this.duracion = duracion;
@@ -25,7 +30,8 @@ public class Partido {
         this.estadio = estadio;
         this.fase = fase;
         this.participacion = participacion;
-        this.eventos=  = new ArrayList<>();
+        this.eventos  = new ArrayList<>();
+        this.arbitraje=arbitraje;
     }
 
     public LocalDate getFecha() {

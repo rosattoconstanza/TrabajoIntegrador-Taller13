@@ -1,6 +1,9 @@
 package modelo;
 
 public class Evento {
+    /**Clase Evento.
+     * Asociada con clase Jugador y composición con Partido.
+     */
 
     private TipoEvento tipo;
     private int minuto;
