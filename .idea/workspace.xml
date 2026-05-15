@@ -2,13 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="919614c4-50ab-43ab-a056-cf499abbc01b" name="Changes" comment="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/Arbitraje.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Arbitro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Arbitro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Estadio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Estadio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Fase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Fase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Grupo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Grupo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Mundial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Mundial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Pais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Pais.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Participacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Participacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Partido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Sede.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Sede.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Seleccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Seleccion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,7 +64,7 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
@@ -76,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1778767817664</updated>
       <workItem from="1778767820407" duration="5427000" />
-      <workItem from="1778853300046" duration="1204000" />
+      <workItem from="1778853300046" duration="2760000" />
     </task>
     <task id="LOCAL-00003" summary="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;">
       <option name="closed" value="true" />
@@ -86,7 +103,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778852366837</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;">
+      <option name="closed" value="true" />
+      <created>1778854514119</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1778854514119</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
