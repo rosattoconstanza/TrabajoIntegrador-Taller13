@@ -8,13 +8,6 @@ public class Pais {
     private Seleccion seleccion;
     private ArrayList<Arbitro> arbitros;
 
-    /** Constructor básico parametrizado
-     *
-     */
-    public Pais(String nombre, String bandera) {
-        this.nombre = nombre;
-        this.bandera = bandera;
-    }
     /** Constructor parametrizado
      *
      */
@@ -78,7 +71,7 @@ public class Pais {
         this.arbitros = arbitros;
     }
 
-    /** Multiplicidades/Asosiciacion con Sede y Arbitro
+    /** Multiplicidades/Asociacion con Sede y Arbitro
      *
      */
     public void agregarSede(Sede sede){

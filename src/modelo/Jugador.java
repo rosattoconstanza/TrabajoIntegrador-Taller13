@@ -19,14 +19,6 @@ public class Jugador extends Persona {
         this.posicion = posicion;
         this.peso = peso;
         this.altura = altura;
-    }
-    //Constructores
-    Jugador(String nombre, int fecNacimiento, int dorsal, Posicion posicion, float peso, float altura) {
-        super(nombre, fecNacimiento);
-        this.dorsal = dorsal;
-        this.posicion = posicion;
-        this.peso = peso;
-        this.altura = altura;
         this.eventos= new ArrayList<>();
     }
     Jugador() {

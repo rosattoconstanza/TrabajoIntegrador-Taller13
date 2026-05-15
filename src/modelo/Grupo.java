@@ -45,9 +45,9 @@ public class Grupo {
         this.fase = fase;
     }
 
-    public void addSeleccion(Seleccion seleccion) {
+    public void agregarSeleccion(Seleccion seleccion) {
         this.seleccion.add(seleccion);
-    }
+    } //1 o mas selecciones
 
     public ArrayList<Seleccion> getSeleccion() {
         return seleccion;

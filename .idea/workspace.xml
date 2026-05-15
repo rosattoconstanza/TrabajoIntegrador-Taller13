@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="919614c4-50ab-43ab-a056-cf499abbc01b" name="Changes" comment="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/CuerpoTecnico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/CuerpoTecnico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/DirectorTecnico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/DirectorTecnico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Fase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Fase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Grupo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Grupo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Pais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Pais.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Partido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Participacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Participacion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,15 +19,42 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "valerou-bot"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/rosattoconstanza/TrabajoIntegrador-Taller13.git",
+    "accountId": "112d33ea-f5a0-48db-8d28-7f8432043d56"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="3DibPkiR0BaVf694y0PaXLXeK6R" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;">
       <option name="closed" value="true" />
@@ -33,8 +64,27 @@
       <option name="project" value="LOCAL" />
       <updated>1778709710841</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;">
+      <option name="closed" value="true" />
+      <created>1778713038371</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1778713038371</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="919614c4-50ab-43ab-a056-cf499abbc01b" name="Changes" comment="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;" />
+      <created>1778767817664</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778767817664</updated>
+      <workItem from="1778767820407" duration="5094000" />
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;" />

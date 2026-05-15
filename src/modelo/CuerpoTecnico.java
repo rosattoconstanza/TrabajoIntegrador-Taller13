@@ -6,11 +6,13 @@ public class CuerpoTecnico extends Persona {
      */
 
     private Rol rol;
+    private Seleccion seleccion;
 
     //Constructores
-    CuerpoTecnico(String nombre, int fecNacimiento, Rol rol) {
+    CuerpoTecnico(String nombre, int fecNacimiento, Rol rol,Seleccion seleccion) {
         super(nombre, fecNacimiento);
         this.rol = rol;
+        this.seleccion=seleccion;
     }
     CuerpoTecnico() {
 
@@ -22,5 +24,9 @@ public class CuerpoTecnico extends Persona {
     }
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+    public Seleccion getSeleccion() {return seleccion;}
+    public void setSeleccion(Seleccion seleccion) {
+        this.seleccion = seleccion;
     }
 }

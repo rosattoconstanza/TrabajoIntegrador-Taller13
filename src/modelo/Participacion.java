@@ -32,7 +32,7 @@ public class Participacion {
         return 1;
     }
 
-    public void setSeleccion(Seleccion seleccion1, Seleccion seleccion2){
+    public void agregarSeleccion(Seleccion seleccion1, Seleccion seleccion2){
         selecciones[0] = seleccion1;
         selecciones[1] = seleccion2;
 
@@ -41,7 +41,7 @@ public class Participacion {
         return selecciones;
     }
 
-    public void addPartido(Partido partido) {
+    public void agregarPartido(Partido partido) {
         this.partido.add(partido);
     }
 

@@ -14,26 +14,6 @@ public class Seleccion {
     private ArrayList<DirectorTecnico> directoresTecnicos = new ArrayList<>();
     private ArrayList<CuerpoTecnico> cuerposTecnicos = new ArrayList<>();
 
-    public Seleccion(String nombreFederacion, String camisetaPrincipal, String camisetaSecundaria, boolean cabezaGrupo,
-                     int rankingFIFA) {
-        this.nombreFederacion = nombreFederacion;
-        this.camisetaPrincipal = camisetaPrincipal;
-        this.camisetaSecundaria = camisetaSecundaria;
-        this.cabezaGrupo = cabezaGrupo;
-        this.rankingFIFA = rankingFIFA;
-    }
-
-
-    public Seleccion(String nombreFederacion, String camisetaPrincipal, String camisetaSecundaria, boolean cabezaGrupo,
-                     int rankingFIFA, Grupo grupo) {
-        this.nombreFederacion = nombreFederacion;
-        this.camisetaPrincipal = camisetaPrincipal;
-        this.camisetaSecundaria = camisetaSecundaria;
-        this.cabezaGrupo = cabezaGrupo;
-        this.rankingFIFA = rankingFIFA;
-        this.grupo = grupo;
-    }
-
 
     public Seleccion(String nombreFederacion, String camisetaPrincipal, String camisetaSecundaria, boolean cabezaGrupo,
                      int rankingFIFA, Participacion participacion, Grupo grupo, Pais pais) {

@@ -43,4 +43,8 @@ public class Fase {
         partidos.add(partido); //1 o mas partidos por Fase
     }
 
+    public void agregarGrupos(Grupo grupos{
+        grupos.add(grupos); //Ninguno o mas grupos por Fase
+    }
+
 }
