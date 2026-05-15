@@ -1,5 +1,5 @@
 package modelo;
-import java.util.ArrayList<>;
+import java.util.ArrayList;
 
 public class Jugador extends Persona {
     /** Clase Jugador hereda de Persona.

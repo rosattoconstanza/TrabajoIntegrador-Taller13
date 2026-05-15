@@ -1,34 +1,31 @@
 package modelo;
 
-
-import java.util.ArrayList;
-
 public class Arbitraje {
 
     private CategoriaArbitro rol;
-    private ArrayList<Arbitro> arbitros;
-    private ArrayList<Partido> partidos;
+    private Arbitro arbitro;
+    private Partido partido;
 
-    public Arbitraje(CategoriaArbitro rol) {
+    public Arbitraje(CategoriaArbitro rol, Arbitro arbitro, Partido partido) {
         this.rol = rol;
-        this.arbitros= new ArrayList<>();
-        this.partidos = new ArrayList<>();
+        this.arbitro= arbitro;
+        this.partido = partido;
     }
+
     //Getters
     public CategoriaArbitro getRol() {return rol;}
 
-    public ArrayList<Arbitro> getArbitros() {return arbitros;}
+    public Arbitro getArbitro() {return arbitro;}
 
-    public ArrayList<Partido> getPartidos() {return partidos;}
+    public Partido getPartido() {return partido;}
 
     //Setters
-
     public void setRol(CategoriaArbitro rol) {this.rol = rol;}
 
-    public void agregarArbitros(Arbitro arbitros) {this.arbitros.add(arbitros);}
+    public void setArbitro(Arbitro arbitro) {this.arbitro = arbitro;}
 
-    public void agregarPartido(Partido partido) {
-        this.partidos.add(partido);
+    public void setPartido(Partido partido) {
+        this.partido = partido;
     }
 
 }
