@@ -1,5 +1,4 @@
 package modelo;
-
 import java.util.ArrayList;
 
 public class Estadio {
@@ -9,27 +8,21 @@ public class Estadio {
     private String nombre;
     private int capacidad;
     private Sede sede;
-    private ArrayList<Partido> partidos;
+    private ArrayList<Partido> partidos = new ArrayList<>();
 
-    /**Constructor parametrizado
-     *
-     */
-    public Estadio(String nombre, int capacidad, Sede sede) {
+    /** Constructor parametrizado */
+    public Estadio(String nombre, int capacidad, Sede sede, ArrayList<Partido> partidos) {
         this.nombre = nombre;
         this.capacidad = capacidad;
         this.sede = sede;
-        this.partidos= new ArrayList<>();
+        this.partidos = partidos;
     }
 
-    /**Constructor por defecto
-     *
-     */
+    /** Constructor por defecto */
     public Estadio(){
     }
 
-    /**Getters
-     *
-     */
+    /** Getters */
     public String getNombre() {
         return nombre;
     }
@@ -46,9 +39,7 @@ public class Estadio {
         return partidos;
     }
 
-    /**Setters
-     *
-     */
+    /** Setters */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -65,11 +56,8 @@ public class Estadio {
         this.partidos = partidos;
     }
 
-    /**Multiplicidad/Asociacion con Partido
-     *
-     */
-    public void agregarPartidos(Partido partido){
-        partidos.add(partido); //1 o mas partidos por Estadio
+    /** Multiplicidad/Asociacion con Partido */
+    public void agregarPartidos(Partido p){
+        partidos.add(p); //1 o mas partidos por Estadio
     }
-
 }

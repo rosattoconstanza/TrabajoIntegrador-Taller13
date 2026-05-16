@@ -5,7 +5,9 @@ import java.util.ArrayList;
 
 public class Partido {
     /**Clase Partido.
-     * Asociada con clase Evento, Fase y Estadio.
+     * Asociada con clase Estadio y Fase.
+     * Composicion con Evento.
+     * Asociada con Seleccion (creando Participacion) y Arbitro (creando Arbitraje).
      */
     private LocalDate fecha;
     private LocalTime horario;
@@ -17,7 +19,8 @@ public class Partido {
     private ArrayList<Arbitraje> arbitraje;
     private ArrayList<Evento> eventos;
 
-    public Partido(){
+    //Constructores.
+    public Partido() {
 
     }
 
@@ -34,6 +37,7 @@ public class Partido {
         this.arbitraje = arbitraje;
     }
 
+    //Getters y Setters
     public LocalDate getFecha() {
         return fecha;
     }
@@ -64,6 +68,10 @@ public class Partido {
 
     public void setTiempoAdicional(int tiempoAdicional) {
         this.tiempoAdicional = tiempoAdicional;
+    }
+
+    public Estadio getEstadio() {
+        return estadio;
     }
 
     public void setEstadio(Estadio estadio) {

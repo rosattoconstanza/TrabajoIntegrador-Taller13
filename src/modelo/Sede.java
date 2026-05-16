@@ -9,29 +9,24 @@ public class Sede {
     private float alturaNivelMar;
     private String clima;
     private String zonaHoraria;
-    private ArrayList<Estadio> estadios;
+    private ArrayList<Estadio> estadios = new ArrayList<>();
     private Pais pais;
 
-    /**Constructor parametrizado
-     *
-     */
-    public Sede(String ciudad, float alturaNivelMar, String clima, String zonaHoraria,Pais pais) {
+    /** Constructor parametrizado */
+    public Sede(String ciudad, float alturaNivelMar, String clima, String zonaHoraria,Pais pais, ArrayList<Estadio> estadios) {
         this.ciudad = ciudad;
         this.alturaNivelMar = alturaNivelMar;
         this.clima = clima;
         this.zonaHoraria = zonaHoraria;
-        this.estadios= new ArrayList<>();
+        this.estadios= estadios;
         this.pais=pais;
     }
-    /**Constructor por defecto
-     *
-     */
+
+    /** Constructor por defecto */
     public Sede(){
     }
 
-    /**Getters
-     *
-     */
+    /** Getters */
     public String getCiudad() {
         return ciudad;
     }
@@ -56,12 +51,34 @@ public class Sede {
         return pais;
     }
 
-    /**Setters
-     *
-     */
 
-    public void agregarEstadio(Estadio estadio){
-        estadios.add(estadio); //1 o mas Estadios por Sede
+    /** Multiplicidad/Asociacion con Partido */
+    public void agregarEstadio(Estadio e){
+        this.estadios.add(e); //1 o mas Estadios por Sede
     }
 
+    /** Setters */
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public void setAlturaNivelMar(float alturaNivelMar) {
+        this.alturaNivelMar = alturaNivelMar;
+    }
+
+    public void setClima(String clima) {
+        this.clima = clima;
+    }
+
+    public void setZonaHoraria(String zonaHoraria) {
+        this.zonaHoraria = zonaHoraria;
+    }
+
+    public void setPais(Pais pais) {
+        this.pais = pais;
+    }
+
+    public void setEstadios(ArrayList<Estadio> estadios) {
+        this.estadios = estadios;
+    }
 }

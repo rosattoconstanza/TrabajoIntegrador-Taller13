@@ -1,4 +1,5 @@
 package modelo;
 public enum NombreFase {
-    GRUPOS, DIECISEISAVOS, OCTAVOS, CUARTOS, SEMIFINAL, FINAL
+    /** Opciones de fases que pueden ocurrir dentro de un Enum. */
+    Grupos, Dieciseisavos, Octavos, Cuartos, Semifinal, Final
 }

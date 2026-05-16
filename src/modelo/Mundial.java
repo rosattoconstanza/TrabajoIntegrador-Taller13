@@ -1,37 +1,30 @@
 package modelo;
-
 import java.util.ArrayList;
 
 public class Mundial {
     /**Clase Mundial.
-     * Asociada con clase Sede.
+     * Asociada con clase Sede (Agregacion).
      */
     private int anio;
     private String mascota;
     private int fechaDesde;
     private int fechaHasta;
-    private ArrayList<Sede> sedes; //En la clase componente (Sede) no hay referencia a la clase contenedora (Mundial)
+    private ArrayList<Sede> sedes = new ArrayList<>(); //En la clase componente (Sede) no hay referencia a la clase contenedora (Mundial)
 
-    /**Constructor parametrizado
-     *
-     */
-    public Mundial(int anio, String mascota, int fechaDesde, int fechaHasta) {
+    /** Constructor parametrizado */
+    public Mundial(int anio, String mascota, int fechaDesde, int fechaHasta, ArrayList<Sede> sedes) {
         this.anio = anio;
         this.mascota = mascota;
         this.fechaDesde = fechaDesde;
         this.fechaHasta = fechaHasta;
-        this.sedes = new ArrayList<>();
+        this.sedes = sedes;
     }
 
-    /**Constructor por defecto
-     *
-     */
+    /** Constructor por defecto */
     public Mundial(){
     }
 
-    /**Getters
-     *
-     */
+    /** Getters */
     public int getAnio() {
         return anio;
     }
@@ -52,9 +45,7 @@ public class Mundial {
         return sedes;
     }
 
-    /**Setters
-     *
-     */
+    /** Setters */
     public void setSedes(ArrayList<Sede> sedes) {
         this.sedes = sedes;
     }
@@ -76,12 +67,8 @@ public class Mundial {
     }
 
 
-    /** Multiplicidades/Asosiciacion con Sede
-     *
-     */
-
-    public void agregarSede(Sede sede){
-        sedes.add(sede); //1 o mas sedes por Mundial
+    /** Multiplicidades/Asosiciacion con Sede */
+    public void agregarSede(Sede s){
+        this.sedes.add(s); //1 o mas sedes por Mundial
     }
-
 }
