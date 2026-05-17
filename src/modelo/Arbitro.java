@@ -3,7 +3,8 @@ import java.util.ArrayList;
 
 public class Arbitro extends Persona {
     /** Clase Arbitro hereda de Persona.
-     * Asociada con clase Pais y Partido.
+     * Asociada con clase Pais.
+     * Asociada con Partido (creando Arbitraje).
      */
 
     private int aniosExperiencia;

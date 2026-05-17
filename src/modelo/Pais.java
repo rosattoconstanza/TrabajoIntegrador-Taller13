@@ -7,30 +7,32 @@ public class Pais {
      */
     private String nombre;
     private String bandera;
-    private ArrayList<Sede> sedes;
+    private ArrayList<Sede> sedes = new ArrayList<>();
     private Seleccion seleccion;
     private ArrayList<Arbitro> arbitros;
 
-    /** Constructor parametrizado
-     *
-     */
-    public Pais(String nombre, String bandera,Seleccion seleccion) {
+    /** Constructor parametrizado */
+    Pais(String nombre, String bandera,Seleccion seleccion, ArrayList<Sede> sedes) {
         this.nombre = nombre;
         this.bandera = bandera;
-        this.sedes = new ArrayList<>();
+        this.sedes = sedes;
         this.seleccion= seleccion;
         this.arbitros= new ArrayList<>();
     }
 
-    /** Constructor por defecto
-     *
-     */
-    public Pais(){
+    /** Constructor parametrizado SIN SEDE (Multiplicidad 0...*) */
+    Pais(String nombre, String bandera,Seleccion seleccion) {
+        this.nombre = nombre;
+        this.bandera = bandera;
+        this.seleccion= seleccion;
+        this.arbitros= new ArrayList<>();
     }
 
-    /** Getters
-     *
-     */
+    /** Constructor por defecto */
+    Pais(){
+    }
+
+    /** Getters */
     public String getNombre() {
         return nombre;
     }
@@ -51,9 +53,7 @@ public class Pais {
         return arbitros;
     }
 
-    /** Setters
-     *
-     */
+    /** Setters */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -74,13 +74,14 @@ public class Pais {
         this.arbitros = arbitros;
     }
 
-    /** Multiplicidades/Asociacion con Sede y Arbitro
-     *
-     */
-    public void agregarSede(Sede sede){
-        sedes.add(sede); //Ninguna o mas sedes por Pais
+
+    /** Multiplicidades/Asociacion con Sede y Arbitro */
+    public void agregarSede(Sede s){
+        sedes.add(s); //Ninguna o mas sedes por Pais
     }
     public void agregarArbitro(Arbitro arbitro){
         arbitros.add(arbitro); //Ninguno o mas arbitros por Pais
     }
 }
+
+//ANTES DE HACER METODOS/INTERACTUAR CON "SEDE", VERIFICAR QUE NO SEA NULO

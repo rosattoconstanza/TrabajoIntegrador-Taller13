@@ -12,7 +12,7 @@ public class CuerpoTecnico extends Persona {
     CuerpoTecnico(String nombre, int fecNacimiento, Rol rol,Seleccion seleccion) {
         super(nombre, fecNacimiento);
         this.rol = rol;
-        this.seleccion=seleccion;
+        this.seleccion = seleccion;
     }
     CuerpoTecnico() {
 

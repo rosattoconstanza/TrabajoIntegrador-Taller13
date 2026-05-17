@@ -9,19 +9,19 @@ public class Fase {
     private ArrayList<Grupo> grupos = new ArrayList<>();
     private ArrayList<Partido> partidos = new ArrayList<>();
 
-    public Fase(){
+    //Constructores
+    Fase(){
 
     }
 
-    public Fase(NombreFase nombre) {
+    Fase(NombreFase nombre, ArrayList<Grupo> grupos, ArrayList<Partido> partidos) {
         this.nombre = nombre;
-    }
-
-
-    public void setGrupos(ArrayList<Grupo> grupos) {
         this.grupos = grupos;
+        this.partidos = partidos;
     }
 
+
+    //Getters
     public ArrayList<Partido> getPartidos() {
         return partidos;
     }
@@ -30,24 +30,31 @@ public class Fase {
         return nombre;
     }
 
-    public void setNombre(NombreFase nombre) {
-        this.nombre = nombre;
-    }
-
     public ArrayList<Grupo> getGrupos() {
         return grupos;
     }
 
-    public void setGrupos(Grupo grupo) {
-        this.grupos.add(grupo);
+
+    //Setters
+    public void setGrupos(ArrayList<Grupo> grupos) {
+        this.grupos = grupos;
     }
 
-    public void agregarPartidos(Partido partido){
-        partidos.add(partido); //1 o mas partidos por Fase
+    public void setNombre(NombreFase nombre) {
+        this.nombre = nombre;
     }
 
-    public void agregarGrupos(Grupo grupos{
-        grupos.add(grupos); //Ninguno o mas grupos por Fase
+    public void setPartidos(ArrayList<Partido> partidos) {
+        this.partidos = partidos;
     }
 
+
+    //Agregar Partidos y Grupos
+    public void agregarPartidos(Partido p){
+        this.partidos.add(p); //1 o mas partidos por Fase
+    }
+
+    public void agregarGrupos(Grupo g) {
+        this.grupos.add(g); //Ninguno o mas grupos por Fase
+    }
 }

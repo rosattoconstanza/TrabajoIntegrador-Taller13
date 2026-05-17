@@ -37,47 +37,32 @@ public class Partido {
         this.arbitraje = arbitraje;
     }
 
-    //Getters y Setters
+    //Getters
     public LocalDate getFecha() {
         return fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
     }
 
     public LocalTime getHorario() {
         return horario;
     }
 
-    public void setHorario(LocalTime horario) {
-        this.horario = horario;
-    }
-
     public int getDuracion() {
         return duracion;
-    }
-
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
     }
 
     public int getTiempoAdicional() {
         return tiempoAdicional;
     }
 
-    public void setTiempoAdicional(int tiempoAdicional) {
-        this.tiempoAdicional = tiempoAdicional;
-    }
-
     public Estadio getEstadio() {
         return estadio;
     }
 
-    public void setEstadio(Estadio estadio) {
-        this.estadio = estadio;
+    public Fase getFase() {
+        return fase;
     }
 
+    //Setters
     public void setFase(Fase fase) {
         this.fase = fase;
     }
@@ -89,6 +74,28 @@ public class Partido {
     public void setEventos(TipoEvento tipo, int min, Jugador jugador) {
         this.eventos.add(new Evento(tipo, min, jugador));
     }
+
+    public void setEstadio(Estadio estadio) {
+        this.estadio = estadio;
+    }
+
+    public void setTiempoAdicional(int tiempoAdicional) {
+        this.tiempoAdicional = tiempoAdicional;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public void setHorario(LocalTime horario) {
+        this.horario = horario;
+    }
+
+
 
     //Agregar Eventos y Arbitraje
     public void agregarEventos(TipoEvento tipo, int minuto, Jugador jugador){

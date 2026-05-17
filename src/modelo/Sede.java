@@ -18,8 +18,8 @@ public class Sede {
         this.alturaNivelMar = alturaNivelMar;
         this.clima = clima;
         this.zonaHoraria = zonaHoraria;
-        this.estadios= estadios;
-        this.pais=pais;
+        this.estadios = estadios;
+        this.pais = pais;
     }
 
     /** Constructor por defecto */
