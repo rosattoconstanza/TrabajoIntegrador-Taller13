@@ -13,7 +13,7 @@ public class Seleccion {
     private String camisetaSecundaria;
     private boolean cabezaGrupo;
     private int rankingFIFA;
-    private Participacion participacion;
+    private ArrayList<Participacion > participacion = new ArrayList<>();
     private Grupo grupo;
     private Pais pais;
     private ArrayList<Jugador> jugadores = new ArrayList<>();
@@ -23,8 +23,8 @@ public class Seleccion {
 
     //Constructores
     public Seleccion(String nombreFederacion, String camisetaPrincipal, String camisetaSecundaria, boolean cabezaGrupo,
-                     int rankingFIFA, Participacion participacion, Grupo grupo, Pais pais, ArrayList<DirectorTecnico> directoresTecnicos,
-                     ArrayList<CuerpoTecnico> cuerposTecnicos) {
+                     int rankingFIFA, ArrayList<Participacion> participacion, Grupo grupo, Pais pais, ArrayList<DirectorTecnico> directoresTecnicos,
+                     ArrayList<CuerpoTecnico> cuerposTecnicos, ArrayList<Jugador> jugadores) {
         this.nombreFederacion = nombreFederacion;
         this.camisetaPrincipal = camisetaPrincipal;
         this.camisetaSecundaria = camisetaSecundaria;
@@ -35,6 +35,7 @@ public class Seleccion {
         this.pais = pais;
         this.directoresTecnicos = directoresTecnicos;
         this.cuerposTecnicos = cuerposTecnicos;
+        this.jugadores = jugadores;
     }
 
     public Seleccion() {
@@ -62,7 +63,7 @@ public class Seleccion {
         return rankingFIFA;
     }
 
-    public Participacion getParticipacion() {
+    public ArrayList<Participacion> getParticipacion() {
         return participacion;
     }
 
@@ -82,12 +83,16 @@ public class Seleccion {
         return grupo;
     }
 
+    public ArrayList<Jugador> getJugadores() {
+        return jugadores;
+    }
+
     //Setters
     public void setRankingFIFA(int rankingFIFA) {
         this.rankingFIFA = rankingFIFA;
     }
 
-    public void setParticipacion(Participacion participacion) {
+    public void setParticipacion(ArrayList<Participacion> participacion) {
         this.participacion = participacion;
     }
 
@@ -99,8 +104,8 @@ public class Seleccion {
         this.pais = pais;
     }
 
-    public void setJugadores(Jugador jugador) {
-        this.jugadores.add(jugador);
+    public void setJugadores(ArrayList<Jugador> jugadores) {
+        this.jugadores = jugadores;
     }
 
     public void setDirectoresTecnicos(ArrayList<DirectorTecnico> directoresTecnicos) {
@@ -128,13 +133,17 @@ public class Seleccion {
     }
 
 
-    //Agregar Director Tecnico, Cuerpo Tecnico
+    //Agregar Director Tecnico, Cuerpo Tecnico, Jugador o Participacion
     public void agregarDirectorTecnico(DirectorTecnico directorTecnico) {
         this.directoresTecnicos.add(directorTecnico);
     }
 
     public void agregarCuerpoTecnico(CuerpoTecnico cuerpoTecnico) {
         this.cuerposTecnicos.add(cuerpoTecnico);
+    }
+
+    public void agregarJugador(Jugador j) {
+        this.jugadores.add(j);
     }
 }
 

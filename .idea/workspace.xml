@@ -4,11 +4,8 @@
     <list default="true" id="919614c4-50ab-43ab-a056-cf499abbc01b" name="Changes" comment="&quot;Arreglos en clases.&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Arbitro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Arbitro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/CuerpoTecnico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/CuerpoTecnico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/DirectorTecnico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/DirectorTecnico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Grupo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Grupo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Pais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Pais.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Participacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Participacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Partido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Seleccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Seleccion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +92,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779196636381</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="&quot;Arreglos en clases.&quot;">
+      <option name="closed" value="true" />
+      <created>1779198986175</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1779198986175</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

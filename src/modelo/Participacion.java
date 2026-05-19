@@ -7,15 +7,15 @@ public class Participacion {
      */
 
     private boolean esLocal;
-    private Seleccion [] selecciones = new Seleccion [2];
-    private ArrayList<Partido> partido = new ArrayList<>();
+    private Seleccion selecciones;
+    private Partido partido;
 
     //Constructores
     public Participacion(){
 
     }
 
-    public Participacion(boolean esLocal, Seleccion[] selecciones, ArrayList<Partido> partido) {
+    public Participacion(boolean esLocal, Seleccion selecciones, Partido partido) {
         this.esLocal = esLocal;
         this.partido = partido;
         this.selecciones = selecciones;
@@ -37,11 +37,11 @@ public class Participacion {
         return esLocal;
     }
 
-    public ArrayList<Partido> getPartido() {
+    public Partido getPartido() {
         return partido;
     }
 
-    public Seleccion[] getSeleccion(){
+    public Seleccion getSelecciones(){
         return selecciones;
     }
 
@@ -50,14 +50,11 @@ public class Participacion {
         this.esLocal = esLocal;
     }
 
-
-    //Agregar Partido y dos selecciones.
-    public void agregarSelecciones(Seleccion seleccion1, Seleccion seleccion2){
-        selecciones[0] = seleccion1;
-        selecciones[1] = seleccion2;
+    public void setSelecciones(Seleccion selecciones) {
+        this.selecciones = selecciones;
     }
 
-    public void agregarPartido(Partido p) {
-        this.partido.add(p);
+    public void setPartido(Partido partido) {
+        this.partido = partido;
     }
 }

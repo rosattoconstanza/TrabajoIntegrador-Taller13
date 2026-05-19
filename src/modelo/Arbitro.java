@@ -9,7 +9,7 @@ public class Arbitro extends Persona {
 
     private int aniosExperiencia;
     private Pais pais;
-    private ArrayList<Arbitraje> arbitraje;
+    private ArrayList<Arbitraje> arbitraje = new ArrayList<>();
 
     //Constructores
     Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais, ArrayList<Arbitraje> arbitraje) {
@@ -17,6 +17,13 @@ public class Arbitro extends Persona {
         this.aniosExperiencia = aniosExperiencia;
         this.pais = pais;
         this.arbitraje= arbitraje;
+    }
+
+    Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais) {
+        //sin ARBITRAJE por multiplicidad 0...*
+        super(nombre, fecNacimiento);
+        this.aniosExperiencia = aniosExperiencia;
+        this.pais = pais;
     }
     Arbitro() {
 
@@ -53,5 +60,6 @@ public class Arbitro extends Persona {
         this.arbitraje.add(a);
     }
 
+    //ANTES DE HACER METODOS/INTERACTUAR CON "ARBITRAJE", VERIFICAR QUE NO ESTE VACIA LA LISTA
 }
 
