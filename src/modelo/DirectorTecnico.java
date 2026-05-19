@@ -26,5 +26,4 @@ public class DirectorTecnico extends Persona {
         this.fechaNombramiento = fechaNombramiento;
     }
 
-
 }

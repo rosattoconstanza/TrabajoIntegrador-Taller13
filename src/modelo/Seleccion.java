@@ -146,5 +146,3 @@ public class Seleccion {
         this.jugadores.add(j);
     }
 }
-
-
