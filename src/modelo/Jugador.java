@@ -69,6 +69,10 @@ public class Jugador extends Persona {
         this.peso = peso;
     }
 
+    public void setEventos(ArrayList<Evento> eventos) {
+        this.eventos = eventos;
+    }
+
     public void setPosicion(Posicion posicion) {
         this.posicion = posicion;
     }
