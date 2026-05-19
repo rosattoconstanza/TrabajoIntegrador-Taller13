@@ -22,7 +22,7 @@ public class Pais {
     }
 
     /** Constructor parametrizado SIN SEDE, ARBITRO NI SELECCION (Multiplicidad 0...*) */
-    Pais(String nombre, String bandera,Seleccion seleccion) {
+    Pais(String nombre, String bandera) {
         this.nombre = nombre;
         this.bandera = bandera;
     }

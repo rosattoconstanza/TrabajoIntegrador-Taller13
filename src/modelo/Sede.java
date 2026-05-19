@@ -52,7 +52,7 @@ public class Sede {
     }
 
 
-    /** Multiplicidad/Asociacion con Partido */
+    /** Multiplicidad/Asociacion con Estadio */
     public void agregarEstadio(Estadio e){
         this.estadios.add(e); //1 o mas Estadios por Sede
     }

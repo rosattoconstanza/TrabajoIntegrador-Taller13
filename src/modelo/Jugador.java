@@ -73,7 +73,7 @@ public class Jugador extends Persona {
         this.posicion = posicion;
     }
 
-    //Agregar Jugadores
+    //Agregar Evento
     public void agregarEvento(Evento e){
         this.eventos.add(e); //0 o mas eventos por Jugador
     }
