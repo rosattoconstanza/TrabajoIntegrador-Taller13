@@ -9,23 +9,17 @@ public class Evento {
     private int minuto;
     private Jugador jugador;
 
-    /**Constructor parametrizado
-     *
-     */
+    /** Constructor parametrizado */
     public Evento(TipoEvento tipo, int minuto, Jugador jugador) {
         this.tipo = tipo;
         this.minuto = minuto;
         this.jugador = jugador;
     }
-    /**Constructor por defecto
-     *
-     */
+    /** Constructor por defecto */
     public Evento(){
     }
 
-    /**Getters
-     *
-     */
+    /** Getters */
     public TipoEvento getTipo() {
         return tipo;
     }
@@ -38,9 +32,7 @@ public class Evento {
         return jugador;
     }
 
-    /**Setters
-     *
-     */
+    /** Setters */
     public void setTipo(TipoEvento tipo) {
         this.tipo = tipo;
     }

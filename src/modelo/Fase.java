@@ -14,6 +14,11 @@ public class Fase {
 
     }
 
+    Fase(NombreFase nombre, ArrayList<Partido> partidos) { //sin GRUPO al tener multiplicidad cero
+        this.nombre = nombre;
+        this.partidos = partidos;
+    }
+
     Fase(NombreFase nombre, ArrayList<Grupo> grupos, ArrayList<Partido> partidos) {
         this.nombre = nombre;
         this.grupos = grupos;
@@ -57,4 +62,6 @@ public class Fase {
     public void agregarGrupos(Grupo g) {
         this.grupos.add(g); //Ninguno o mas grupos por Fase
     }
+
+    //ANTES DE HACER METODOS/INTERACTUAR CON "GRUPO", VERIFICAR QUE NO ESTE VACIA LA LISTA
 }

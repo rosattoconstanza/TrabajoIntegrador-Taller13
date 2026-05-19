@@ -4,7 +4,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Partido {
-    /**Clase Partido.
+    /** Clase Partido.
      * Asociada con clase Estadio y Fase.
      * Composicion con Evento.
      * Asociada con Seleccion (creando Participacion) y Arbitro (creando Arbitraje).
@@ -17,7 +17,7 @@ public class Partido {
     private Fase fase;
     private Participacion participacion;
     private ArrayList<Arbitraje> arbitraje;
-    private ArrayList<Evento> eventos;
+    private ArrayList<Evento> eventos = new ArrayList<>();
 
     //Constructores.
     public Partido() {
@@ -33,7 +33,6 @@ public class Partido {
         this.estadio = estadio;
         this.fase = fase;
         this.participacion = participacion;
-        this.eventos = new ArrayList<>();
         this.arbitraje = arbitraje;
     }
 
@@ -62,17 +61,21 @@ public class Partido {
         return fase;
     }
 
-    //Setters
+    public ArrayList<Evento> getEventos() {
+        return eventos;
+    }
+
+    public Participacion getParticipacion() {
+        return participacion;
+    }
+
+    //Setters (No de evento porque es una composicion)
     public void setFase(Fase fase) {
         this.fase = fase;
     }
 
     public void setParticipacion(Participacion participacion) {
         this.participacion = participacion;
-    }
-
-    public void setEventos(TipoEvento tipo, int min, Jugador jugador) {
-        this.eventos.add(new Evento(tipo, min, jugador));
     }
 
     public void setEstadio(Estadio estadio) {
@@ -96,10 +99,9 @@ public class Partido {
     }
 
 
-
     //Agregar Eventos y Arbitraje
     public void agregarEventos(TipoEvento tipo, int minuto, Jugador jugador){
-        Evento evento = new Evento(tipo, minuto, jugador);
+        Evento evento = new Evento(tipo, minuto, jugador); //Composicion = el objeto se crea dentro
         eventos.add(evento);
     }
 
