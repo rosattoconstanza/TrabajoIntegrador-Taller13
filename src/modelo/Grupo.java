@@ -15,10 +15,11 @@ public class Grupo {
 
     }
 
-    public Grupo(String identificacion, String descripcion, Fase fase) {
+    public Grupo(String identificacion, String descripcion, Fase fase, ArrayList<Seleccion> seleccion) {
         this.identificacion = identificacion;
         this.descripcion = descripcion;
         this.fase = fase;
+        this.seleccion = seleccion;
     }
 
     //Getters
@@ -51,9 +52,13 @@ public class Grupo {
         this.fase = fase;
     }
 
+    public void setSeleccion(ArrayList<Seleccion> seleccion) {
+        this.seleccion = seleccion;
+    }
+
     //Agregar Selecciones
-    public void agregarSeleccion(Seleccion seleccion) {
-        this.seleccion.add(seleccion);
+    public void agregarSeleccion(Seleccion s) {
+        this.seleccion.add(s);
     } //1 o mas selecciones
 
     //Metodos (CORREGIR CUERPO!!)

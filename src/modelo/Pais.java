@@ -5,27 +5,26 @@ public class Pais {
     /**Clase Pais.
      * Asociada con clase Sede, Seleccion y Arbitro.
      */
+
     private String nombre;
     private String bandera;
     private ArrayList<Sede> sedes = new ArrayList<>();
     private Seleccion seleccion;
-    private ArrayList<Arbitro> arbitros;
+    private ArrayList<Arbitro> arbitros = new ArrayList<>();
 
     /** Constructor parametrizado */
-    Pais(String nombre, String bandera,Seleccion seleccion, ArrayList<Sede> sedes) {
+    Pais(String nombre, String bandera,Seleccion seleccion, ArrayList<Sede> sedes, ArrayList<Arbitro> arbitros) {
         this.nombre = nombre;
         this.bandera = bandera;
         this.sedes = sedes;
         this.seleccion= seleccion;
-        this.arbitros= new ArrayList<>();
+        this.arbitros= arbitros;
     }
 
-    /** Constructor parametrizado SIN SEDE (Multiplicidad 0...*) */
+    /** Constructor parametrizado SIN SEDE, ARBITRO NI SELECCION (Multiplicidad 0...*) */
     Pais(String nombre, String bandera,Seleccion seleccion) {
         this.nombre = nombre;
         this.bandera = bandera;
-        this.seleccion= seleccion;
-        this.arbitros= new ArrayList<>();
     }
 
     /** Constructor por defecto */
@@ -77,11 +76,11 @@ public class Pais {
 
     /** Multiplicidades/Asociacion con Sede y Arbitro */
     public void agregarSede(Sede s){
-        sedes.add(s); //Ninguna o mas sedes por Pais
+        this.sedes.add(s); //Ninguna o mas sedes por Pais
     }
     public void agregarArbitro(Arbitro arbitro){
-        arbitros.add(arbitro); //Ninguno o mas arbitros por Pais
+        this.arbitros.add(arbitro); //Ninguno o mas arbitros por Pais
     }
 }
 
-//ANTES DE HACER METODOS/INTERACTUAR CON "SEDE", VERIFICAR QUE NO ESTE VACIA LA LISTA
+//ANTES DE HACER METODOS/INTERACTUAR CON "SEDE", "ARBITRO" O "SELECCION", VERIFICAR QUE NO ESTE VACIA LA LISTA/SEA NULL

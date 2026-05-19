@@ -7,6 +7,7 @@ public class Seleccion {
      * Asociada con clase Jugador, Director Tecnico y Cuerpo Tecnico (Agregacion).
      * Asociada con clase Partido (Creando Participacion).
      */
+
     private String nombreFederacion;
     private String camisetaPrincipal;
     private String camisetaSecundaria;
@@ -22,7 +23,8 @@ public class Seleccion {
 
     //Constructores
     public Seleccion(String nombreFederacion, String camisetaPrincipal, String camisetaSecundaria, boolean cabezaGrupo,
-                     int rankingFIFA, Participacion participacion, Grupo grupo, Pais pais) {
+                     int rankingFIFA, Participacion participacion, Grupo grupo, Pais pais, ArrayList<DirectorTecnico> directoresTecnicos,
+                     ArrayList<CuerpoTecnico> cuerposTecnicos) {
         this.nombreFederacion = nombreFederacion;
         this.camisetaPrincipal = camisetaPrincipal;
         this.camisetaSecundaria = camisetaSecundaria;
@@ -31,6 +33,8 @@ public class Seleccion {
         this.participacion = participacion;
         this.grupo = grupo;
         this.pais = pais;
+        this.directoresTecnicos = directoresTecnicos;
+        this.cuerposTecnicos = cuerposTecnicos;
     }
 
     public Seleccion() {
@@ -62,6 +66,22 @@ public class Seleccion {
         return participacion;
     }
 
+    public Pais getPais() {
+        return pais;
+    }
+
+    public ArrayList<DirectorTecnico> getDirectoresTecnicos() {
+        return directoresTecnicos;
+    }
+
+    public ArrayList<CuerpoTecnico> getCuerposTecnicos() {
+        return cuerposTecnicos;
+    }
+
+    public Grupo getGrupo() {
+        return grupo;
+    }
+
     //Setters
     public void setRankingFIFA(int rankingFIFA) {
         this.rankingFIFA = rankingFIFA;
@@ -83,12 +103,12 @@ public class Seleccion {
         this.jugadores.add(jugador);
     }
 
-    public void setDirectoresTecnicos(DirectorTecnico directorTecnico) {
-        this.directoresTecnicos.add(directorTecnico);
+    public void setDirectoresTecnicos(ArrayList<DirectorTecnico> directoresTecnicos) {
+        this.directoresTecnicos = directoresTecnicos;
     }
 
-    public void setCuerposTecnicos(CuerpoTecnico cuerposTecnico) {
-        this.cuerposTecnicos.add(cuerposTecnico);
+    public void setCuerposTecnicos(ArrayList<CuerpoTecnico> cuerposTecnicos) {
+        this.cuerposTecnicos = cuerposTecnicos;
     }
 
     public void setNombreFederacion(String nombreFederacion) {
@@ -105,6 +125,16 @@ public class Seleccion {
 
     public void setCabezaGrupo(boolean cabezaGrupo) {
         this.cabezaGrupo = cabezaGrupo;
+    }
+
+
+    //Agregar Director Tecnico, Cuerpo Tecnico
+    public void agregarDirectorTecnico(DirectorTecnico directorTecnico) {
+        this.directoresTecnicos.add(directorTecnico);
+    }
+
+    public void agregarCuerpoTecnico(CuerpoTecnico cuerpoTecnico) {
+        this.cuerposTecnicos.add(cuerpoTecnico);
     }
 }
 

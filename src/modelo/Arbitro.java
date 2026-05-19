@@ -22,20 +22,36 @@ public class Arbitro extends Persona {
 
     }
 
-    //Getters y Setters
+    //Getters
     public int getAniosExperiencia() {
         return aniosExperiencia;
     }
+
     public Pais getPais() {
         return pais;
     }
+
+    public ArrayList<Arbitraje> getArbitraje() {
+        return arbitraje;
+    }
+
+    //Setters
     public void setAniosExperiencia(int aniosExperiencia) {
         this.aniosExperiencia = aniosExperiencia;
     }
+
     public void setPais(Pais pais) {
         this.pais = pais;
     }
+
+    public void setArbitraje(ArrayList<Arbitraje> arbitraje) {
+        this.arbitraje = arbitraje;
+    }
+
+    //Agregar Arbitraje
     public void agregarArbitraje(Arbitraje a) {
         this.arbitraje.add(a);
     }
+
 }
+
