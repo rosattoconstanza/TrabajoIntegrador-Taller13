@@ -1,4 +1,4 @@
-package modelo;
+package org.modelo.domain;
 
 public enum CategoriaArbitro {
     /** Opciones de categorias que pueden tomar los arbitros dentro de un Enum. */

@@ -1,4 +1,4 @@
-package modelo;
+package org.modelo.domain;
 
 public abstract class Persona {
     /** Clase abstracta Persona. Cumple el papel de clase base

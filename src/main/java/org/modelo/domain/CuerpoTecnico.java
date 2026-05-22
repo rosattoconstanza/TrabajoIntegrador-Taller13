@@ -1,4 +1,4 @@
-package modelo;
+package org.modelo.domain;
 
 public class CuerpoTecnico extends Persona {
     /** Clase CuerpoTecnico hereda de Persona.

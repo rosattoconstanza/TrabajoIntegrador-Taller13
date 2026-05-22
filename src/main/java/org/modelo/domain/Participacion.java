@@ -1,5 +1,4 @@
-package modelo;
-import java.util.ArrayList;
+package org.modelo.domain;
 
 public class Participacion {
     /** Clase Agregada Participacion.

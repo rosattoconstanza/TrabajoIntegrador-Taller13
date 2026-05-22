@@ -1,4 +1,4 @@
-package modelo;
+package org.modelo.domain;
 import java.util.ArrayList;
 
 public class Sede {
