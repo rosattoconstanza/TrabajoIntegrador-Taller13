@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 
 public class CuerpoTecnico extends Persona {
     /** Clase CuerpoTecnico hereda de Persona.
@@ -14,7 +14,7 @@ public class CuerpoTecnico extends Persona {
 
     }
     CuerpoTecnico() {
-
+        this("", 0, null);
     }
 
     //Getter

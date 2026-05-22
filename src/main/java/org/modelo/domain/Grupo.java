@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 import java.util.ArrayList;
 
 public class Grupo {
@@ -8,10 +8,11 @@ public class Grupo {
     private String identificacion;
     private String descripcion;
     private Fase fase;
-    private ArrayList<Seleccion> seleccion = new ArrayList<>();
+    private ArrayList<Seleccion> seleccion;
 
     //Constructores
     public Grupo(){
+        this("", "", null, new ArrayList<Seleccion>());
 
     }
 

@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 
 public enum Rol {
     /** Opciones de roles que puede tomar el cuerpo tecnico dentro de un Enum. */

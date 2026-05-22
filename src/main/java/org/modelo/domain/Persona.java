@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 
 public abstract class Persona {
     /** Clase abstracta Persona. Cumple el papel de clase base
@@ -13,20 +13,24 @@ public abstract class Persona {
         this.fecNacimiento = fecNacimiento;
     }
     Persona() {
-
+        this("", 0);
     }
 
-    //Getters y Setters
+
+    //Getters
     public String getNombre() {
         return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
     public int getFecNacimiento() {
         return fecNacimiento;
     }
+
+
+    //Setters
     public void setFecNacimiento(int fecNacimiento) {
         this.fecNacimiento = fecNacimiento;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

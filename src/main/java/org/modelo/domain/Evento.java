@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 
 public class Evento {
     /**Clase Evento.
@@ -17,6 +17,7 @@ public class Evento {
     }
     /** Constructor por defecto */
     public Evento(){
+        this(null, 0, null);
     }
 
     /** Getters */

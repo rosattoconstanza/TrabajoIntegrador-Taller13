@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 
 public class DirectorTecnico extends Persona {
     /**Clase DirectorTecnico hereda de Persona.
@@ -13,7 +13,7 @@ public class DirectorTecnico extends Persona {
         this.fechaNombramiento = fechaNombramiento;
     }
     public DirectorTecnico() {
-
+        this("", 0, 0);
     }
 
     //Getters

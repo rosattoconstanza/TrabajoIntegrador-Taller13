@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 import java.util.ArrayList;
 
 public class Fase {
@@ -6,12 +6,12 @@ public class Fase {
      * Asociada con clase Grupo y Partido.
      */
     private NombreFase nombre;
-    private ArrayList<Grupo> grupos = new ArrayList<>();
-    private ArrayList<Partido> partidos = new ArrayList<>();
+    private ArrayList<Grupo> grupos;
+    private ArrayList<Partido> partidos;
 
     //Constructores
     Fase(){
-
+        this(null, new ArrayList<Partido>(), new ArrayList<Grupo>());
     }
 
     Fase(NombreFase nombre, ArrayList<Partido> partidos) { //sin GRUPO al tener multiplicidad cero
@@ -19,7 +19,7 @@ public class Fase {
         this.partidos = partidos;
     }
 
-    Fase(NombreFase nombre, ArrayList<Grupo> grupos, ArrayList<Partido> partidos) {
+    Fase(NombreFase nombre, ArrayList<Partido> partidos, ArrayList<Grupo> grupos) {
         this.nombre = nombre;
         this.grupos = grupos;
         this.partidos = partidos;
@@ -62,6 +62,7 @@ public class Fase {
     public void agregarGrupos(Grupo g) {
         this.grupos.add(g); //Ninguno o mas grupos por Fase
     }
+
 
     //ANTES DE HACER METODOS/INTERACTUAR CON "GRUPO", VERIFICAR QUE NO ESTE VACIA LA LISTA
 }

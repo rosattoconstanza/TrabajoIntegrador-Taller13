@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 import java.util.ArrayList;
 
 public class Sede {
@@ -9,8 +9,9 @@ public class Sede {
     private float alturaNivelMar;
     private String clima;
     private String zonaHoraria;
-    private ArrayList<Estadio> estadios = new ArrayList<>();
+    private ArrayList<Estadio> estadios;
     private Pais pais;
+
 
     /** Constructor parametrizado */
     public Sede(String ciudad, float alturaNivelMar, String clima, String zonaHoraria,Pais pais, ArrayList<Estadio> estadios) {
@@ -24,7 +25,9 @@ public class Sede {
 
     /** Constructor por defecto */
     public Sede(){
+        this("", 0, "", "", null, new ArrayList<Estadio>());
     }
+
 
     /** Getters */
     public String getCiudad() {
@@ -56,6 +59,7 @@ public class Sede {
     public void agregarEstadio(Estadio e){
         this.estadios.add(e); //1 o mas Estadios por Sede
     }
+
 
     /** Setters */
     public void setCiudad(String ciudad) {

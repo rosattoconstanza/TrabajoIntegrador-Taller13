@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -15,13 +15,13 @@ public class Partido {
     private int tiempoAdicional;
     private Estadio estadio;
     private Fase fase;
-    private Participacion participacion[] = new Participacion[2];
-    private ArrayList<Arbitraje> arbitraje = new ArrayList<>();
+    private Participacion participacion[];
+    private ArrayList<Arbitraje> arbitraje;
     private ArrayList<Evento> eventos = new ArrayList<>();
 
     //Constructores.
     public Partido() {
-
+        this(null, null, 0, 0, null, null, new Participacion[2], new ArrayList<>());
     }
 
     public Partido(LocalDate fecha, LocalTime horario, int duracion, int tiempoAdicional, Estadio estadio, Fase fase,
@@ -35,6 +35,7 @@ public class Partido {
         this.participacion = participacion;
         this.arbitraje = arbitraje;
     }
+
 
     //Getters
     public LocalDate getFecha() {
@@ -73,6 +74,7 @@ public class Partido {
         return arbitraje;
     }
 
+
     //Setters (No de evento porque es una composicion)
     public void setFase(Fase fase) {
         this.fase = fase;
@@ -105,6 +107,7 @@ public class Partido {
     public void setArbitraje(ArrayList<Arbitraje> arbitraje) {
         this.arbitraje = arbitraje;
     }
+
 
     //Agregar Eventos y Arbitraje
     public void agregarEventos(TipoEvento tipo, int minuto, Jugador jugador){

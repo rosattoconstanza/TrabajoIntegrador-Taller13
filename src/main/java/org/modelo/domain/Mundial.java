@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 import java.util.ArrayList;
 
 public class Mundial {
@@ -9,7 +9,12 @@ public class Mundial {
     private String mascota;
     private int fechaDesde;
     private int fechaHasta;
-    private ArrayList<Sede> sedes = new ArrayList<>(); //En la clase componente (Sede) no hay referencia a la clase contenedora (Mundial)
+    private ArrayList<Sede> sedes; //En la clase componente (Sede) no hay referencia a la clase contenedora (Mundial)
+
+    /** Constructor por defecto */
+    public Mundial(){
+        this(0, "", 0, 0, new ArrayList<Sede>());
+    }
 
     /** Constructor parametrizado */
     public Mundial(int anio, String mascota, int fechaDesde, int fechaHasta, ArrayList<Sede> sedes) {
@@ -20,9 +25,6 @@ public class Mundial {
         this.sedes = sedes;
     }
 
-    /** Constructor por defecto */
-    public Mundial(){
-    }
 
     /** Getters */
     public int getAnio() {
@@ -44,6 +46,7 @@ public class Mundial {
     public ArrayList<Sede> getSedes() {
         return sedes;
     }
+
 
     /** Setters */
     public void setSedes(ArrayList<Sede> sedes) {

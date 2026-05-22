@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 import java.util.ArrayList;
 
 public class Estadio {
@@ -8,7 +8,7 @@ public class Estadio {
     private String nombre;
     private int capacidad;
     private Sede sede;
-    private ArrayList<Partido> partidos = new ArrayList<>();
+    private ArrayList<Partido> partidos;
 
     /** Constructor parametrizado */
     public Estadio(String nombre, int capacidad, Sede sede, ArrayList<Partido> partidos) {
@@ -20,6 +20,7 @@ public class Estadio {
 
     /** Constructor por defecto */
     public Estadio(){
+        this("", 0, null, new ArrayList<Partido>());
     }
 
     /** Getters */

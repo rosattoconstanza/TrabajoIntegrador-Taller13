@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 
 public enum TipoEvento {
     /** Opciones de eventos que pueden ocurrir dentro de un Enum. */

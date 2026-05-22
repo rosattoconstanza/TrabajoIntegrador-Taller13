@@ -1,4 +1,4 @@
- package org.modelo.domain;
+package main.java.org.modelo.domain;
 import java.util.ArrayList;
 
 public class Pais {
@@ -8,9 +8,14 @@ public class Pais {
 
     private String nombre;
     private String bandera;
-    private ArrayList<Sede> sedes = new ArrayList<>();
+    private ArrayList<Sede> sedes;
     private Seleccion seleccion;
-    private ArrayList<Arbitro> arbitros = new ArrayList<>();
+    private ArrayList<Arbitro> arbitros;
+
+    /** Constructor por defecto */
+    Pais(){
+        this("", "", null, new ArrayList<Sede>(), new ArrayList<Arbitro>());
+    }
 
     /** Constructor parametrizado */
     Pais(String nombre, String bandera,Seleccion seleccion, ArrayList<Sede> sedes, ArrayList<Arbitro> arbitros) {
@@ -27,9 +32,6 @@ public class Pais {
         this.bandera = bandera;
     }
 
-    /** Constructor por defecto */
-    Pais(){
-    }
 
     /** Getters */
     public String getNombre() {

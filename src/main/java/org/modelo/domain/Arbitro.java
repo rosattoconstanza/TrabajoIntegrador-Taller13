@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 import java.util.ArrayList;
 
 public class Arbitro extends Persona {
@@ -9,9 +9,13 @@ public class Arbitro extends Persona {
 
     private int aniosExperiencia;
     private Pais pais;
-    private ArrayList<Arbitraje> arbitraje = new ArrayList<>();
+    private ArrayList<Arbitraje> arbitraje;
 
     //Constructores
+    Arbitro() {
+        this("", 0, 0, null, new ArrayList<Arbitraje>());
+    }
+
     Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais, ArrayList<Arbitraje> arbitraje) {
         super(nombre, fecNacimiento);
         this.aniosExperiencia = aniosExperiencia;
@@ -25,9 +29,7 @@ public class Arbitro extends Persona {
         this.aniosExperiencia = aniosExperiencia;
         this.pais = pais;
     }
-    Arbitro() {
 
-    }
 
     //Getters
     public int getAniosExperiencia() {

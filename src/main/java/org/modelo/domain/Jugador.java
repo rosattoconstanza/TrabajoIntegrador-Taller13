@@ -1,4 +1,4 @@
-package org.modelo.domain;
+package main.java.org.modelo.domain;
 import java.util.ArrayList;
 
 public class Jugador extends Persona {
@@ -11,9 +11,13 @@ public class Jugador extends Persona {
     private  Posicion posicion;
     private float peso;
     private float altura;
-    private ArrayList<Evento> eventos = new ArrayList<>();
+    private ArrayList<Evento> eventos;
 
     //Constructores
+    Jugador() {
+        this("", 0, 0, null, 0, 0, new ArrayList<Evento>());
+    }
+
     Jugador(String nombre, int fecNacimiento, int dorsal, Posicion posicion, float peso, float altura, ArrayList<Evento> eventos) {
         super(nombre, fecNacimiento);
         this.dorsal = dorsal;
@@ -31,9 +35,7 @@ public class Jugador extends Persona {
         this.peso = peso;
         this.altura = altura;
     }
-    Jugador() {
 
-    }
 
     //Getters
     public int getDorsal() {
@@ -56,6 +58,7 @@ public class Jugador extends Persona {
         return eventos;
     }
 
+
     //Setters
     public void setAltura(float altura) {
         this.altura = altura;
@@ -77,12 +80,13 @@ public class Jugador extends Persona {
         this.posicion = posicion;
     }
 
+
     //Agregar Evento
     public void agregarEvento(Evento e){
         this.eventos.add(e); //0 o mas eventos por Jugador
     }
 
-    //ANTES DE HACER METODOS/INTERACTUAR CON "EVENTO", VERIFICAR QUE NO ESTE VACIA LA LISTA
 
+    //ANTES DE HACER METODOS/INTERACTUAR CON "EVENTO", VERIFICAR QUE NO ESTE VACIA LA LISTA
 }
 
