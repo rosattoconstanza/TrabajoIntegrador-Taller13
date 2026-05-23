@@ -1,4 +1,4 @@
-package main.java.org.modelo.domain;
+package org.modelo.domain;
 import java.util.ArrayList;
 
 public class Grupo {
@@ -10,7 +10,7 @@ public class Grupo {
     private Fase fase;
     private ArrayList<Seleccion> seleccion;
 
-    //Constructores
+    /** Constructores parametrizado y por defecto */
     public Grupo(){
         this("", "", null, new ArrayList<Seleccion>());
 
@@ -23,7 +23,7 @@ public class Grupo {
         this.seleccion = seleccion;
     }
 
-    //Getters
+    /** Getters */
     public String getIdentificacion() {
         return identificacion;
     }
@@ -40,7 +40,7 @@ public class Grupo {
         return seleccion;
     }
 
-    //Setters
+    /** Setters */
     public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
@@ -57,12 +57,12 @@ public class Grupo {
         this.seleccion = seleccion;
     }
 
-    //Agregar Selecciones
+    /** Agregar Selecciones (Asociacion) */
     public void agregarSeleccion(Seleccion s) {
         this.seleccion.add(s);
     } //1 o mas selecciones
 
-    //Metodos (CORREGIR CUERPO!!)
+    /** Metodos de la clase */ //(CORREGIR CUERPO!!)
     public int obtenerPuntos(Seleccion s){
         return 1;
     }

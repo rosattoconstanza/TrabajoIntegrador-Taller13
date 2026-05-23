@@ -1,4 +1,4 @@
-package main.java.org.modelo.domain;
+package org.modelo.domain;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -17,11 +17,13 @@ public class Partido {
     private Fase fase;
     private Participacion participacion[];
     private ArrayList<Arbitraje> arbitraje;
-    private ArrayList<Evento> eventos = new ArrayList<>();
+    private ArrayList<Evento> eventos;
 
-    //Constructores.
+    /** Constructores parametrizado y por defecto */
     public Partido() {
-        this(null, null, 0, 0, null, null, new Participacion[2], new ArrayList<>());
+        this(null, null, 0, 0, null, null,
+                new Participacion[2], new ArrayList<>());
+        this.eventos = new ArrayList<Evento>();
     }
 
     public Partido(LocalDate fecha, LocalTime horario, int duracion, int tiempoAdicional, Estadio estadio, Fase fase,
@@ -34,10 +36,11 @@ public class Partido {
         this.fase = fase;
         this.participacion = participacion;
         this.arbitraje = arbitraje;
+        this.eventos = new ArrayList<Evento>(); //Composicion!
     }
 
 
-    //Getters
+    /** Getters */
     public LocalDate getFecha() {
         return fecha;
     }
@@ -62,7 +65,10 @@ public class Partido {
         return fase;
     }
 
-    public ArrayList<Evento> getEventos() {
+    public ArrayList<Evento> getEventos() { //Puede ser nulo.
+        if (eventos == null) {
+            eventos = new ArrayList<>();
+        }
         return eventos;
     }
 
@@ -75,7 +81,7 @@ public class Partido {
     }
 
 
-    //Setters (No de evento porque es una composicion)
+    /** Setters */ //(No de evento porque es una composicion)
     public void setFase(Fase fase) {
         this.fase = fase;
     }
@@ -109,7 +115,7 @@ public class Partido {
     }
 
 
-    //Agregar Eventos y Arbitraje
+    /** Agregar Eventos y Arbitraje (Asociaciones) */
     public void agregarEventos(TipoEvento tipo, int minuto, Jugador jugador){
         Evento evento = new Evento(tipo, minuto, jugador); //Composicion = el objeto se crea dentro
         eventos.add(evento);

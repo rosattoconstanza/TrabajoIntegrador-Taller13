@@ -1,4 +1,4 @@
-package main.java.org.modelo.domain;
+package org.modelo.domain;
 
 public class Participacion {
     /** Clase Agregada Participacion.
@@ -9,7 +9,7 @@ public class Participacion {
     private Seleccion selecciones;
     private Partido partido;
 
-    //Constructores
+    /** Constructores parametriado y por defecto */
     public Participacion(){
         this(false, null, null);
     }
@@ -21,7 +21,7 @@ public class Participacion {
     }
 
 
-    //Metodos propios de la clase (CORREGIR CUERPO!!)
+    /** Metodos propios de la clase */ //(CORREGIR CUERPO!!)
     public int cantidadGoles(){
         return 1;
     }
@@ -33,7 +33,7 @@ public class Participacion {
     }
 
 
-    //Getters
+    /** Getters */
     public boolean getEsLocal() {
         return esLocal;
     }
@@ -47,7 +47,7 @@ public class Participacion {
     }
 
 
-    //Setter
+    /** Setters */
     public void setEsLocal(boolean esLocal) {
         this.esLocal = esLocal;
     }

@@ -1,4 +1,4 @@
-package main.java.org.modelo.domain;
+package org.modelo.domain;
 
 public class Arbitraje {
     /** Clase Agregada Arbitraje.
@@ -9,7 +9,7 @@ public class Arbitraje {
     private Arbitro arbitro;
     private Partido partido;
 
-    //Constructores
+    /** Constructor Parametizado y por defecto */
     public Arbitraje(CategoriaArbitro rol, Arbitro arbitro, Partido partido) {
         this.rol = rol;
         this.arbitro= arbitro;
@@ -20,7 +20,7 @@ public class Arbitraje {
     }
 
 
-    //Getters
+    /** Getters */
     public CategoriaArbitro getRol() {return rol;}
 
     public Arbitro getArbitro() {return arbitro;}
@@ -28,7 +28,7 @@ public class Arbitraje {
     public Partido getPartido() {return partido;}
 
 
-    //Setters
+    /** Setters */
     public void setRol(CategoriaArbitro rol) {this.rol = rol;}
 
     public void setArbitro(Arbitro arbitro) {this.arbitro = arbitro;}

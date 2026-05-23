@@ -1,4 +1,4 @@
-package main.java.org.modelo.domain;
+package org.modelo.domain;
 import java.util.ArrayList;
 
 public class Seleccion {
@@ -13,15 +13,15 @@ public class Seleccion {
     private String camisetaSecundaria;
     private boolean cabezaGrupo;
     private int rankingFIFA;
-    private ArrayList<Participacion > participacion = new ArrayList<>();
+    private ArrayList<Participacion> participacion;
     private Grupo grupo;
     private Pais pais;
-    private ArrayList<Jugador> jugadores = new ArrayList<>();
-    private ArrayList<DirectorTecnico> directoresTecnicos = new ArrayList<>();
-    private ArrayList<CuerpoTecnico> cuerposTecnicos = new ArrayList<>();
+    private ArrayList<Jugador> jugadores;
+    private ArrayList<DirectorTecnico> directoresTecnicos;
+    private ArrayList<CuerpoTecnico> cuerposTecnicos;
 
 
-    //Constructores
+    /** Constructores parametrizado y por defecto */
     public Seleccion(String nombreFederacion, String camisetaPrincipal, String camisetaSecundaria, boolean cabezaGrupo,
                      int rankingFIFA, ArrayList<Participacion> participacion, Grupo grupo, Pais pais, ArrayList<DirectorTecnico> directoresTecnicos,
                      ArrayList<CuerpoTecnico> cuerposTecnicos, ArrayList<Jugador> jugadores) {
@@ -39,10 +39,11 @@ public class Seleccion {
     }
 
     public Seleccion() {
-
+        this("", "", "", false, 0, new ArrayList<Participacion>(), null, null, new ArrayList<DirectorTecnico>(),
+                new ArrayList<CuerpoTecnico>(), new ArrayList<Jugador>());
     }
 
-    //Getters
+    /** Getters */
     public String getNombreFederacion() {
         return nombreFederacion;
     }
@@ -87,7 +88,7 @@ public class Seleccion {
         return jugadores;
     }
 
-    //Setters
+    /** Setters */
     public void setRankingFIFA(int rankingFIFA) {
         this.rankingFIFA = rankingFIFA;
     }
@@ -133,7 +134,7 @@ public class Seleccion {
     }
 
 
-    //Agregar Director Tecnico, Cuerpo Tecnico, Jugador o Participacion
+    /** Agregar Director Tecnico, Cuerpo Tecnico, Jugador o Participacion (Asociaciones) */
     public void agregarDirectorTecnico(DirectorTecnico directorTecnico) {
         this.directoresTecnicos.add(directorTecnico);
     }

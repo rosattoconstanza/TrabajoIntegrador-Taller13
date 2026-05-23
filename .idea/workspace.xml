@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="Migración completa a estructura Maven.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_5_2026_19_18_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_5_2026_19_18__Changes_.xml" beforeDir="false" />
+    <list default="true" id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="&quot;Correcciones de ArrayList&quot;">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Arbitraje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Arbitraje.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Arbitro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Arbitro.java" afterDir="false" />
@@ -66,6 +69,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
@@ -94,7 +98,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779467035825</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="&quot;Correcciones de ArrayList&quot;">
+      <option name="closed" value="true" />
+      <created>1779490994683</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1779490994683</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +114,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Migración completa a estructura Maven." />
-    <option name="LAST_COMMIT_MESSAGE" value="Migración completa a estructura Maven." />
+    <MESSAGE value="&quot;Correcciones de ArrayList&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Correcciones de ArrayList&quot;" />
   </component>
 </project>

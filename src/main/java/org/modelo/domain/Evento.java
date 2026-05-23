@@ -1,4 +1,4 @@
-package main.java.org.modelo.domain;
+package org.modelo.domain;
 
 public class Evento {
     /**Clase Evento.

@@ -1,4 +1,4 @@
-package main.java.org.modelo.domain;
+package org.modelo.domain;
 
 public class DirectorTecnico extends Persona {
     /**Clase DirectorTecnico hereda de Persona.
@@ -7,7 +7,7 @@ public class DirectorTecnico extends Persona {
 
     private int fechaNombramiento;
 
-    //Constructores
+    /** Constructores parametrizado y por defecto */
     DirectorTecnico(String nombre, int fecNacimiento, int fechaNombramiento) {
         super(nombre, fecNacimiento);
         this.fechaNombramiento = fechaNombramiento;
@@ -16,12 +16,12 @@ public class DirectorTecnico extends Persona {
         this("", 0, 0);
     }
 
-    //Getters
+    /** Getters */
     public int getFechaNombramiento() {
         return fechaNombramiento;
     }
 
-    //Setter
+    /** Setter */
     public void setFechaNombramiento(int fechaNombramiento) {
         this.fechaNombramiento = fechaNombramiento;
     }

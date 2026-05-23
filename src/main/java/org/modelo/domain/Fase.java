@@ -1,4 +1,4 @@
-package main.java.org.modelo.domain;
+package org.modelo.domain;
 import java.util.ArrayList;
 
 public class Fase {
@@ -9,7 +9,7 @@ public class Fase {
     private ArrayList<Grupo> grupos;
     private ArrayList<Partido> partidos;
 
-    //Constructores
+    /** Constructores parametrizados y por defecto */
     Fase(){
         this(null, new ArrayList<Partido>(), new ArrayList<Grupo>());
     }
@@ -26,7 +26,7 @@ public class Fase {
     }
 
 
-    //Getters
+    /** Getters */
     public ArrayList<Partido> getPartidos() {
         return partidos;
     }
@@ -40,7 +40,7 @@ public class Fase {
     }
 
 
-    //Setters
+    /** Setters */
     public void setGrupos(ArrayList<Grupo> grupos) {
         this.grupos = grupos;
     }
@@ -54,7 +54,7 @@ public class Fase {
     }
 
 
-    //Agregar Partidos y Grupos
+    /** Agregar Partidos y Grupos (Asociaciones) */
     public void agregarPartidos(Partido p){
         this.partidos.add(p); //1 o mas partidos por Fase
     }
