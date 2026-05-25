@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="&quot;Correcciones de ArrayList&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Participacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Participacion.java" afterDir="false" />
+    <list default="true" id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="&quot;Empiezos del Main&quot;">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +82,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779490994683</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="&quot;Empiezos del Main&quot;">
+      <option name="closed" value="true" />
+      <created>1779747971951</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1779747971952</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +99,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Migración completa a estructura Maven." />
     <MESSAGE value="&quot;Correcciones de ArrayList&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Correcciones de ArrayList&quot;" />
+    <MESSAGE value="&quot;Empiezos del Main&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Empiezos del Main&quot;" />
   </component>
 </project>
