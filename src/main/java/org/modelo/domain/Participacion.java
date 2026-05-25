@@ -21,15 +21,49 @@ public class Participacion {
     }
 
 
-    /** Metodos propios de la clase */ //(CORREGIR CUERPO!!)
-    public int cantidadGoles(){
-        return 1;
+    /** Metodos propios de la clase
+     *  Cuenta los goles hechos por esta Seleccion en este Partido
+     *  recorre todos los eventos del partido y cuenta los de tipo Gol
+     *  cuyo Jugador pertenezca a la Seleccion de esta Participacion
+     */
+    public int cantidadGoles() {
+        int goles = 0;
+        for (Evento e : partido.getEventos()) {
+            if (e.getTipo() == TipoEvento.Gol) {
+                if (selecciones.getJugadores().contains(e.getJugador())) {
+                    goles++;
+                }
+            }
+        }
+        return goles;
     }
-    public int cantidadTarjAmarillas(){
-        return 1;
+
+    /** Cuenta las terjetas amarrillas recibidas por esta Seleccion en este Partido*/
+    public int cantidadTarjAmarillas() {
+        int amarillas = 0;
+        for (Evento e : partido.getEventos()) {
+            if (e.getTipo() == TipoEvento.TarjetaAmarilla) {
+               if (selecciones.getJugadores().contains(e.getJugador())) {
+                   amarillas++;
+               }
+            }
+        }
+        return amarillas;
     }
+
+    /** Cuenta las terjetas rojas recibidas por esta Seleccion en este Partido
+     *  Se incluyen TarjetaRoja y DobleAmarrilla (ambas implican expulsion).
+     */
     public int cantidadTarjRojas(){
-        return 1;
+        int rojas = 0;
+        for (Evento e : partido.getEventos()) {
+            if (e.getTipo() == TipoEvento.TarjetaRoja || e.getTipo() == TipoEvento.DobleAmarilla) {
+                if (selecciones.getJugadores().contains(e.getJugador())) {
+                    rojas++;
+                }
+            }
+        }
+        return rojas;
     }
 
 
