@@ -9,7 +9,7 @@ public class Participacion {
     private Seleccion selecciones;
     private Partido partido;
 
-    /** Constructores parametriado y por defecto */
+    /** Constructores parametrizado y por defecto */
     public Participacion(){
         this(false, null, null);
     }
@@ -21,10 +21,10 @@ public class Participacion {
     }
 
 
-    /** Metodos propios de la clase
-     *  Cuenta los goles hechos por esta Seleccion en este Partido
-     *  recorre todos los eventos del partido y cuenta los de tipo Gol
-     *  cuyo Jugador pertenezca a la Seleccion de esta Participacion
+    /** Metodos propios de la clase.
+     *  Cuenta los goles echos por esta Seleccion en este Partido,
+     *  recorriendo todos los eventos del partido y contando los de tipo Gol,
+     *  cuyo Jugador pertenezca a la Seleccion de esta Participacion.
      */
     public int cantidadGoles() {
         int goles = 0;
@@ -38,7 +38,7 @@ public class Participacion {
         return goles;
     }
 
-    /** Cuenta las tarjetas amarrillas recibidas por esta Seleccion en este Partido*/
+    /** Cuenta las tarjetas amarrillas recibidas por esta Seleccion en este Partido */
     public int cantidadTarjAmarillas() {
         int amarillas = 0;
         for (Evento e : partido.getEventos()) {
@@ -51,7 +51,7 @@ public class Participacion {
         return amarillas;
     }
 
-    /** Cuenta las tarjetas rojas recibidas por esta Seleccion en este Partido
+    /** Cuenta las tarjetas rojas recibidas por esta Seleccion en este Partido.
      *  Se incluyen TarjetaRoja y DobleAmarrilla (ambas implican expulsion).
      */
     public int cantidadTarjRojas(){
