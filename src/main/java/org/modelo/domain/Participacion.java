@@ -38,7 +38,7 @@ public class Participacion {
         return goles;
     }
 
-    /** Cuenta las terjetas amarrillas recibidas por esta Seleccion en este Partido*/
+    /** Cuenta las tarjetas amarrillas recibidas por esta Seleccion en este Partido*/
     public int cantidadTarjAmarillas() {
         int amarillas = 0;
         for (Evento e : partido.getEventos()) {
@@ -51,7 +51,7 @@ public class Participacion {
         return amarillas;
     }
 
-    /** Cuenta las terjetas rojas recibidas por esta Seleccion en este Partido
+    /** Cuenta las tarjetas rojas recibidas por esta Seleccion en este Partido
      *  Se incluyen TarjetaRoja y DobleAmarrilla (ambas implican expulsion).
      */
     public int cantidadTarjRojas(){
