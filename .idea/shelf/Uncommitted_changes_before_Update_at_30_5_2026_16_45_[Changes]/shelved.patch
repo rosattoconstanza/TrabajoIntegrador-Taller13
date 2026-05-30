@@ -1,0 +1,207 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"fc4dad00-d110-4465-a0d8-dfba4a82f041\" name=\"Changes\" comment=\"&quot;Empiezos del Main&quot;\">\r\n      <change beforePath=\"$PROJECT_DIR$/.gitignore\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;rosattoconstanza&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/rosattoconstanza/TrabajoIntegrador-Taller13.git&quot;,\r\n    &quot;accountId&quot;: &quot;6f20a80a-87fc-429a-a621-2e33d1effb83&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1,\r\n  &quot;fromUser&quot;: false\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"3E5MfSopCOTOlG96nhUTs5TQCqY\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.Main.executor\": \"Run\",\r\n    \"Maven.Software-Taller13 [compile].executor\": \"Run\",\r\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"RunOnceActivity.typescript.service.memoryLimit.init\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"codeWithMe.voiceChat.enabledByDefault\": \"false\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"onboarding.tips.debug.path\": \"C:/Users/rosat/Downloads/Taller Prog II/Software-Taller13/src/main/java/org/example/Main.java\",\r\n    \"settings.editor.selected.configurable\": \"vcs.Git\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\rosat\\Downloads\\Taller Prog II\\Software-Taller13\\src\\main\\java\\org\\modelo\\domain\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"fc4dad00-d110-4465-a0d8-dfba4a82f041\" name=\"Changes\" comment=\"\" />\r\n      <created>1779464081625</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1779464081625</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Migración completa a estructura Maven.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1779467035825</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1779467035825</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"&quot;Correcciones de ArrayList&quot;\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1779490994683</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1779490994683</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"&quot;Empiezos del Main&quot;\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1779747971951</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1779747971952</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Migración completa a estructura Maven.\" />\r\n    <MESSAGE value=\"&quot;Correcciones de ArrayList&quot;\" />\r\n    <MESSAGE value=\"&quot;Empiezos del Main&quot;\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"&quot;Empiezos del Main&quot;\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e63382c0257866872ca882e8f25fb1eb8107561a)
++++ b/.idea/workspace.xml	(date 1780170190928)
+@@ -4,8 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="&quot;Empiezos del Main&quot;">
+-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
++    <list default="true" id="919614c4-50ab-43ab-a056-cf499abbc01b" name="Changes" comment="&quot;Arreglos en clases.&quot;">
++      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Jugador.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -24,82 +26,138 @@
+   <component name="GithubPullRequestsUISettings">{
+   &quot;selectedUrlAndAccountId&quot;: {
+     &quot;url&quot;: &quot;https://github.com/rosattoconstanza/TrabajoIntegrador-Taller13.git&quot;,
+-    &quot;accountId&quot;: &quot;6f20a80a-87fc-429a-a621-2e33d1effb83&quot;
++    &quot;accountId&quot;: &quot;112d33ea-f5a0-48db-8d28-7f8432043d56&quot;
+   }
+ }</component>
+   <component name="ProjectColorInfo">{
+-  &quot;associatedIndex&quot;: 1,
++  &quot;associatedIndex&quot;: 0,
+   &quot;fromUser&quot;: false
+ }</component>
+-  <component name="ProjectId" id="3E5MfSopCOTOlG96nhUTs5TQCqY" />
++  <component name="ProjectId" id="3DoIcfVL4BmdpUJfeusOMqFUBVZ" />
++  <component name="ProjectLevelVcsManager">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Application.Main.executor": "Run",
+-    "Maven.Software-Taller13 [compile].executor": "Run",
+-    "ModuleVcsDetector.initialDetectionPerformed": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "codeWithMe.voiceChat.enabledByDefault": "false",
+-    "git-widget-placeholder": "master",
+-    "kotlin-language-version-configured": "true",
+-    "onboarding.tips.debug.path": "C:/Users/rosat/Downloads/Taller Prog II/Software-Taller13/src/main/java/org/example/Main.java",
+-    "settings.editor.selected.configurable": "vcs.Git"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
++    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
+-  <component name="RecentsManager">
+-    <key name="MoveFile.RECENT_KEYS">
+-      <recent name="C:\Users\rosat\Downloads\Taller Prog II\Software-Taller13\src\main\java\org\modelo\domain" />
+-    </key>
++}</component>
++  <component name="RunManager">
++    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="org.modelo.vista.Main" />
++      <module name="TrabajoIntegrador-Taller13" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="org.modelo.vista.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Application.Main" />
++      </list>
++    </recent_temporary>
+   </component>
+   <component name="TaskManager">
+-    <task active="true" id="Default" summary="Default task">
+-      <changelist id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="" />
+-      <created>1779464081625</created>
+-      <option name="number" value="Default" />
+-      <option name="presentableId" value="Default" />
+-      <updated>1779464081625</updated>
+-    </task>
+-    <task id="LOCAL-00001" summary="Migración completa a estructura Maven.">
++    <task id="LOCAL-00001" summary="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;">
+       <option name="closed" value="true" />
+-      <created>1779467035825</created>
++      <created>1778709710841</created>
+       <option name="number" value="00001" />
+       <option name="presentableId" value="LOCAL-00001" />
+       <option name="project" value="LOCAL" />
+-      <updated>1779467035825</updated>
++      <updated>1778709710841</updated>
+     </task>
+-    <task id="LOCAL-00002" summary="&quot;Correcciones de ArrayList&quot;">
++    <task id="LOCAL-00002" summary="&quot;Arreglos en clases.&quot;">
+       <option name="closed" value="true" />
+-      <created>1779490994683</created>
++      <created>1778886283135</created>
+       <option name="number" value="00002" />
+       <option name="presentableId" value="LOCAL-00002" />
+       <option name="project" value="LOCAL" />
+-      <updated>1779490994683</updated>
++      <updated>1778886283135</updated>
+     </task>
+-    <task id="LOCAL-00003" summary="&quot;Empiezos del Main&quot;">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="919614c4-50ab-43ab-a056-cf499abbc01b" name="Changes" comment="&quot;Arreglos en clases.&quot;" />
++      <created>1778942077827</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1778942077827</updated>
++      <workItem from="1780165316676" duration="1147000" />
++      <workItem from="1780167482762" duration="302000" />
++    </task>
++    <task id="LOCAL-00003" summary="&quot;Arreglos en clases.&quot;">
+       <option name="closed" value="true" />
+-      <created>1779747971951</created>
++      <created>1778985079439</created>
+       <option name="number" value="00003" />
+       <option name="presentableId" value="LOCAL-00003" />
+       <option name="project" value="LOCAL" />
+-      <updated>1779747971952</updated>
++      <updated>1778985079439</updated>
++    </task>
++    <task id="LOCAL-00004" summary="&quot;Arreglos en clases.&quot;">
++      <option name="closed" value="true" />
++      <created>1779196636381</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1779196636381</updated>
++    </task>
++    <task id="LOCAL-00005" summary="&quot;Arreglos en clases.&quot;">
++      <option name="closed" value="true" />
++      <created>1779198986175</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1779198986175</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00006" summary="&quot;Arreglos en clases.&quot;">
++      <option name="closed" value="true" />
++      <created>1779200537129</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1779200537129</updated>
++    </task>
++    <task id="LOCAL-00007" summary="&quot;Arreglos en clases.&quot;">
++      <option name="closed" value="true" />
++      <created>1779201167452</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1779201167452</updated>
++    </task>
++    <task id="LOCAL-00008" summary="&quot;Arreglos en clases.&quot;">
++      <option name="closed" value="true" />
++      <created>1779201534108</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1779201534108</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value="Migración completa a estructura Maven." />
+-    <MESSAGE value="&quot;Correcciones de ArrayList&quot;" />
+-    <MESSAGE value="&quot;Empiezos del Main&quot;" />
+-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Empiezos del Main&quot;" />
++    <MESSAGE value="&quot;Clases creadas: Persona, Jugador, DirectorTecnico, CuerpoTecnico, Arbitro. Enums Creados: CategoriaArbitro, TipoEvento, Rol, Posicion.&quot;" />
++    <MESSAGE value="&quot;Arreglos en clases.&quot;" />
++    <option name="LAST_COMMIT_MESSAGE" value="&quot;Arreglos en clases.&quot;" />
+   </component>
+ </project>
+\ No newline at end of file
