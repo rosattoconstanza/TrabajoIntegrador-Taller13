@@ -28,10 +28,10 @@ public class Informes {
     /** informe 2*/
     public void resultadosPorSeleccion(Seleccion seleccion) {
 
-        System.out.println("RESULTADOS — " + seleccion.getNombreFederacion());
+        System.out.println("RESULTADOS - " + seleccion.getNombreFederacion());
 
         int totalPts = 0;
-        String ultimaFase = "—";
+        String ultimaFase = "-";
 
         for (Participacion miParticipacion : seleccion.getParticipacion()) {
             Partido partido = miParticipacion.getPartido();
