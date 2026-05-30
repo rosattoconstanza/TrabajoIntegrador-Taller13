@@ -62,9 +62,34 @@ public class Grupo {
         this.seleccion.add(s);
     } //1 o mas selecciones
 
-    /** Metodos de la clase */ //(CORREGIR CUERPO!!)
-    public int obtenerPuntos(Seleccion s){
-        return 1;
-    }
+    /** Metodos de la clase */
+    public int obtenerPuntos(Seleccion s) {
+        int totalPuntos = 0;
 
+        for (Participacion miParticipacion : s.getParticipacion()) {
+
+            Partido partido = miParticipacion.getPartido();
+
+            Participacion[] participacionesDelPartido = partido.getParticipacion();
+            Participacion p1 = participacionesDelPartido[0];
+            Participacion p2 = participacionesDelPartido[1];
+
+
+            Participacion rivalParticipacion;
+            if (p1.equals(miParticipacion)) {
+                rivalParticipacion = p2;
+            } else {
+                rivalParticipacion = p1;
+            }
+
+
+            if (miParticipacion.cantidadGoles() > rivalParticipacion.cantidadGoles()) {
+                totalPuntos += 3;
+            } else if (miParticipacion.cantidadGoles() == rivalParticipacion.cantidadGoles()) {
+                totalPuntos += 1;
+            }
+        }
+
+        return totalPuntos;
+    }
 }
