@@ -13,12 +13,12 @@ public class Pais {
     private ArrayList<Arbitro> arbitros;
 
     /** Constructor por defecto */
-    Pais(){
+    public Pais(){
         this("", "", null, new ArrayList<Sede>(), new ArrayList<Arbitro>());
     }
 
     /** Constructor parametrizado */
-    Pais(String nombre, String bandera,Seleccion seleccion, ArrayList<Sede> sedes, ArrayList<Arbitro> arbitros) {
+    public Pais(String nombre, String bandera,Seleccion seleccion, ArrayList<Sede> sedes, ArrayList<Arbitro> arbitros) {
         this.nombre = nombre;
         this.bandera = bandera;
         this.sedes = sedes;
@@ -27,7 +27,7 @@ public class Pais {
     }
 
     /** Constructor parametrizado SIN SEDE, ARBITRO NI SELECCION (Multiplicidad 0...*) */
-    Pais(String nombre, String bandera) {
+    public Pais(String nombre, String bandera) {
         this.nombre = nombre;
         this.bandera = bandera;
     }
