@@ -8,12 +8,12 @@ public class CuerpoTecnico extends Persona {
     private Rol rol;
 
     /** Constructores parametrizado y por defecto */
-    CuerpoTecnico(String nombre, int fecNacimiento, Rol rol) {
+    public CuerpoTecnico(String nombre, int fecNacimiento, Rol rol) {
         super(nombre, fecNacimiento);
         this.rol = rol;
 
     }
-    CuerpoTecnico() {
+    public CuerpoTecnico() {
         this("", 0, null);
     }
 

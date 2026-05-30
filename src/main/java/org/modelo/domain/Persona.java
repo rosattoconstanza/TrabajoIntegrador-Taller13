@@ -8,11 +8,11 @@ public abstract class Persona {
     private int fecNacimiento;
 
     /** Constructores parametrizado y por defecto */
-    Persona(String nombre, int fecNacimiento) {
+    public Persona(String nombre, int fecNacimiento) {
         this.nombre = nombre;
         this.fecNacimiento = fecNacimiento;
     }
-    Persona() {
+    public Persona() {
         this("", 0);
     }
 

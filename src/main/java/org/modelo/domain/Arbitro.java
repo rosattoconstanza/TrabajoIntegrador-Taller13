@@ -12,18 +12,18 @@ public class Arbitro extends Persona {
     private ArrayList<Arbitraje> arbitraje;
 
     /** Constructores parametrizados y por defecto */
-    Arbitro() {
+    public Arbitro() {
         this("", 0, 0, null, new ArrayList<Arbitraje>());
     }
 
-    Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais, ArrayList<Arbitraje> arbitraje) {
+    public Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais, ArrayList<Arbitraje> arbitraje) {
         super(nombre, fecNacimiento);
         this.aniosExperiencia = aniosExperiencia;
         this.pais = pais;
         this.arbitraje= arbitraje;
     }
 
-    Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais) {
+    public Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais) {
         //sin ARBITRAJE por multiplicidad 0...*
         super(nombre, fecNacimiento);
         this.aniosExperiencia = aniosExperiencia;

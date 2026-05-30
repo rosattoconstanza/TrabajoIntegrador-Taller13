@@ -8,7 +8,7 @@ public class DirectorTecnico extends Persona {
     private int fechaNombramiento;
 
     /** Constructores parametrizado y por defecto */
-    DirectorTecnico(String nombre, int fecNacimiento, int fechaNombramiento) {
+    public DirectorTecnico(String nombre, int fecNacimiento, int fechaNombramiento) {
         super(nombre, fecNacimiento);
         this.fechaNombramiento = fechaNombramiento;
     }

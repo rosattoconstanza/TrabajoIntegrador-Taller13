@@ -14,11 +14,11 @@ public class Jugador extends Persona {
     private ArrayList<Evento> eventos;
 
     /** Constructores parametrizados y por defecto */
-    Jugador() {
+    public Jugador() {
         this("", 0, 0, null, 0, 0, new ArrayList<Evento>());
     }
 
-    Jugador(String nombre, int fecNacimiento, int dorsal, Posicion posicion, float peso, float altura, ArrayList<Evento> eventos) {
+    public Jugador(String nombre, int fecNacimiento, int dorsal, Posicion posicion, float peso, float altura, ArrayList<Evento> eventos) {
         super(nombre, fecNacimiento);
         this.dorsal = dorsal;
         this.posicion = posicion;
@@ -27,7 +27,7 @@ public class Jugador extends Persona {
         this.eventos= eventos;
     }
 
-    Jugador(String nombre, int fecNacimiento, int dorsal, Posicion posicion, float peso, float altura) {
+    public Jugador(String nombre, int fecNacimiento, int dorsal, Posicion posicion, float peso, float altura) {
         //sin EVENTO al ser multiplicidad cero
         super(nombre, fecNacimiento);
         this.dorsal = dorsal;

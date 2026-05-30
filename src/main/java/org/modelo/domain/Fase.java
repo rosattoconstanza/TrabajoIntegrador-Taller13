@@ -10,16 +10,16 @@ public class Fase {
     private ArrayList<Partido> partidos;
 
     /** Constructores parametrizados y por defecto */
-    Fase(){
+    public Fase(){
         this(null, new ArrayList<Partido>(), new ArrayList<Grupo>());
     }
 
-    Fase(NombreFase nombre, ArrayList<Partido> partidos) { //sin GRUPO al tener multiplicidad cero
+    public Fase(NombreFase nombre, ArrayList<Partido> partidos) { //sin GRUPO al tener multiplicidad cero
         this.nombre = nombre;
         this.partidos = partidos;
     }
 
-    Fase(NombreFase nombre, ArrayList<Partido> partidos, ArrayList<Grupo> grupos) {
+    public Fase(NombreFase nombre, ArrayList<Partido> partidos, ArrayList<Grupo> grupos) {
         this.nombre = nombre;
         this.grupos = grupos;
         this.partidos = partidos;
