@@ -1,36 +1,40 @@
 package org.modelo.logica;
-import java.util.*;
-public class Scannear {
-    public static void organizaciónDeportiva(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("1.Configurar los Grupos 2. Configurar las Fases de eliminación \n" +
-                "3.Planificar los Partidos.");
-        switch (eleccion) {
-            case 1:
-                configurarGrupo();
-                break;
+import java.util.Scanner;
+    public class Scannear {
+        public static void GestionDeInfraestructura() {
+            Scanner sc = new Scanner(System.in);
 
-            case 2:
-                configurarFases();
-                break;
+            System.out.println("1.Registrar Sede. \n" + "Registrar Estadio.");
+            int eleccionusuario = sc.nextInt();
 
-            case 3:
-                planificarPartidos();
-                break;
+            if(eleccionusuario == 1) {
+                registrarSedes();
+            }
+            else if(eleccionusuario == 2) {
 
-            default:
-                System.out.println("Opción inválida");
-    }
+            }
+            else {
 
-
-    public static void registroDeEventosDeCampo(){
-    }
-
-    public static void configurarGrupo(){
-        System.out.println("Cantidad de grupos a añadir: ");
-        cantidad = sc.nextInt();
-        for (int i=0; i<cantidad;i++){
-            System.out.println("Identificacion: ");
+            }
         }
+
+        public static void registrarSedes() {
+            Scanner sc = new Scanner(System.in);
+            int contador = 1;
+            System.out.println("Ingrese la ciudad de la Sede número " + contador + " (Ingrese 'fin' si desea finalizar el proceso): ");
+            String ciudad = sc.nextLine();
+            while(!ciudad.equalsIgnoreCase("fin")) {
+                System.out.println("Ingrese la altura al nivel del mar de la Sede número " + contador + " (Ingrese 'fin' si desea finalizar el proceso): ");
+                float alturaNivelMar = sc.nextFloat();
+
+                System.out.println("Ingrese el clima de la Sede número " + contador + " (Ingrese 'fin' si desea finalizar el proceso): ");
+                String clima = sc.nextLine();
+
+                System.out.println("Ingrese la zona horaria de la Sede número " + contador + " (Ingrese 'fin' si desea finalizar el proceso): ");
+                String zonaHoraria = sc.nextLine();
+
+            }
+        }
+
     }
 }
