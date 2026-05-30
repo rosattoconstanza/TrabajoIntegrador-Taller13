@@ -1,0 +1,76 @@
+Index: src/modelo/Mundial.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package modelo;\r\nimport java.util.ArrayList;\r\n\r\npublic class Mundial {\r\n    /**Clase Mundial.\r\n     * Asociada con clase Sede (Agregacion).\r\n     */\r\n    private int anio;\r\n    private String mascota;\r\n    private int fechaDesde;\r\n    private int fechaHasta;\r\n    private ArrayList<Sede> sedes = new ArrayList<>(); //En la clase componente (Sede) no hay referencia a la clase contenedora (Mundial)\r\n\r\n    /** Constructor parametrizado */\r\n    public Mundial(int anio, String mascota, int fechaDesde, int fechaHasta, ArrayList<Sede> sedes) {\r\n        this.anio = anio;\r\n        this.mascota = mascota;\r\n        this.fechaDesde = fechaDesde;\r\n        this.fechaHasta = fechaHasta;\r\n        this.sedes = sedes;\r\n    }\r\n\r\n    /** Constructor por defecto */\r\n    public Mundial(){\r\n    }\r\n\r\n    /** Getters */\r\n    public int getAnio() {\r\n        return anio;\r\n    }\r\n\r\n    public String getMascota() {\r\n        return mascota;\r\n    }\r\n\r\n    public int getFechaDesde() {\r\n        return fechaDesde;\r\n    }\r\n\r\n    public int getFechaHasta() {\r\n        return fechaHasta;\r\n    }\r\n\r\n    public ArrayList<Sede> getSedes() {\r\n        return sedes;\r\n    }\r\n\r\n    /** Setters */\r\n    public void setSedes(ArrayList<Sede> sedes) {\r\n        this.sedes = sedes;\r\n    }\r\n\r\n    public void setFechaHasta(int fechaHasta) {\r\n        this.fechaHasta = fechaHasta;\r\n    }\r\n\r\n    public void setFechaDesde(int fechaDesde) {\r\n        this.fechaDesde = fechaDesde;\r\n    }\r\n\r\n    public void setMascota(String mascota) {\r\n        this.mascota = mascota;\r\n    }\r\n\r\n    public void setAnio(int anio) {\r\n        this.anio = anio;\r\n    }\r\n\r\n\r\n    /** Multiplicidades/Asosiciacion con Sede */\r\n    public void agregarSede(Sede s){\r\n        this.sedes.add(s); //1 o mas sedes por Mundial\r\n    }\r\n}
+===================================================================
+diff --git a/src/modelo/Mundial.java b/src/modelo/Mundial.java
+--- a/src/modelo/Mundial.java	(revision 93f069a8cee7cb86ed8cb1cf8bd27b919412afe2)
++++ b/src/modelo/Mundial.java	(date 1779456430088)
+@@ -1,8 +1,10 @@
+ package modelo;
++
+ import java.util.ArrayList;
+ 
+ public class Mundial {
+-    /**Clase Mundial.
++    /**
++     * Clase Mundial.
+      * Asociada con clase Sede (Agregacion).
+      */
+     private int anio;
+@@ -11,7 +13,9 @@
+     private int fechaHasta;
+     private ArrayList<Sede> sedes = new ArrayList<>(); //En la clase componente (Sede) no hay referencia a la clase contenedora (Mundial)
+ 
+-    /** Constructor parametrizado */
++    /**
++     * Constructor parametrizado
++     */
+     public Mundial(int anio, String mascota, int fechaDesde, int fechaHasta, ArrayList<Sede> sedes) {
+         this.anio = anio;
+         this.mascota = mascota;
+@@ -20,11 +24,15 @@
+         this.sedes = sedes;
+     }
+ 
+-    /** Constructor por defecto */
+-    public Mundial(){
++    /**
++     * Constructor por defecto
++     */
++    public Mundial() {
+     }
+ 
+-    /** Getters */
++    /**
++     * Getters
++     */
+     public int getAnio() {
+         return anio;
+     }
+@@ -45,7 +53,9 @@
+         return sedes;
+     }
+ 
+-    /** Setters */
++    /**
++     * Setters
++     */
+     public void setSedes(ArrayList<Sede> sedes) {
+         this.sedes = sedes;
+     }
+@@ -67,8 +77,10 @@
+     }
+ 
+ 
+-    /** Multiplicidades/Asosiciacion con Sede */
+-    public void agregarSede(Sede s){
++    /**
++     * Multiplicidades/Asosiciacion con Sede
++     */
++    public void agregarSede(Sede s) {
+         this.sedes.add(s); //1 o mas sedes por Mundial
+-    }
++    } //EL OBJETO SE RECIBE NO SE CREA DENTRO ya que AGREGACION
+ }
+\ No newline at end of file
