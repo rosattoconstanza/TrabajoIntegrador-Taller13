@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="&quot;Metodo obtenerPuntos&quot;" />
+    <list default="true" id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="&quot;Empiezos del Main&quot;">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +32,9 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3E5MfSopCOTOlG96nhUTs5TQCqY" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -38,6 +43,7 @@
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Maven.Software-Taller13 [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Software-Taller13 [package].executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
@@ -88,15 +94,7 @@
       <option name="project" value="LOCAL" />
       <updated>1779747971952</updated>
     </task>
-    <task id="LOCAL-00004" summary="&quot;Metodo obtenerPuntos&quot;">
-      <option name="closed" value="true" />
-      <created>1780170460553</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1780170460553</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,7 +104,6 @@
     <MESSAGE value="Migración completa a estructura Maven." />
     <MESSAGE value="&quot;Correcciones de ArrayList&quot;" />
     <MESSAGE value="&quot;Empiezos del Main&quot;" />
-    <MESSAGE value="&quot;Metodo obtenerPuntos&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Metodo obtenerPuntos&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Empiezos del Main&quot;" />
   </component>
 </project>
