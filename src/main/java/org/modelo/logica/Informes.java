@@ -7,8 +7,11 @@ public class Informes {
     /** INFORME 1 - Tabla de posiciones por grupo
     // Victoria = 3 pts | Empate = 1 pt | Derrota = 0 pts */
 
-    /** Imprime la tabla de posiciones de un grupo ordenada por puntos de mayor a menor.
-     * Usa Collections.sort con un Comparator que compara los puntos de cada seleccion. */
+    /** Recibe un Grupo.
+     * Copia la lista de selecciones para no tocar el original, y las ordena con Collections.sort.
+     * El Comparator le dice cómo comparar: llama a obtenerPuntos() de cada selección
+     * y resta, si el resultado es positivo las intercambia.
+     * Al final imprime cada selección con sus puntos.*/
     public void tablaPosicionesPorGrupo(Grupo grupo) {
 
         System.out.println("TABLA DE POSICIONES - Grupo: " + grupo.getIdentificacion());
@@ -31,8 +34,11 @@ public class Informes {
 
     /** INFORME 2 — Resultados por selección */
 
-     /** Imprime todos los partidos jugados por una selección,
-     el resultado de cada uno y los puntos obtenidos.*/
+     /** Recibe una Seleccion.
+      * Recorre todas sus Participacion (un objeto por cada partido que jugó).
+      * En cada una agarra las dos participaciones del partido (p1 y p2), compara cuál es la propia con equals
+      * y la otra es el rival. Con los goles de cada una calcula si fue victoria, empate o derrota y suma los puntos.
+      * Al final muestra el total y la última fase jugada.*/
     public void resultadosPorSeleccion(Seleccion seleccion) {
 
         System.out.println("RESULTADOS - " + seleccion.getNombreFederacion());
@@ -74,6 +80,13 @@ public class Informes {
         System.out.println("Ultima instancia: " + ultimaFase);
     }
 
+    /** IMFORME 3 - Ranking de goleadores */
+
+    /** Recibe todas las selecciones.
+     * Recorre cada selección y cada jugador
+     * y llama a contarGolesTotal() que mira los eventos propios del jugador buscando los de tipo Gol.
+     * Si tiene al menos uno lo agrega a la lista.
+     * Después ordena esa lista con Collections.sort de mayor a menor goles e imprime el ranking numerado. */
     public void rankingGoleadores(ArrayList<Seleccion> selecciones) {
         System.out.println("RANKING DE GOLEADORES");
 
@@ -118,7 +131,11 @@ public class Informes {
 
     /** INFORME 4 — Informe disciplinario */
 
-    /** Imprime las tarjetas amarillas y rojas de cada seleccion. */
+    /** Por selección: recorre sus participaciones y suma cantidadTarjAmarillas() y cantidadTarjRojas()
+     * que ya tienen implementados en Participacion.
+     *
+     Por jugador: recorre los eventos de cada partido de su selección,
+     filtra los que son del jugador pedido y cuenta amarillas y rojas.*/
     public void informeDisciplinarioPorSeleccion(ArrayList<Seleccion> selecciones) {
         System.out.println("INFORME DISCIPLINARIO POR SELECCION");
 
@@ -156,8 +173,11 @@ public class Informes {
 
     /** INFORME 5 — Ficha técnica de partido */
 
-    /** Imprime el detalle completo de un partido:
-     * equipos, arbitros, eventos cronologicos y resultado final. */
+    /** Recibe un Partido.
+     * Toma directamente p1 y p2 del array de participaciones (posición 0 y 1).
+     * Con eso muestra el resultado, después las alineaciones de cada equipo con dorsal y posición,
+     * después los árbitros,
+     * y finalmente los eventos ordenados por minuto con Collections.sort.*/
     public void fichaTecnicaPartido(Partido partido) {
         System.out.println("FICHA TECNICA DE PARTIDO");
         System.out.println("Fecha: " + partido.getFecha());
@@ -210,7 +230,12 @@ public class Informes {
 
     /** INFORME 6 — Estadísticas de sedes */
 
-    /** Imprime los partidos jugados en un estadio especifico.*/
+    /** Por estadio: el Estadio ya tiene su lista de partidos,
+     * así que simplemente la recorre e imprime cada partido con sus dos equipos.
+     *
+     Por ciudad: recorre las sedes del mundial,
+     compara el nombre de la ciudad con equals
+     y por cada estadio de esa sede imprime sus partidos.*/
     public void estadisticasPorEstadio(Estadio estadio) {
         System.out.println("ESTADISTICAS - " + estadio.getNombre());
 
@@ -230,7 +255,7 @@ public class Informes {
 
         int total = 0;
         for (Sede sede : mundial.getSedes()) {
-            if (!sede.getCiudad().equalsIgnoreCase(ciudad)) continue;
+            if (!sede.getCiudad().equals(ciudad)) continue;
             for (Estadio est : sede.getEstadios()) {
                 for (Partido p : est.getPartidos()) {
                     total++;
