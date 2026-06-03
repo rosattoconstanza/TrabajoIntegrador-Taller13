@@ -13,6 +13,14 @@ public class Sede {
     private Pais pais;
 
 
+    /** Constructor parametrizado básico */
+    public Sede(String ciudad, float alturaNivelMar, String clima, String zonaHoraria) {
+        this.ciudad = ciudad;
+        this.alturaNivelMar = alturaNivelMar;
+        this.clima = clima;
+        this.zonaHoraria = zonaHoraria;
+        this.pais = pais;
+    }
     /** Constructor parametrizado */
     public Sede(String ciudad, float alturaNivelMar, String clima, String zonaHoraria,Pais pais, ArrayList<Estadio> estadios) {
         this.ciudad = ciudad;

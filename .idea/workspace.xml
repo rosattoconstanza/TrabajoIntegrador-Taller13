@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="informes">
+    <list default="true" id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="&quot;Empiezos del Main&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_5_2026_10_13_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_5_2026_10_13__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Informes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Informes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Mundial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Mundial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Sede.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Sede.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +49,7 @@
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Maven.Software-Taller13 [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Software-Taller13 [package].executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
@@ -61,19 +67,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\rosat\Downloads\Taller Prog II\Software-Taller13\src\main\java\org\modelo\domain" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Software-Taller13" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Software-Taller13" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -107,23 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779747971952</updated>
     </task>
-    <task id="LOCAL-00004" summary="&quot;Metodo obtenerPuntos&quot;">
+    <task id="LOCAL-00004" summary="&quot;Logica&quot;">
       <option name="closed" value="true" />
-      <created>1780170460553</created>
+      <created>1780176038834</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1780170460553</updated>
+      <updated>1780176038834</updated>
     </task>
-    <task id="LOCAL-00005" summary="informes">
-      <option name="closed" value="true" />
-      <created>1780185518435</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1780185518435</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,8 +118,7 @@
     <MESSAGE value="Migración completa a estructura Maven." />
     <MESSAGE value="&quot;Correcciones de ArrayList&quot;" />
     <MESSAGE value="&quot;Empiezos del Main&quot;" />
-    <MESSAGE value="&quot;Metodo obtenerPuntos&quot;" />
-    <MESSAGE value="informes" />
-    <option name="LAST_COMMIT_MESSAGE" value="informes" />
+    <MESSAGE value="&quot;Logica&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Logica&quot;" />
   </component>
 </project>

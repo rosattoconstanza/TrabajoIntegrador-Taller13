@@ -1,6 +1,83 @@
 package org.modelo.logica;
 import java.util.*;
+import org.modelo.domain.*;
 public class Scannear {
+    public static void inicializarMundial() {
+        Scanner sc = new Scanner(System.in);
+        boolean excepcion = false;
+
+        while(excepcion == false) {
+            try {
+                System.out.println("Para comenzar, necesitamos datos iniciales: ");
+                System.out.println("Ingrese Año: ");
+                int anio = sc.nextInt();
+                sc.nextLine();
+                System.out.println("Ingrese la mascota: ");
+                String mascota = sc.nextLine();
+                System.out.println("Ingrese fecha de inicio: ");
+                int fechaInicio = sc.nextInt();
+                System.out.println("Ingrese fecha de finalización: ");
+                int fechaFinal = sc.nextInt();
+
+                Mundial mundial = new Mundial(anio, mascota, fechaInicio, fechaFinal);
+                System.out.println("El Mundial se creo correctamente, muchas gracias.");
+                excepcion = true;
+            }
+            catch (InputMismatchException e) {
+                System.out.println("Lamentamos la interrupcion, parece que se ingresó un " +
+                        "texto que deberia ser un entero, intente nuevamente.");
+                sc.nextLine();
+            }
+        }
+    }
+
+    public static void menuInical() {
+        Scanner sc = new Scanner(System.in);
+        boolean excepcion = false;
+
+        while(excepcion == false) {
+            try {
+                System.out.println("¡Bienvenido a la organización del Mundial de fútbol 2026! ¿Que desea hacer?:\n" +
+                        "1. Gestión de Infraestructura.\n" + "2. Administración de Delegaciones.\n" +
+                        "3.Organización Deportiva.\n" + "4.Registro de Eventos de Campo.\n" + "5.Informes.\n" + "6. Salir.");
+                int eleccionUsuario = numValido(sc, 1, 6);
+                switch (eleccionUsuario) {
+                    case 1: GestionDeInfraestructura(); break;
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6: System.out.println("Gracias por utilizar nuestro sistema, vuelva pronto :)"); break;
+                }
+                excepcion = true;
+            }
+            catch(InputMismatchException e) {
+                System.out.println("Lamentamos la interrupción, parece que se no ingresó un entero, intente nuevamente.");
+                sc.nextLine();
+            }
+        }
+    }
+
+    private static int numValido(Scanner sc, int min, int max) {
+        int op;
+
+        do {
+            System.out.print("Ingrese una opción válida: ");
+            op = sc.nextInt();
+
+            if (op < min || op > max) {
+                System.out.println("Opción inválida.");
+            }
+
+        } while (op < min || op > max);
+
+        return op;
+    }
+
+
+
+
+
     public static void organizaciónDeportiva() {
         Scanner sc = new Scanner(System.in);
         System.out.println("1.Configurar los Grupos 2. Configurar las Fases de eliminación \n" +
@@ -12,11 +89,11 @@ public class Scannear {
                 break;
 
             case 2:
-                configurarFases();
+                //configurarFases();
                 break;
 
             case 3:
-                planificarPartidos();
+                //planificarPartidos();
                 break;
 
             default:
@@ -39,35 +116,29 @@ public class Scannear {
     public static void GestionDeInfraestructura() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("1.Registrar Sede. \n" + "Registrar Estadio.");
+        System.out.println("1.Registrar Sede. \n" + "2. Registrar Estadio a Sede. \n" + "3. Volver.");
         int eleccionusuario = sc.nextInt();
-
-        if(eleccionusuario == 1) {
-            registrarSedes();
-        }
-        else if(eleccionusuario == 2) {
-
-        }
-        else {
-
+        switch(eleccionusuario) {
+            case 1: registrarSedes();
+            case 2:
         }
     }
 
     public static void registrarSedes() {
         Scanner sc = new Scanner(System.in);
-        int contador = 1;
-        System.out.println("Ingrese la ciudad de la Sede número " + contador + " (Ingrese 'fin' si desea finalizar el proceso): ");
+
+        System.out.println("Ingrese la ciudad de la Sede: ");
         String ciudad = sc.nextLine();
-        while(!ciudad.equalsIgnoreCase("fin")) {
-            System.out.println("Ingrese la altura al nivel del mar de la Sede número " + contador + " (Ingrese 'fin' si desea finalizar el proceso): ");
-            float alturaNivelMar = sc.nextFloat();
 
-            System.out.println("Ingrese el clima de la Sede número " + contador + " (Ingrese 'fin' si desea finalizar el proceso): ");
-            String clima = sc.nextLine();
+        System.out.println("Ingrese la altura al nivel del mar de la Sede: ");
+        float alturaNivelMar = sc.nextFloat();
 
-            System.out.println("Ingrese la zona horaria de la Sede número " + contador + " (Ingrese 'fin' si desea finalizar el proceso): ");
-            String zonaHoraria = sc.nextLine();
+        System.out.println("Ingrese el clima de la Sede: ");
+        String clima = sc.nextLine();
 
-        }
+        System.out.println("Ingrese la zona horaria de la Sede: ");
+        String zonaHoraria = sc.nextLine();
+
+        Sede sede = new Sede(ciudad, alturaNivelMar, clima, zonaHoraria);
     }
 }

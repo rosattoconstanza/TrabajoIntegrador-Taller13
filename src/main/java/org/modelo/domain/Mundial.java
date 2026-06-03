@@ -25,6 +25,14 @@ public class Mundial {
         this.sedes = sedes;
     }
 
+    /** Constructor parametrizado básico */
+    public Mundial(int anio, String mascota, int fechaDesde, int fechaHasta) {
+        this.anio = anio;
+        this.mascota = mascota;
+        this.fechaDesde = fechaDesde;
+        this.fechaHasta = fechaHasta;
+    }
+
 
     /** Getters */
     public int getAnio() {
