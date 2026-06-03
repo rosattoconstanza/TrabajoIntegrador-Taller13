@@ -20,6 +20,7 @@ public class Sede {
         this.clima = clima;
         this.zonaHoraria = zonaHoraria;
         this.pais = pais;
+        this.estadios = new ArrayList<Estadio>();
     }
     /** Constructor parametrizado */
     public Sede(String ciudad, float alturaNivelMar, String clima, String zonaHoraria,Pais pais, ArrayList<Estadio> estadios) {

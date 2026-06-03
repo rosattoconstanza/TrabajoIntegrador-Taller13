@@ -2,6 +2,7 @@ package org.modelo.logica;
 import java.util.*;
 import org.modelo.domain.*;
 public class Scannear {
+    //------------------------------------------------------------
     public static void inicializarMundial() {
         Scanner sc = new Scanner(System.in);
         boolean excepcion = false;
@@ -31,11 +32,13 @@ public class Scannear {
         }
     }
 
+    //---------------------------------------------------------------------------
+
     public static void menuInical() {
         Scanner sc = new Scanner(System.in);
-        boolean excepcion = false;
+        boolean salir = false;
 
-        while(excepcion == false) {
+        while(salir == false) {
             try {
                 System.out.println("¡Bienvenido a la organización del Mundial de fútbol 2026! ¿Que desea hacer?:\n" +
                         "1. Gestión de Infraestructura.\n" + "2. Administración de Delegaciones.\n" +
@@ -47,9 +50,10 @@ public class Scannear {
                     case 3:
                     case 4:
                     case 5:
-                    case 6: System.out.println("Gracias por utilizar nuestro sistema, vuelva pronto :)"); break;
+                    case 6: System.out.println("Gracias por utilizar nuestro sistema, vuelva pronto :)");
+                        salir = true;
+                        break;
                 }
-                excepcion = true;
             }
             catch(InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un entero, intente nuevamente.");
@@ -58,25 +62,7 @@ public class Scannear {
         }
     }
 
-    private static int numValido(Scanner sc, int min, int max) {
-        int op;
-
-        do {
-            System.out.print("Ingrese una opción válida: ");
-            op = sc.nextInt();
-
-            if (op < min || op > max) {
-                System.out.println("Opción inválida.");
-            }
-
-        } while (op < min || op > max);
-
-        return op;
-    }
-
-
-
-
+    //-----------------------------------------------------------------------
 
     public static void organizaciónDeportiva() {
         Scanner sc = new Scanner(System.in);
@@ -113,18 +99,31 @@ public class Scannear {
         }
     }
 
+    //----------------------------------------------------------------------------------
     public static void GestionDeInfraestructura() {
         Scanner sc = new Scanner(System.in);
+        boolean volver = false;
+        while(volver == false) {
+            try {
+                System.out.println("¿En que nos encofacos?\n" +"1.Registrar Sede. \n" +
+                        "2. Registrar Estadio a Sede. \n" + "3. Volver.");
+                int eleccionusuario = numValido(sc, 1, 3);
 
-        System.out.println("1.Registrar Sede. \n" + "2. Registrar Estadio a Sede. \n" + "3. Volver.");
-        int eleccionusuario = sc.nextInt();
-        switch(eleccionusuario) {
-            case 1: registrarSedes();
-            case 2:
+                switch(eleccionusuario) {
+                    case 1: registrarSede();
+                    case 2: //registrarEstadio();
+                    case 3: volver = true; break;
+                }
+
+            }
+            catch(InputMismatchException e) {
+                System.out.println("Lamentamos la interrupción, parece que se no ingresó un entero, intente nuevamente.");
+                sc.nextLine();
+            }
         }
     }
 
-    public static void registrarSedes() {
+    public static void registrarSede() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Ingrese la ciudad de la Sede: ");
@@ -140,5 +139,47 @@ public class Scannear {
         String zonaHoraria = sc.nextLine();
 
         Sede sede = new Sede(ciudad, alturaNivelMar, clima, zonaHoraria);
+    }
+
+    //--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //---------------------------------------------------------------------------
+    private static int numValido(Scanner sc, int min, int max) {
+        int op;
+
+        do {
+            System.out.print("Ingrese una opción válida: ");
+            op = sc.nextInt();
+
+            if (op < min || op > max) {
+                System.out.println("Opción inválida.");
+            }
+
+        } while (op < min || op > max);
+
+        return op;
     }
 }

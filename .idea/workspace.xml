@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="&quot;Empiezos del Main&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_5_2026_10_13_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_5_2026_10_13__Changes_1.xml" beforeDir="false" />
+    <list default="true" id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="&quot;Avanzando con lo principal&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Mundial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Mundial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Sede.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Sede.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780176038834</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="&quot;Avanzando con lo principal&quot;">
+      <option name="closed" value="true" />
+      <created>1780498504438</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1780498504438</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +123,7 @@
     <MESSAGE value="&quot;Correcciones de ArrayList&quot;" />
     <MESSAGE value="&quot;Empiezos del Main&quot;" />
     <MESSAGE value="&quot;Logica&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Logica&quot;" />
+    <MESSAGE value="&quot;Avanzando con lo principal&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Avanzando con lo principal&quot;" />
   </component>
 </project>
