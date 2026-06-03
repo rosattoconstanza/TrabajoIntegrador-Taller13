@@ -31,6 +31,7 @@ public class Mundial {
         this.mascota = mascota;
         this.fechaDesde = fechaDesde;
         this.fechaHasta = fechaHasta;
+        this.sedes = new ArrayList<Sede>();
     }
 
 

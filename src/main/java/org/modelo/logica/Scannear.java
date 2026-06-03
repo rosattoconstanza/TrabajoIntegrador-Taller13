@@ -111,8 +111,8 @@ public class Scannear {
                 int eleccionusuario = numValido(sc, 1, 3);
 
                 switch(eleccionusuario) {
-                    case 1: registrarSede();
-                    case 2: //registrarEstadio();
+                    case 1: registrarSede(); break;
+                    case 2: registrarEstadio(); break;
                     case 3: volver = true; break;
                 }
             }
@@ -123,7 +123,7 @@ public class Scannear {
         }
     }
 
-    public static void registrarSede() {
+    private static void registrarSede() {
         Scanner sc = new Scanner(System.in);
         boolean excepcion = false;
 
@@ -145,6 +145,40 @@ public class Scannear {
                 Sede sede = new Sede(ciudad, alturaNivelMar, clima, zonaHoraria);
                 mundial.agregarSede(sede);
                 System.out.println("La Sede se creó correctamente.");
+                excepcion = true;
+            }
+            catch(InputMismatchException e) {
+                System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
+                sc.nextLine();
+            }
+        }
+    }
+
+    private static void registrarEstadio() {
+        Scanner sc = new Scanner(System.in);
+        boolean excepcion = false;
+        List<Sede> sedes = mundial.getSedes();
+
+        if(sedes.isEmpty()) {
+            System.out.println("Parece que aún no se registraron sedes, vuelva a intentarlo.");
+            return;
+        }
+        listarSedes();
+        while(excepcion == false) {
+            try {
+                System.out.println("Ingrese el número de Sede que le desea añadir un Estadio: ");
+                int eleccionUsuario = numValido(sc, 1, sedes.size());
+
+                int indice = eleccionUsuario - 1;
+                Sede sede = sedes.get(indice);
+                System.out.println("Nombre del Estadio: ");
+                String nombreEstadio = sc.nextLine();
+                System.out.println("Capacidad del Estadio: ");
+                int capacidadEstadio = sc.nextInt();
+
+                Estadio e = new Estadio(nombreEstadio, capacidadEstadio, sede);
+                sede.agregarEstadio(e);
+                System.out.println("El Estadio se creó correctamente.");
                 excepcion = true;
             }
             catch(InputMismatchException e) {
@@ -194,5 +228,16 @@ public class Scannear {
         } while (op < min || op > max);
 
         return op;
+    }
+
+    private static void listarSedes() {
+        System.out.println("Sedes registradas:\n");
+        int i = 1;
+        for (Sede s : mundial.getSedes()) {
+            System.out.println(i++ + ". " + s);
+            for (Estadio e : s.getEstadios()) {
+                System.out.println("-> " + e);
+            }
+        }
     }
 }
