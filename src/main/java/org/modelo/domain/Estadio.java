@@ -69,4 +69,10 @@ public class Estadio {
     public void agregarPartidos(Partido p){
         partidos.add(p); //1 o mas partidos por Estadio
     }
+
+    /** toString() */
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + ", Capacidad: " + capacidad + ", Partidos: " + partidos;
+    }
 }

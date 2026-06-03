@@ -99,6 +99,6 @@ public class Sede {
     @Override
     public String toString() {
         return "Ciudad: " + ciudad + ", Altura del Nivel Mar:" + alturaNivelMar + ", Clima: " + clima +
-                ", Zona Horaria: " + zonaHoraria + "Estadio: " + estadios + ", Pais: " + pais;
+                ", Zona Horaria: " + zonaHoraria + ", Pais: " + pais;
     }
 }

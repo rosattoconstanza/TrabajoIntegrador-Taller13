@@ -106,7 +106,7 @@ public class Scannear {
         boolean volver = false;
         while(volver == false) {
             try {
-                System.out.println("¿En que nos encofacos?\n" +"1.Registrar Sede. \n" +
+                System.out.println("¿En que nos enfocamos?\n" +"1. Registrar Sede. \n" +
                         "2. Registrar Estadio a Sede. \n" + "3. Volver.");
                 int eleccionusuario = numValido(sc, 1, 3);
 
@@ -168,6 +168,7 @@ public class Scannear {
             try {
                 System.out.println("Ingrese el número de Sede que le desea añadir un Estadio: ");
                 int eleccionUsuario = numValido(sc, 1, sedes.size());
+                sc.nextLine();
 
                 int indice = eleccionUsuario - 1;
                 Sede sede = sedes.get(indice);
@@ -236,7 +237,7 @@ public class Scannear {
         for (Sede s : mundial.getSedes()) {
             System.out.println(i++ + ". " + s);
             for (Estadio e : s.getEstadios()) {
-                System.out.println("-> " + e);
+                System.out.println("Estadio -> " + e);
             }
         }
     }
