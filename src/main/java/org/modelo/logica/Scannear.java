@@ -3,6 +3,7 @@ import java.util.*;
 import org.modelo.domain.*;
 public class Scannear {
     //------------------------------------------------------------
+    static Mundial mundial;
     public static void inicializarMundial() {
         Scanner sc = new Scanner(System.in);
         boolean excepcion = false;
@@ -20,7 +21,7 @@ public class Scannear {
                 System.out.println("Ingrese fecha de finalización: ");
                 int fechaFinal = sc.nextInt();
 
-                Mundial mundial = new Mundial(anio, mascota, fechaInicio, fechaFinal);
+                mundial = new Mundial(anio, mascota, fechaInicio, fechaFinal);
                 System.out.println("El Mundial se creo correctamente, muchas gracias.");
                 excepcion = true;
             }
@@ -114,7 +115,6 @@ public class Scannear {
                     case 2: //registrarEstadio();
                     case 3: volver = true; break;
                 }
-
             }
             catch(InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un entero, intente nuevamente.");
@@ -125,20 +125,33 @@ public class Scannear {
 
     public static void registrarSede() {
         Scanner sc = new Scanner(System.in);
+        boolean excepcion = false;
 
-        System.out.println("Ingrese la ciudad de la Sede: ");
-        String ciudad = sc.nextLine();
+        while(excepcion == false) {
+            try {
+                System.out.println("Ingrese la ciudad de la Sede: ");
+                String ciudad = sc.nextLine();
 
-        System.out.println("Ingrese la altura al nivel del mar de la Sede: ");
-        float alturaNivelMar = sc.nextFloat();
+                System.out.println("Ingrese la altura al nivel del mar de la Sede: ");
+                float alturaNivelMar = sc.nextFloat();
+                sc.nextLine();
 
-        System.out.println("Ingrese el clima de la Sede: ");
-        String clima = sc.nextLine();
+                System.out.println("Ingrese el clima de la Sede: ");
+                String clima = sc.nextLine();
 
-        System.out.println("Ingrese la zona horaria de la Sede: ");
-        String zonaHoraria = sc.nextLine();
+                System.out.println("Ingrese la zona horaria de la Sede: ");
+                String zonaHoraria = sc.nextLine();
 
-        Sede sede = new Sede(ciudad, alturaNivelMar, clima, zonaHoraria);
+                Sede sede = new Sede(ciudad, alturaNivelMar, clima, zonaHoraria);
+                mundial.agregarSede(sede);
+                System.out.println("La Sede se creó correctamente.");
+                excepcion = true;
+            }
+            catch(InputMismatchException e) {
+                System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
+                sc.nextLine();
+            }
+        }
     }
 
     //--------------------------------------------------------------------------------
