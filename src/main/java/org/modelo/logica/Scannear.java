@@ -47,7 +47,7 @@ public class Scannear {
                 int eleccionUsuario = numValido(sc, 1, 6);
                 switch (eleccionUsuario) {
                     case 1: GestionDeInfraestructura(); break;
-                    case 2:
+                    case 2: AdministracionDeDelegaciones(); break;
                     case 3:
                     case 4:
                     case 5:
@@ -190,6 +190,70 @@ public class Scannear {
     }
 
     //--------------------------------------------------------------------------------
+
+    public static void AdministracionDeDelegaciones() {
+        Scanner sc = new Scanner(System.in);
+        boolean volver = false;
+
+        while(volver == false) {
+            try {
+                System.out.println("¿En que nos enfocamos?\n" + "1. Cargar Pais participante.\n" +
+                        "2. Cargar Seleccion y su lista de jugadores.\n" + "3. Cargar Cuerpo Tecnico y Director Tecnico.\n" +
+                        "4. Volver." );
+                int eleccionUsuario = numValido(sc, 1, 4);
+
+                switch (eleccionUsuario) {
+                    case 1: cargarPais(); break;
+                    case 2:
+                    case 3:
+                    case 4: volver = true;
+                        break;
+                }
+            }
+            catch(InputMismatchException e) {
+                System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
+                sc.nextLine();
+            }
+        }
+    }
+
+    private static void cargarPais() {
+        Scanner sc = new Scanner(System.in);
+        List<Sede> sedes = mundial.getSedes();
+        boolean excepcion = false;
+
+        System.out.println("Ingrese nombre del pais participante: ");
+        String nombrePais = sc.nextLine();
+        System.out.println("Ingrese la bandera correspondiente: ");
+        String banderaPais = sc.nextLine();
+
+        Pais pais = new Pais(nombrePais, banderaPais);
+        System.out.println("El pais se creó correctamente, vamos a asignarlo a una Sede.");
+        if(sedes.isEmpty()) {
+            System.out.println("Parece que aún no se registraron sedes, vuelva a intentarlo.");
+            return;
+        }
+        listarSedes();
+
+        while(excepcion == false) {
+            try {
+                System.out.println("Ingrese el número de Sede que le desea asignar un Pais: ");
+                int eleccionUsuario = numValido(sc, 1, sedes.size());
+                sc.nextLine();
+
+                int indice = eleccionUsuario - 1;
+                Sede sede = sedes.get(indice);
+                sede.setPais(pais);
+
+                System.out.println("Muchas gracias, la Sede ya tiene un Pais asignado.");
+                excepcion = true;
+            }
+            catch(InputMismatchException e) {
+                System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
+                sc.nextLine();
+            }
+        }
+    }
 
 
 
