@@ -44,12 +44,13 @@ public class Seleccion {
     }
 
     public Seleccion(String nombreFederacion, String camisetaPrincipal, String camisetaSecundaria, boolean cabezaGrupo,
-                     int rankingFIFA) {
+                     int rankingFIFA, Pais pais) {
         this.nombreFederacion = nombreFederacion;
         this.camisetaPrincipal = camisetaPrincipal;
         this.camisetaSecundaria = camisetaSecundaria;
         this.cabezaGrupo = cabezaGrupo;
         this.rankingFIFA = rankingFIFA;
+        this.pais = pais;
         this.participacion = new ArrayList<Participacion>();
         this.directoresTecnicos = new ArrayList<DirectorTecnico>();
         this.cuerposTecnicos = new ArrayList<CuerpoTecnico>();

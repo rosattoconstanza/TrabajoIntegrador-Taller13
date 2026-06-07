@@ -2,6 +2,8 @@ package org.modelo.logica;
 import java.util.*;
 import org.modelo.domain.*;
 public class Scannear {
+    static ArrayList<Pais> paises = new ArrayList<Pais>(); //para poder conectar toodo con Mundial
+
     //------------------------------------------------------------
     static Mundial mundial;
     public static void inicializarMundial() {
@@ -258,7 +260,25 @@ public class Scannear {
 
     private static void cargarSeleccionyJugadores() {
         Scanner sc = new Scanner(System.in);
+
+        if (paises.isEmpty()) {
+            System.out.println("Porfavor, ingrese un País antes de comenzar con esta sección.");
+            return;
+        }
+
         try {
+            listarPaises();
+            System.out.println("Seleccione el número de País para asignar la Selección: ");
+            int indice = numValido(sc, 1, paises.size()) - 1;
+            sc.nextLine();
+            Pais pais = paises.get(indice);
+
+            if (pais.getSeleccion() != null) {
+                System.out.println("Este país ya tiene una selección asignada.");
+                return;
+            }
+
+
             System.out.println("Comenzemos a cargar una seleccion, ingrese el nombre de Federación: ");
             String federacion = sc.nextLine();
             System.out.println("Ingrese la camiseta principal: ");
@@ -266,19 +286,15 @@ public class Scannear {
             System.out.println("Ingrese la camiseta secundaria: ");
             String camisetaSecundaria = sc.nextLine();
             sc.nextLine();
-            System.out.println("¿Su selección es Cabeza de grupo?: ");
+            System.out.println("¿Su selección es Cabeza de grupo? (true o false): ");
             boolean cabezaGrupo = sc.nextBoolean();
             sc.nextLine();
             System.out.println("Ingrese el ranking de su Seleccion: ");
             int ranking = sc.nextInt();
 
 
-            Seleccion seleccion = new Seleccion(federacion, camisetaPrincipal, camisetaSecundaria, cabezaGrupo, ranking);
-            System.out.println("La seleccion se cargó correctamente, pero aun nos faltan mas detalles...");
-
-            //como guardo la seleccion, ADONDE, una lista de paises????
-
-
+            Seleccion seleccion = new Seleccion(federacion, camisetaPrincipal, camisetaSecundaria, cabezaGrupo, ranking, pais);
+            pais.setSeleccion(seleccion);
 
 
 
@@ -338,6 +354,18 @@ public class Scannear {
             for (Estadio e : s.getEstadios()) {
                 System.out.println("Estadio -> " + e);
             }
+        }
+    }
+
+    private static void listarPaises() {
+        System.out.println("Países registrados:\n");
+        for (int i = 0; i < paises.size(); i++) {
+            Pais p = paises.get(i);
+            String sel = "Sin selección";
+            if(p.getSeleccion() != null) {
+                sel = p.getSeleccion().getNombreFederacion();
+            }
+            System.out.println((i + 1) + ". " + p + " | Seleccion -> " + sel);
         }
     }
 }

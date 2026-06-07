@@ -83,6 +83,13 @@ public class Pais {
     public void agregarArbitro(Arbitro arbitro){
         this.arbitros.add(arbitro); //Ninguno o mas arbitros por Pais
     }
+
+
+    /** tostring() */
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + ", Bandera: " + bandera;
+    }
 }
 
 //ANTES DE HACER METODOS/INTERACTUAR CON "SEDE", "ARBITRO" O "SELECCION", VERIFICAR QUE NO ESTE VACIA LA LISTA/SEA NULL
