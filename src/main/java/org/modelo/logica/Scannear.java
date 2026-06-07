@@ -204,7 +204,7 @@ public class Scannear {
 
                 switch (eleccionUsuario) {
                     case 1: cargarPais(); break;
-                    case 2:
+                    case 2: cargarSeleccionyJugadores(); break;
                     case 3:
                     case 4: volver = true;
                         break;
@@ -237,7 +237,7 @@ public class Scannear {
 
         while(excepcion == false) {
             try {
-                System.out.println("Ingrese el número de Sede que le desea asignar un Pais: ");
+                System.out.println("Ingrese el número de Sede que le desea asignar al Pais: ");
                 int eleccionUsuario = numValido(sc, 1, sedes.size());
                 sc.nextLine();
 
@@ -252,6 +252,41 @@ public class Scannear {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
                 sc.nextLine();
             }
+        }
+    }
+
+
+    private static void cargarSeleccionyJugadores() {
+        Scanner sc = new Scanner(System.in);
+        try {
+            System.out.println("Comenzemos a cargar una seleccion, ingrese el nombre de Federación: ");
+            String federacion = sc.nextLine();
+            System.out.println("Ingrese la camiseta principal: ");
+            String camisetaPrincipal = sc.nextLine();
+            System.out.println("Ingrese la camiseta secundaria: ");
+            String camisetaSecundaria = sc.nextLine();
+            sc.nextLine();
+            System.out.println("¿Su selección es Cabeza de grupo?: ");
+            boolean cabezaGrupo = sc.nextBoolean();
+            sc.nextLine();
+            System.out.println("Ingrese el ranking de su Seleccion: ");
+            int ranking = sc.nextInt();
+
+
+            Seleccion seleccion = new Seleccion(federacion, camisetaPrincipal, camisetaSecundaria, cabezaGrupo, ranking);
+            System.out.println("La seleccion se cargó correctamente, pero aun nos faltan mas detalles...");
+
+            //como guardo la seleccion, ADONDE, una lista de paises????
+
+
+
+
+
+
+        }
+        catch(InputMismatchException e) {
+            System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
+            sc.nextLine();
         }
     }
 

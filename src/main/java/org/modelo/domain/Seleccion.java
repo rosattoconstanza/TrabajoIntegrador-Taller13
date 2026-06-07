@@ -43,6 +43,19 @@ public class Seleccion {
                 new ArrayList<CuerpoTecnico>(), new ArrayList<Jugador>());
     }
 
+    public Seleccion(String nombreFederacion, String camisetaPrincipal, String camisetaSecundaria, boolean cabezaGrupo,
+                     int rankingFIFA) {
+        this.nombreFederacion = nombreFederacion;
+        this.camisetaPrincipal = camisetaPrincipal;
+        this.camisetaSecundaria = camisetaSecundaria;
+        this.cabezaGrupo = cabezaGrupo;
+        this.rankingFIFA = rankingFIFA;
+        this.participacion = new ArrayList<Participacion>();
+        this.directoresTecnicos = new ArrayList<DirectorTecnico>();
+        this.cuerposTecnicos = new ArrayList<CuerpoTecnico>();
+        this.jugadores = new ArrayList<Jugador>();
+    }
+
     /** Getters */
     public String getNombreFederacion() {
         return nombreFederacion;
