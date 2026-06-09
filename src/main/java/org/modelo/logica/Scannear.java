@@ -206,7 +206,7 @@ public class Scannear {
 
                 switch (eleccionUsuario) {
                     case 1: cargarPais(); break;
-                    case 2: cargarSeleccionyJugadores(); break;
+                    case 2: cargarSeleccion(); break;
                     case 3:
                     case 4: volver = true;
                         break;
@@ -258,7 +258,7 @@ public class Scannear {
     }
 
 
-    private static void cargarSeleccionyJugadores() {
+    private static void cargarSeleccion() {
         Scanner sc = new Scanner(System.in);
 
         if (paises.isEmpty()) {
@@ -279,7 +279,7 @@ public class Scannear {
             }
 
 
-            System.out.println("Comenzemos a cargar una seleccion, ingrese el nombre de Federación: ");
+            System.out.println("Comenzemos a cargar una seleccion a este pais, ingrese el nombre de Federación: ");
             String federacion = sc.nextLine();
             System.out.println("Ingrese la camiseta principal: ");
             String camisetaPrincipal = sc.nextLine();
@@ -295,9 +295,9 @@ public class Scannear {
 
             Seleccion seleccion = new Seleccion(federacion, camisetaPrincipal, camisetaSecundaria, cabezaGrupo, ranking, pais);
             pais.setSeleccion(seleccion);
+            System.out.println("La seleccion se creó correctamente. Continuemos con sus jugadores...");
 
-
-
+            //cargarJugadores(); //Lo separo porque si no queda mucha informacion junta en un solo metodo
 
         }
         catch(InputMismatchException e) {
@@ -369,3 +369,8 @@ public class Scannear {
         }
     }
 }
+
+//private static void cargarJugadores(){
+    //Scanner sc = new Scanner(System.in);
+    //System.out.println("¿Cuantos jugadores desea añadir?: ");
+//}
