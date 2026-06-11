@@ -218,7 +218,7 @@ public class Scannear {
                     case 2:
                         cargarSeleccionyJugadores();
                         break;
-                    case 3:
+                    case 3: cargarCuerpoyDirector(); break;
                     case 4:
                         volver = true;
                         break;
@@ -350,7 +350,63 @@ public class Scannear {
             sc.nextLine();
         }
     }
+
+    private static void cargarCuerpoyDirector() {
+        Scanner sc = new Scanner(System.in);
+
+        if (paises.isEmpty()) {
+            System.out.println("Primero debe cargar al menos un País con su Selección para empezar con esta sección.");
+            return;
+        }
+
+        try {
+            listarPaises();
+            System.out.println("¿La seleccion de que pais desea asignarle su Cuerpo y Director Tecnico?");
+            int numeroUsuario = numValido(sc, 1, paises.size()) - 1;
+            sc.nextLine();
+
+            Pais paisElegido = paises.get(numeroUsuario);
+            if(paisElegido.getSeleccion() == null) {
+                System.out.println("Este pais no tiene una seleccion cargada. Porfavor, cargue primero una selección.");
+                return;
+            }
+            Seleccion seleccionElegida = paisElegido.getSeleccion();
+
+            // ------------------ DT ------------
+
+            System.out.println("Vamos a comenzar cargando a los Directores Tecnicos de la seleccion "
+                    + seleccionElegida.getNombreFederacion() + " ¿Cuantos desea añadir?: ");
+            int cantidadDT = sc.nextInt();
+            sc.nextLine();
+
+            for(int i = 0; i < cantidadDT; i++) {
+                System.out.println("Nombre: ");
+                String nombreDT = sc.nextLine();
+                System.out.println("Fecha de nacimiento: ");
+                int nacimientoDT = sc.nextInt();
+                sc.nextLine();
+                System.out.println("Fecha de nombramiento: ");
+                int nombramientoDT = sc.nextInt();
+                sc.nextLine();
+
+                DirectorTecnico dt = new DirectorTecnico(nombreDT, nacimientoDT, nombramientoDT);
+                seleccionElegida.agregarDirectorTecnico(dt);
+            }
+            System.out.println("¡Tu seleccion ya tiene sus Directores Tecnicos! Continuemos con el Cuerpo Tecnico...");
+
+
+
+            //---------------- CT ---------
+        }
+        catch(InputMismatchException e) {
+            System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
+            sc.nextLine();
+        }
+
+
+    }
 //no se corta la linea esta ;( aaaaaa
+    //revisar en ejecucion si hay q poner while rodeando los trys
 
 
 
