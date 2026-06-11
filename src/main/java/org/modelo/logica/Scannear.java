@@ -380,17 +380,18 @@ public class Scannear {
             sc.nextLine();
 
             for(int i = 0; i < cantidadDT; i++) {
-                System.out.println("Nombre: ");
+                System.out.println("Nombre del DT numero " + (i+1) + ":");
                 String nombreDT = sc.nextLine();
-                System.out.println("Fecha de nacimiento: ");
+                System.out.println("Fecha de nacimiento del DT numero " + (i+1) + ":");
                 int nacimientoDT = sc.nextInt();
                 sc.nextLine();
-                System.out.println("Fecha de nombramiento: ");
+                System.out.println("Fecha de nombramiento del DT numero " + (i+1) + ":");
                 int nombramientoDT = sc.nextInt();
                 sc.nextLine();
 
                 DirectorTecnico dt = new DirectorTecnico(nombreDT, nacimientoDT, nombramientoDT);
                 seleccionElegida.agregarDirectorTecnico(dt);
+                System.out.println("Director Tecnico numero " + (i+1) + " agregado correctamente.");
             }
             System.out.println("¡Tu seleccion ya tiene sus Directores Tecnicos! Continuemos con el Cuerpo Tecnico...");
 
