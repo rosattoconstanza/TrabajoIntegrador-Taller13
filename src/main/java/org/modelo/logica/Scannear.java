@@ -2,17 +2,14 @@ package org.modelo.logica;
 import java.util.*;
 import org.modelo.domain.*;
 public class Scannear {
-    static ArrayList<Pais> paises = new ArrayList<Pais>(); //para poder conectar toodo con Mundial
-
     //------------------------------------------------------------
-    static Mundial mundial;
-
-    public static void inicializarMundial() {
-        Scanner sc = new Scanner(System.in);
+    public Mundial inicializarMundial() {
         boolean excepcion = false;
 
         while (excepcion == false) {
             try {
+                Scanner sc = new Scanner(System.in);
+
                 System.out.println("Para comenzar, necesitamos datos iniciales: ");
                 System.out.println("Ingrese Año: ");
                 int anio = sc.nextInt();
@@ -24,15 +21,19 @@ public class Scannear {
                 System.out.println("Ingrese fecha de finalización: ");
                 int fechaFinal = sc.nextInt();
 
-                mundial = new Mundial(anio, mascota, fechaInicio, fechaFinal);
+                Mundial mundial = new Mundial(anio, mascota, fechaInicio, fechaFinal);
                 System.out.println("El Mundial se creo correctamente, muchas gracias.");
                 excepcion = true;
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupcion, parece que se ingresó un " +
                         "texto que deberia ser un entero, intente nuevamente.");
                 sc.nextLine();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
+            //finally con close de scanner
         }
+        return mundial;
     }
 
     //---------------------------------------------------------------------------
@@ -406,6 +407,7 @@ public class Scannear {
 
 
     }
+
 //no se corta la linea esta ;( aaaaaa
     //revisar en ejecucion si hay q poner while rodeando los trys
 
