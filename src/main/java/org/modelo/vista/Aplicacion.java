@@ -1,6 +1,6 @@
 package org.modelo.vista;
 import org.modelo.domain.*;
-import org.modelo.logica.*;
+import org.modelo.logica.Scannear;
 import java.util.*;
 
 public class Aplicacion {

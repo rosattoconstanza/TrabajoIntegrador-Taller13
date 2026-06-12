@@ -124,6 +124,7 @@ public Grupo configurarGrupo(ArrayList<Pais> paises) {
     }
     return grupo;
 }
+//----------------------------------------------------------------------------------
 
 
 //----------------------------------------------------------------------------------
@@ -217,7 +218,7 @@ public Grupo configurarGrupo(ArrayList<Pais> paises) {
         }
     }
 
-    private static void cargarPais() {
+    public Pais cargarPais() {
         Scanner sc = new Scanner(System.in);
         List<Sede> sedes = mundial.getSedes();
         boolean excepcion = false;
@@ -255,7 +256,7 @@ public Grupo configurarGrupo(ArrayList<Pais> paises) {
     }
 
 
-    private static void cargarSeleccionyJugadores() {
+    public void cargarSeleccionyJugadores() {
         Scanner sc = new Scanner(System.in);
 
         if (paises.isEmpty()) {
@@ -338,7 +339,7 @@ public Grupo configurarGrupo(ArrayList<Pais> paises) {
         }
     }
 
-    private static void cargarCuerpoyDirector() {
+    public static void cargarCuerpoyDirector() {
         Scanner sc = new Scanner(System.in);
 
         if (paises.isEmpty()) {
@@ -412,7 +413,7 @@ public Grupo configurarGrupo(ArrayList<Pais> paises) {
 
 
         //---------------------------------------------------------------------------
-        public int numValido (Scanner sc,int min, int max){
+        public static int numValido (Scanner sc,int min, int max){
             int op;
 
             do {
@@ -428,7 +429,7 @@ public Grupo configurarGrupo(ArrayList<Pais> paises) {
             return op;
         }
 
-        public void listarSedes (Mundial mundial) {
+        public void listarSedes(Mundial mundial) {
             System.out.println("Sedes registradas:\n");
             int i = 1;
             for (Sede s : mundial.getSedes()) {
@@ -439,7 +440,7 @@ public Grupo configurarGrupo(ArrayList<Pais> paises) {
             }
         }
 
-        public void listarPaises (ArrayList<Pais> paises) {
+        public static void listarPaises (ArrayList<Pais> paises) {
             System.out.println("Países registrados:\n");
             for (int i = 0; i < paises.size(); i++) {
                 Pais p = paises.get(i);
