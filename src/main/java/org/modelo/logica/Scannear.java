@@ -100,19 +100,22 @@ public class Scannear {
 
     public static void registroDeEventosDeCampo() {
     }
-    public static void configurarFases(){
 
-        Fase faseGrupos = new Fase(NombreFase.Grupos);
-        Fase dieciseisavos = new Fase(NombreFase.Dieciseisavos);
-        Fase octavos = new Fase(NombreFase.Octavos);
-        Fase cuartos = new Fase(NombreFase.Cuartos);
-        Fase semifinal = new Fase(NombreFase.Semifinal);
-        Fase finalMundial = new Fase(NombreFase.Final);
+    public Fase configurarFases(){
+        ArrayList<Fase> fases = new ArrayList<>();
+
+        fases.add(new Fase(NombreFase.Grupos));
+        fases.add(new Fase(NombreFase.Dieciseisavos));
+        fases.add(new Fase(NombreFase.Octavos));
+        fases.add(new Fase(NombreFase.Cuartos));
+        fases.add(new Fase(NombreFase.Semifinal));
+        fases.add(new Fase(NombreFase.Final));
 
         System.out.println("Fases creadas correctamente.");
+        return fases;
     }
     //----------------------------------------------------------------------
-    public static void configurarGrupo(){
+    public Grupo configurarGrupo(){
 
         Scanner sc = new Scanner(System.in);
 
@@ -131,8 +134,8 @@ public class Scannear {
             Pais pais = paises.get(indice);
             grupo.agregarSeleccion(pais.getSeleccion());
         }
-
         System.out.println("Grupo creado correctamente.");
+        return grupo;
     }
 
     //----------------------------------------------------------------------------------
