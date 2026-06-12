@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c91c9272-7ae7-4212-bec0-238fa5a572f8" name="Changes" comment="Fase">
+    <list default="true" id="c91c9272-7ae7-4212-bec0-238fa5a572f8" name="Changes" comment="&quot;Clases&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Aplicacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +20,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "rosattoconstanza"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/rosattoconstanza/TrabajoIntegrador-Taller13.git",
+    "accountId": "6f20a80a-87fc-429a-a621-2e33d1effb83"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6,
   &quot;fromUser&quot;: false
@@ -102,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781288704949</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="&quot;Clases&quot;">
+      <option name="closed" value="true" />
+      <created>1781290391310</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1781290391310</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +141,7 @@
     <MESSAGE value="MEtodos" />
     <MESSAGE value="Borrar" />
     <MESSAGE value="Fase" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fase" />
+    <MESSAGE value="&quot;Clases&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Clases&quot;" />
   </component>
 </project>
