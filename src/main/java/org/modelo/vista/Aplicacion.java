@@ -100,4 +100,103 @@ public class Aplicacion {
 
         }
     }
+
+    private void menuInformes() {
+        org.modelo.logica.Informes informes = new org.modelo.logica.Informes();
+        Scanner sc = new Scanner(System.in);
+        boolean volver = false;
+
+        while (!volver) {
+            System.out.println("\n-- INFORMES --\n" +
+                    "1. Tabla de posiciones por Grupo\n" +
+                    "2. Resultados por Selección\n" +
+                    "3. Ranking de Goleadores\n" +
+                    "4. Informe Disciplinario por Selección\n" +
+                    "5. Informe Disciplinario por Jugador\n" +
+                    "6. Ficha Técnica de Partido\n" +
+                    "7. Estadísticas por Estadio\n" +
+                    "8. Estadísticas por Ciudad\n" +
+                    "9. Volver");
+            int op = scannear.numValido(sc,1, 9);
+
+            switch (op) {
+                case 1:
+                    if (grupos.isEmpty()) { System.out.println("No hay grupos."); break; }
+                    for (int i = 0; i < grupos.size(); i++)
+                        System.out.println((i+1) + ". Grupo " + grupos.get(i).getIdentificacion());
+                    int gIdx = scannear.numValido(sc,1, grupos.size()) - 1;
+                    informes.tablaPosicionesPorGrupo(grupos.get(gIdx));
+                    break;
+                case 2:
+                    if (paises.isEmpty()) { System.out.println("No hay países."); break; }
+                    scannear.listarPaises(paises);
+                    Seleccion s2 = paises.get(scannear.numValido(sc,1, paises.size()) - 1).getSeleccion();
+                    if (s2 == null) { System.out.println("Sin selección."); break; }
+                    informes.resultadosPorSeleccion(s2);
+                    break;
+                case 3:
+                    informes.rankingGoleadores(obtenerTodasLasSelecciones());
+                    break;
+                case 4:
+                    informes.informeDisciplinarioPorSeleccion(obtenerTodasLasSelecciones());
+                    break;
+                case 5:
+                    if (paises.isEmpty()) { System.out.println("No hay países."); break; }
+                    scannear.listarPaises(paises);
+                    Seleccion s5 = paises.get(scannear.numValido(sc,1, paises.size()) - 1).getSeleccion();
+                    if (s5 == null || s5.getJugadores().isEmpty()) { System.out.println("Sin jugadores."); break; }
+                    for (int i = 0; i < s5.getJugadores().size(); i++)
+                        System.out.println((i+1) + ". " + s5.getJugadores().get(i).getNombre());
+                    Jugador j5 = s5.getJugadores().get(scannear.numValido(sc,1, s5.getJugadores().size()) - 1);
+                    informes.informeDisciplinarioPorJugador(j5, s5);
+                    break;
+                case 6:
+                    ArrayList<Partido> partidos = obtenerTodosLosPartidos();
+                    if (partidos.isEmpty()) { System.out.println("No hay partidos."); break; }
+                    for (int i = 0; i < partidos.size(); i++)
+                        System.out.println((i+1) + ". " + partidos.get(i).getFecha() + " - " +
+                                partidos.get(i).getParticipacion()[0].getSelecciones().getNombreFederacion() + " vs " +
+                                partidos.get(i).getParticipacion()[1].getSelecciones().getNombreFederacion());
+                    informes.fichaTecnicaPartido(partidos.get(scannear.numValido(sc,1, partidos.size()) - 1));
+                    break;
+                case 7:
+                    ArrayList<Estadio> estadios = obtenerTodosLosEstadios();
+                    if (estadios.isEmpty()) { System.out.println("No hay estadios."); break; }
+                    for (int i = 0; i < estadios.size(); i++)
+                        System.out.println((i+1) + ". " + estadios.get(i).getNombre());
+                    informes.estadisticasPorEstadio(estadios.get(scannear.numValido(sc,1, estadios.size()) - 1));
+                    break;
+                case 8:
+                    System.out.println("Ingrese ciudad: ");
+                    informes.estadisticasPorCiudad(sc.nextLine(), mundial);
+                    break;
+                case 9:
+                    volver = true;
+                    break;
+            }
+        }
+    }
+
+    private ArrayList<Partido> obtenerTodosLosPartidos() {
+        ArrayList<Partido> todos = new ArrayList<Partido>();
+        for (Sede s : mundial.getSedes())
+            for (Estadio e : s.getEstadios())
+                todos.addAll(e.getPartidos());
+        return todos;
+    }
+
+    private ArrayList<Estadio> obtenerTodosLosEstadios() {
+        ArrayList<Estadio> estadios = new ArrayList<Estadio>();
+        for (Sede s : mundial.getSedes())
+            estadios.addAll(s.getEstadios());
+        return estadios;
+    }
+
+    private ArrayList<Seleccion> obtenerTodasLasSelecciones() {
+        ArrayList<Seleccion> sels = new ArrayList<Seleccion>();
+        for (Pais p : paises)
+            if (p.getSeleccion() != null) sels.add(p.getSeleccion());
+        return sels;
+    }
+
 }
