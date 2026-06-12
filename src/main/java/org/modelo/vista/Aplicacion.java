@@ -7,5 +7,6 @@ public class Aplicacion {
     public void ejecutar() {
 
         Mundial mundial = scannear.inicializarMundial();
+
     }
 }

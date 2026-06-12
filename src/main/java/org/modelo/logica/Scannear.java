@@ -4,11 +4,13 @@ import org.modelo.domain.*;
 public class Scannear {
     //------------------------------------------------------------
     public Mundial inicializarMundial() {
+        Scanner sc = new Scanner(System.in);
         boolean excepcion = false;
+        Mundial mundial = null;
 
-        while (excepcion == false) {
+        while (!excepcion) {
             try {
-                Scanner sc = new Scanner(System.in);
+
 
                 System.out.println("Para comenzar, necesitamos datos iniciales: ");
                 System.out.println("Ingrese Año: ");
@@ -21,17 +23,18 @@ public class Scannear {
                 System.out.println("Ingrese fecha de finalización: ");
                 int fechaFinal = sc.nextInt();
 
-                Mundial mundial = new Mundial(anio, mascota, fechaInicio, fechaFinal);
+                mundial = new Mundial(anio, mascota, fechaInicio, fechaFinal);
                 System.out.println("El Mundial se creo correctamente, muchas gracias.");
                 excepcion = true;
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupcion, parece que se ingresó un " +
                         "texto que deberia ser un entero, intente nuevamente.");
-                sc.nextLine();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-            //finally con close de scanner
+            finally {
+                sc.close();
+            }
         }
         return mundial;
     }
@@ -166,11 +169,12 @@ public class Scannear {
         }
     }
 
-    private static void registrarSede() {
+    private Sede registrarSede() {
         Scanner sc = new Scanner(System.in);
+        Sede sede = null;
         boolean excepcion = false;
 
-        while (excepcion == false) {
+        while (!excepcion) {
             try {
                 System.out.println("Ingrese la ciudad de la Sede: ");
                 String ciudad = sc.nextLine();
@@ -185,7 +189,7 @@ public class Scannear {
                 System.out.println("Ingrese la zona horaria de la Sede: ");
                 String zonaHoraria = sc.nextLine();
 
-                Sede sede = new Sede(ciudad, alturaNivelMar, clima, zonaHoraria);
+                sede = new Sede(ciudad, alturaNivelMar, clima, zonaHoraria);
                 mundial.agregarSede(sede);
                 System.out.println("La Sede se creó correctamente.");
                 excepcion = true;
@@ -194,6 +198,7 @@ public class Scannear {
                 sc.nextLine();
             }
         }
+        return sede;
     }
 
     private static void registrarEstadio() {
