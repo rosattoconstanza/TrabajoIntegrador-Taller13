@@ -68,64 +68,44 @@ public class Scannear {
     public static void registroDeEventosDeCampo() {
     }
 
+    public Fase configurarFases(){
+        ArrayList<Fase> fases = new ArrayList<>();
 
-    public Fase configurarFases(ArrayList<Fase> fases){
+        fases.add(new Fase(NombreFase.Grupos));
+        fases.add(new Fase(NombreFase.Dieciseisavos));
+        fases.add(new Fase(NombreFase.Octavos));
+        fases.add(new Fase(NombreFase.Cuartos));
+        fases.add(new Fase(NombreFase.Semifinal));
+        fases.add(new Fase(NombreFase.Final));
+
+        System.out.println("Fases creadas correctamente.");
+        return fases;
+    }
+    //----------------------------------------------------------------------
+    public Grupo configurarGrupo(){
+
         Scanner sc = new Scanner(System.in);
-        Fase fase = null;
-        boolean excepcion = false;
-        NombreFase[] nombres = NombreFase.values();
-        while (!excepcion){
-            try {
-                for (int i=0; i<nombres.length; i++){
-                    System.out.println(i + "-" + nombres[i]);
-                }
-                System.out.println("ELija el numero de la Fase a crear:");
-                int indice = sc.nextInt();
-                fase = new Fase(nombres[indice]);
-                System.out.println("Fases creadas correctamente.");
-                excepcion = true;
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            } finally {
-                sc.close();
-            }
+
+        System.out.println("Identificación:");
+        String identificacion = sc.nextLine();
+        System.out.println("Descripción:");
+        String descripcion = sc.nextLine();
+        Grupo grupo = new Grupo(identificacion, descripcion, null);
+        listarPaises();
+
+        for(int i = 0; i < 4; i++){
+
+            System.out.println("Seleccione una selección:");
+            int indice = sc.nextInt();
+
+            Pais pais = paises.get(indice);
+            grupo.agregarSeleccion(pais.getSeleccion());
         }
-        return fase;
+        System.out.println("Grupo creado correctamente.");
+        return grupo;
     }
-}
-//----------------------------------------------------------------------
-public Grupo configurarGrupo(ArrayList<Pais> paises) {
-    Grupo grupo = null;
-    Scanner sc = new Scanner(System.in);
-    boolean excepcion = false;
 
-    while (!excepcion) {
-        try {
-            System.out.println("Identificación:");
-            String identificacion = sc.nextLine();
-
-            System.out.println("Descripción:");
-            String descripcion = sc.nextLine();
-
-            grupo = new Grupo(identificacion, descripcion);
-            listarPaises();
-            for (int i = 0; i < 4; i++) {
-                System.out.println("Seleccione una selección:");
-                int indice = sc.nextInt();
-                Pais pais = paises.get(indice);
-                grupo.agregarSeleccion(pais.getSeleccion());
-            }
-            System.out.println("Grupo creado correctamente.");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        } finally {
-            sc.close();
-        }
-    }
-    return grupo;
-}
-
-//----------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------
 
     public Sede registrarSede() {
         Scanner sc = new Scanner(System.in);
