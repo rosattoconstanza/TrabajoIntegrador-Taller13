@@ -255,7 +255,7 @@ public class Informes {
 
         int total = 0;
         for (Sede sede : mundial.getSedes()) {
-            if (!sede.getCiudad().equals(ciudad)) continue;
+            if (!sede.getCiudad().equalsIgnoreCase(ciudad)) continue;
             for (Estadio est : sede.getEstadios()) {
                 for (Partido p : est.getPartidos()) {
                     total++;

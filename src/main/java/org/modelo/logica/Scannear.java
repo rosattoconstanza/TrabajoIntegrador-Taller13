@@ -1,8 +1,6 @@
 package org.modelo.logica;
 import java.util.*;
 import org.modelo.domain.*;
-import org.modelo.vista.Aplicacion;
-
 public class Scannear {
     //------------------------------------------------------------
     public Mundial inicializarMundial() {
@@ -12,8 +10,6 @@ public class Scannear {
 
         while (!excepcion) {
             try {
-
-
                 System.out.println("Para comenzar, necesitamos datos iniciales: ");
                 System.out.println("Ingrese Año: ");
                 int anio = sc.nextInt();
@@ -39,40 +35,6 @@ public class Scannear {
             }
         }
         return mundial;
-    }
-
-    //---------------------------------------------------------------------------
-
-    public static void menuInical() {
-        Scanner sc = new Scanner(System.in);
-        boolean salir = false;
-
-        while (salir == false) {
-            try {
-                System.out.println("¡Bienvenido a la organización del Mundial de fútbol 2026! ¿Que desea hacer?:\n" +
-                        "1. Gestión de Infraestructura.\n" + "2. Administración de Delegaciones.\n" +
-                        "3.Organización Deportiva.\n" + "4.Registro de Eventos de Campo.\n" + "5.Informes.\n" + "6. Salir.");
-                int eleccionUsuario = numValido(sc, 1, 6);
-                switch (eleccionUsuario) {
-                    case 1:
-                        GestionDeInfraestructura();
-                        break;
-                    case 2:
-                        AdministracionDeDelegaciones();
-                        break;
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                        System.out.println("Gracias por utilizar nuestro sistema, vuelva pronto :)");
-                        salir = true;
-                        break;
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Lamentamos la interrupción, parece que se no ingresó un entero, intente nuevamente.");
-                sc.nextLine();
-            }
-        }
     }
 
     //-----------------------------------------------------------------------
@@ -120,67 +82,32 @@ public class Scannear {
         return fases;
     }
     //----------------------------------------------------------------------
-    public Grupo configurarGrupo(ArrayList<Pais> paises) {
-        Grupo grupo = null;
+    public Grupo configurarGrupo(){
+
         Scanner sc = new Scanner(System.in);
-        boolean excepcion = false;
 
-        while (!excepcion) {
-            try {
-                System.out.println("Identificación:");
-                String identificacion = sc.nextLine();
+        System.out.println("Identificación:");
+        String identificacion = sc.nextLine();
+        System.out.println("Descripción:");
+        String descripcion = sc.nextLine();
+        Grupo grupo = new Grupo(identificacion, descripcion, null);
+        listarPaises();
 
-                System.out.println("Descripción:");
-                String descripcion = sc.nextLine();
+        for(int i = 0; i < 4; i++){
 
-                grupo = new Grupo(identificacion, descripcion);
-                listarPaises();
-                for (int i = 0; i < 4; i++) {
-                    System.out.println("Seleccione una selección:");
-                    int indice = sc.nextInt();
-                    Pais pais = paises.get(indice);
-                    grupo.agregarSeleccion(pais.getSeleccion());
-                }
-                System.out.println("Grupo creado correctamente.");
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            } finally {
-                sc.close();
-            }
+            System.out.println("Seleccione una selección:");
+            int indice = sc.nextInt();
+
+            Pais pais = paises.get(indice);
+            grupo.agregarSeleccion(pais.getSeleccion());
         }
+        System.out.println("Grupo creado correctamente.");
         return grupo;
     }
 
-
     //----------------------------------------------------------------------------------
-    public static void GestionDeInfraestructura() {
-        Scanner sc = new Scanner(System.in);
-        boolean volver = false;
-        while (volver == false) {
-            try {
-                System.out.println("¿En que nos enfocamos?\n" + "1. Registrar Sede. \n" +
-                        "2. Registrar Estadio a Sede. \n" + "3. Volver.");
-                int eleccionusuario = numValido(sc, 1, 3);
 
-                switch (eleccionusuario) {
-                    case 1:
-                        registrarSede();
-                        break;
-                    case 2:
-                        registrarEstadio();
-                        break;
-                    case 3:
-                        volver = true;
-                        break;
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Lamentamos la interrupción, parece que se no ingresó un entero, intente nuevamente.");
-                sc.nextLine();
-            }
-        }
-    }
-
-    private Sede registrarSede() {
+    public Sede registrarSede() {
         Scanner sc = new Scanner(System.in);
         Sede sede = null;
         boolean excepcion = false;
@@ -201,8 +128,6 @@ public class Scannear {
                 String zonaHoraria = sc.nextLine();
 
                 sede = new Sede(ciudad, alturaNivelMar, clima, zonaHoraria);
-                mundial.agregarSede(sede);
-                System.out.println("La Sede se creó correctamente.");
                 excepcion = true;
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
@@ -212,7 +137,7 @@ public class Scannear {
         return sede;
     }
 
-    private static void registrarEstadio() {
+    public Estadio registrarEstadio() {
         Scanner sc = new Scanner(System.in);
         boolean excepcion = false;
         List<Sede> sedes = mundial.getSedes();
@@ -473,7 +398,7 @@ public class Scannear {
 
 
         //---------------------------------------------------------------------------
-        private static int numValido (Scanner sc,int min, int max){
+        public int numValido (Scanner sc,int min, int max){
             int op;
 
             do {
@@ -489,7 +414,7 @@ public class Scannear {
             return op;
         }
 
-        private static void listarSedes () {
+        public void listarSedes () {
             System.out.println("Sedes registradas:\n");
             int i = 1;
             for (Sede s : mundial.getSedes()) {
@@ -500,7 +425,7 @@ public class Scannear {
             }
         }
 
-        private static void listarPaises () {
+        public void listarPaises () {
             System.out.println("Países registrados:\n");
             for (int i = 0; i < paises.size(); i++) {
                 Pais p = paises.get(i);
