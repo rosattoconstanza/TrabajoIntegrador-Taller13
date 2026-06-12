@@ -1,6 +1,7 @@
 package org.modelo.logica;
 import java.util.*;
 import org.modelo.domain.*;
+
 public class Scannear {
     //------------------------------------------------------------
     public Mundial inicializarMundial() {
@@ -22,7 +23,6 @@ public class Scannear {
                 int fechaFinal = sc.nextInt();
 
                 mundial = new Mundial(anio, mascota, fechaInicio, fechaFinal);
-                System.out.println("El Mundial se creo correctamente, muchas gracias.");
                 excepcion = true;
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupcion, parece que se ingresó un " +
@@ -140,35 +140,28 @@ public class Scannear {
     public Estadio registrarEstadio() {
         Scanner sc = new Scanner(System.in);
         boolean excepcion = false;
-        List<Sede> sedes = mundial.getSedes();
+        Estadio estadio = null;
 
-        if (sedes.isEmpty()) {
-            System.out.println("Parece que aún no se registraron sedes, vuelva a intentarlo.");
-            return;
-        }
-        listarSedes();
         while (excepcion == false) {
             try {
-                System.out.println("Ingrese el número de Sede que le desea añadir un Estadio: ");
-                int eleccionUsuario = numValido(sc, 1, sedes.size());
-                sc.nextLine();
-
-                int indice = eleccionUsuario - 1;
-                Sede sede = sedes.get(indice);
                 System.out.println("Nombre del Estadio: ");
                 String nombreEstadio = sc.nextLine();
                 System.out.println("Capacidad del Estadio: ");
                 int capacidadEstadio = sc.nextInt();
 
-                Estadio e = new Estadio(nombreEstadio, capacidadEstadio, sede);
-                sede.agregarEstadio(e);
-                System.out.println("El Estadio se creó correctamente.");
+                estadio = new Estadio(nombreEstadio, capacidadEstadio);
                 excepcion = true;
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
                 sc.nextLine();
+            } catch (Exception e) {
+                e.getMessage();
+            }
+            finally {
+                sc.close();
             }
         }
+        return estadio;
     }
 
     //--------------------------------------------------------------------------------
@@ -414,7 +407,7 @@ public class Scannear {
             return op;
         }
 
-        public void listarSedes () {
+        public void listarSedes (Mundial mundial) {
             System.out.println("Sedes registradas:\n");
             int i = 1;
             for (Sede s : mundial.getSedes()) {
@@ -425,7 +418,7 @@ public class Scannear {
             }
         }
 
-        public void listarPaises () {
+        public void listarPaises (ArrayList<Pais> paises) {
             System.out.println("Países registrados:\n");
             for (int i = 0; i < paises.size(); i++) {
                 Pais p = paises.get(i);

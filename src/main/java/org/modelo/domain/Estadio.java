@@ -26,6 +26,13 @@ public class Estadio {
         this.partidos = new ArrayList<Partido>();
     }
 
+    /** Constructor parametrizado basico */
+    public Estadio(String nombre, int capacidad) {
+        this.nombre = nombre;
+        this.capacidad = capacidad;
+        this.partidos = new ArrayList<Partido>();
+    }
+
     /** Constructor por defecto */
     public Estadio(){
         this("", 0, null, new ArrayList<Partido>());

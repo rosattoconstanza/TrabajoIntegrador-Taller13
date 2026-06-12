@@ -22,6 +22,7 @@ public class Aplicacion {
     //ARRANCA
     public void ejecutar() {
         this.mundial = scannear.inicializarMundial();
+        System.out.println("El Mundial se creo correctamente, muchas gracias.");
         menuPrincipal();
     }
 
@@ -60,7 +61,10 @@ public class Aplicacion {
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un entero, intente nuevamente.");
                 sc.nextLine();
-            } finally {
+            } catch (Exception e) {
+                e.getMessage();
+            }
+            finally {
                 sc.close();
             }
         }
@@ -69,6 +73,7 @@ public class Aplicacion {
     public void menuInfraestructura() {
         Scanner sc = new Scanner(System.in);
         boolean volver = false;
+
         while (volver == false) {
             try {
                 System.out.println("¿En que nos enfocamos?\n" + "1. Registrar Sede. \n" +
@@ -80,7 +85,22 @@ public class Aplicacion {
                         mundial.agregarSede(sede);
                         System.out.println("Sede agregada correctamente.");
                         break;
-                    case 2: Estadio estadio = scannear.registrarEstadio();
+                    case 2:
+                        if (mundial.getSedes().isEmpty()) {
+                            System.out.println("Parece que aún no se registraron sedes, vuelva a intentarlo.");
+                            return;
+                        }
+
+                        scannear.listarSedes(mundial);
+                        System.out.println("Ingrese el número de Sede que le desea añadir un Estadio: ");
+                        int eleccionUsuario = scannear.numValido(sc, 1, mundial.getSedes().size());
+                        sc.nextLine();
+
+                        int indice = eleccionUsuario - 1;
+                        Sede sedeElegida = mundial.getSedes().get(indice);
+
+                        Estadio estadio = scannear.registrarEstadio();
+                        sedeElegida.agregarEstadio(estadio);
                         System.out.println("Estadio agregado correctamente.");
                         break;
                     case 3: volver = true; break;
