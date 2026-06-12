@@ -121,6 +121,12 @@ public class Aplicacion {
         }
     }
 
+    private void menuEventos() {
+        ArrayList<Partido> todosPartidos = obtenerTodosLosPartidos();
+        if (todosPartidos.isEmpty()) { System.out.println("No hay partidos planificados."); return; }
+       // scannear.ingresarEventosPartido(todosPartidos);
+    }
+
     private void menuInformes() {
         org.modelo.logica.Informes informes = new org.modelo.logica.Informes();
         Scanner sc = new Scanner(System.in);
