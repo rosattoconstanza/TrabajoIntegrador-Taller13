@@ -52,11 +52,11 @@ public class Scannear {
         switch(opcion){
 
             case 1:
-                configurarGrupo();
+                //configurarGrupo();
                 break;
 
             case 2:
-                configurarFases();
+                //configurarFases();
                 break;
 
             case 3:
@@ -92,7 +92,7 @@ public class Scannear {
         }
         return fase;
     }
-}
+
 //----------------------------------------------------------------------
 public Grupo configurarGrupo(ArrayList<Pais> paises) {
     Grupo grupo = null;
