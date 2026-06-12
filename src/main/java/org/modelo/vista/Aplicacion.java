@@ -4,6 +4,25 @@ import org.modelo.logica.*;
 
 public class Aplicacion {
     Scannear scannear;
+
+    Aplicacion() {
+        this.scannear = new Scannear();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void ejecutar() {
 
         Mundial mundial = scannear.inicializarMundial();
