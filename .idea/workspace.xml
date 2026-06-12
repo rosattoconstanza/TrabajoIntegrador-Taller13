@@ -4,23 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="&quot;Avanzando con lo principal&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Aplicacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="fc4dad00-d110-4465-a0d8-dfba4a82f041" name="Changes" comment="&quot;Avanzando con lo principal&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -192,15 +180,7 @@
       <option name="project" value="LOCAL" />
       <updated>1781196534096</updated>
     </task>
-    <task id="LOCAL-00015" summary="&quot;Avanzando con lo principal&quot;">
-      <option name="closed" value="true" />
-      <created>1781200199212</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1781200199212</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

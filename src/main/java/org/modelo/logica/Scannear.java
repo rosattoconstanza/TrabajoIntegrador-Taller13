@@ -72,39 +72,69 @@ public class Scannear {
 
     //-----------------------------------------------------------------------
 
-    public static void organizaciónDeportiva() {
+    public static void organizacionDeportiva(){
+
         Scanner sc = new Scanner(System.in);
-        System.out.println("1.Configurar los Grupos 2. Configurar las Fases de eliminación \n" +
-                "3.Planificar los Partidos.");
-        int eleccion = sc.nextInt();
-        switch (eleccion) {
+
+        System.out.println("1. Configurar Grupos");
+        System.out.println("2. Configurar Fases");
+        System.out.println("3. Planificar Partidos");
+
+        int opcion = sc.nextInt();
+
+        switch(opcion){
+
             case 1:
                 configurarGrupo();
                 break;
 
             case 2:
-                //configurarFases();
+                configurarFases();
                 break;
 
             case 3:
-                //planificarPartidos();
+                //planificarPartido();
                 break;
-
-            default:
-                System.out.println("Opción inválida");
         }
     }
 
     public static void registroDeEventosDeCampo() {
     }
 
-    public static void configurarGrupo() {
+
+public static void configurarFases(){
+
+    Fase faseGrupos = new Fase(NombreFase.Grupos);
+    Fase dieciseisavos = new Fase(NombreFase.Dieciseisavos);
+    Fase octavos = new Fase(NombreFase.Octavos);
+    Fase cuartos = new Fase(NombreFase.Cuartos);
+    Fase semifinal = new Fase(NombreFase.Semifinal);
+    Fase finalMundial = new Fase(NombreFase.Final);
+
+    System.out.println("Fases creadas correctamente.");
+}
+//----------------------------------------------------------------------
+    public static void configurarGrupo(){
+
         Scanner sc = new Scanner(System.in);
-        System.out.println("Cantidad de grupos a añadir: ");
-        int cantidad = sc.nextInt();
-        for (int i = 0; i < cantidad; i++) {
-            System.out.println("Identificacion: ");
+
+        System.out.println("Identificación:");
+        String identificacion = sc.nextLine();
+        System.out.println("Descripción:");
+        String descripcion = sc.nextLine();
+        Grupo grupo = new Grupo(identificacion, descripcion, null);
+        listarPaises();
+
+        for(int i = 0; i < 4; i++){
+
+            System.out.println("Seleccione una selección:");
+            int indice = sc.nextInt();
+
+            Pais pais = paises.get(indice);
+            grupo.agregarSeleccion(pais.getSeleccion());
         }
+
+        System.out.println("Grupo creado correctamente.");
     }
 
     //----------------------------------------------------------------------------------
