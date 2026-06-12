@@ -188,36 +188,6 @@ public Grupo configurarGrupo(ArrayList<Pais> paises) {
 
     //--------------------------------------------------------------------------------
 
-    public static void AdministracionDeDelegaciones() {
-        Scanner sc = new Scanner(System.in);
-        boolean volver = false;
-
-        while (volver == false) {
-            try {
-                System.out.println("¿En que nos enfocamos?\n" + "1. Cargar Pais participante.\n" +
-                        "2. Cargar Seleccion y su lista de jugadores.\n" + "3. Cargar Cuerpo Tecnico y Director Tecnico.\n" +
-                        "4. Volver.");
-                int eleccionUsuario = numValido(sc, 1, 4);
-
-                switch (eleccionUsuario) {
-                    case 1:
-                        cargarPais();
-                        break;
-                    case 2:
-                        cargarSeleccionyJugadores();
-                        break;
-                    case 3: cargarCuerpoyDirector(); break;
-                    case 4:
-                        volver = true;
-                        break;
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
-                sc.nextLine();
-            }
-        }
-    }
-
     public Pais cargarPais() {
         Scanner sc = new Scanner(System.in);
         List<Sede> sedes = mundial.getSedes();

@@ -42,16 +42,16 @@ public class Aplicacion {
                         menuInfraestructura();
                         break;
                     case 2:
-                        //menuDelegaciones();
+                        menuDelegaciones();
                         break;
                     case 3:
                         //menuOrganizacion();
                         break;
                     case 4:
-                        //menuEventos();
+                        menuEventos();
                         break;
                     case 5:
-                        //menuInformes();
+                        menuInformes();
                         break;
                     case 6:
                         System.out.println("Gracias por utilizar nuestro sistema, vuelva pronto :)");
@@ -118,6 +118,32 @@ public class Aplicacion {
                 sc.close();
             }
 
+        }
+    }
+
+    private void menuDelegaciones() {
+        Scanner sc = new Scanner(System.in);
+        boolean volver = false;
+
+        while (volver == false) {
+            try {
+                System.out.println("¿En que nos enfocamos?\n" + "1. Cargar Pais participante.\n" +
+                        "2. Cargar Seleccion y su lista de jugadores.\n" + "3. Cargar Cuerpo Tecnico y Director Tecnico.\n" +
+                        "4. Volver.");
+                int eleccionUsuario = scannear.numValido(sc, 1, 4);
+
+                switch (eleccionUsuario) {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        volver = true;
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
+                sc.nextLine();
+            }
         }
     }
 
