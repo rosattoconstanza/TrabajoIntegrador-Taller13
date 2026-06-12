@@ -100,20 +100,18 @@ public class Scannear {
 
     public static void registroDeEventosDeCampo() {
     }
+    public static void configurarFases(){
 
+        Fase faseGrupos = new Fase(NombreFase.Grupos);
+        Fase dieciseisavos = new Fase(NombreFase.Dieciseisavos);
+        Fase octavos = new Fase(NombreFase.Octavos);
+        Fase cuartos = new Fase(NombreFase.Cuartos);
+        Fase semifinal = new Fase(NombreFase.Semifinal);
+        Fase finalMundial = new Fase(NombreFase.Final);
 
-public static void configurarFases(){
-
-    Fase faseGrupos = new Fase(NombreFase.Grupos);
-    Fase dieciseisavos = new Fase(NombreFase.Dieciseisavos);
-    Fase octavos = new Fase(NombreFase.Octavos);
-    Fase cuartos = new Fase(NombreFase.Cuartos);
-    Fase semifinal = new Fase(NombreFase.Semifinal);
-    Fase finalMundial = new Fase(NombreFase.Final);
-
-    System.out.println("Fases creadas correctamente.");
-}
-//----------------------------------------------------------------------
+        System.out.println("Fases creadas correctamente.");
+    }
+    //----------------------------------------------------------------------
     public static void configurarGrupo(){
 
         Scanner sc = new Scanner(System.in);
