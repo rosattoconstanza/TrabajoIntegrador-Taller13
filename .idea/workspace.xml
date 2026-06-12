@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c91c9272-7ae7-4212-bec0-238fa5a572f8" name="Changes" comment="&#10;&#10;AgregoK">
+    <list default="true" id="c91c9272-7ae7-4212-bec0-238fa5a572f8" name="Changes" comment="&quot;Clases&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/planificarPartidoVale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/planificarPartidoVale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Aplicacion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -129,23 +123,7 @@
       <option name="project" value="LOCAL" />
       <updated>1781290391310</updated>
     </task>
-    <task id="LOCAL-00005" summary="&#10;&#10;Agrego">
-      <option name="closed" value="true" />
-      <created>1781298792861</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1781298792861</updated>
-    </task>
-    <task id="LOCAL-00006" summary="&#10;&#10;AgregoK">
-      <option name="closed" value="true" />
-      <created>1781298840578</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1781298840578</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,8 +145,6 @@
     <MESSAGE value="Borrar" />
     <MESSAGE value="Fase" />
     <MESSAGE value="&quot;Clases&quot;" />
-    <MESSAGE value="&#10;&#10;Agrego" />
-    <MESSAGE value="&#10;&#10;AgregoK" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;&#10;AgregoK" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Clases&quot;" />
   </component>
 </project>
