@@ -1,6 +1,6 @@
 package org.modelo.vista;
 import org.modelo.domain.*;
-import org.modelo.logica.Scannear;
+import org.modelo.logica.*;
 import java.util.*;
 
 public class Aplicacion {
@@ -28,7 +28,6 @@ public class Aplicacion {
 
     // MENUS
     private void menuPrincipal() {
-        Scanner sc = new Scanner(System.in);
         boolean salir = false;
 
         while (salir == false) {
@@ -48,7 +47,7 @@ public class Aplicacion {
                         //menuOrganizacion();
                         break;
                     case 4:
-                        menuEventos();
+                        //menuEventos();
                         break;
                     case 5:
                         menuInformes();
@@ -60,18 +59,13 @@ public class Aplicacion {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un entero, intente nuevamente.");
-                sc.nextLine();
             } catch (Exception e) {
                 e.getMessage();
-            }
-            finally {
-                sc.close();
             }
         }
     }
 
     public void menuInfraestructura() {
-        Scanner sc = new Scanner(System.in);
         boolean volver = false;
 
         while (volver == false) {
@@ -94,7 +88,6 @@ public class Aplicacion {
                         scannear.listarSedes(mundial);
                         System.out.println("Ingrese el número de Sede que le desea añadir un Estadio: ");
                         int eleccionUsuario = scannear.numValido(1, mundial.getSedes().size());
-                        sc.nextLine();
 
                         int indice = eleccionUsuario - 1;
                         Sede sedeElegida = mundial.getSedes().get(indice);
@@ -109,20 +102,14 @@ public class Aplicacion {
             }
             catch(InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un entero, intente nuevamente.");
-                sc.nextLine();
             }
             catch(Exception e) {
                 e.getMessage();
             }
-            finally {
-                sc.close();
-            }
-
         }
     }
 
     private void menuDelegaciones() {
-        Scanner sc = new Scanner(System.in);
         boolean volver = false;
 
         while (volver == false) {
@@ -171,12 +158,8 @@ public class Aplicacion {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
-                sc.nextLine();
             } catch (Exception e) {
                 e.getMessage();
-            }
-            finally {
-                sc.close();
             }
         }
     }
@@ -194,8 +177,8 @@ public class Aplicacion {
     }
 
     private void menuInformes() {
-        org.modelo.logica.Informes informes = new org.modelo.logica.Informes();
-        Scanner sc = new Scanner(System.in);
+        Informes informes = new Informes();
+        Scanner sc = new Scanner(System.in); //Como sacas este scanner de aca juani
         boolean volver = false;
 
         while (!volver) {
