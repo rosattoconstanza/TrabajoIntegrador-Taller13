@@ -65,6 +65,7 @@ public class Aplicacion {
         }
     }
 
+
     public void menuInfraestructura() {
         boolean volver = false;
 
@@ -108,6 +109,7 @@ public class Aplicacion {
             }
         }
     }
+
 
     private void menuDelegaciones() {
         boolean volver = false;
@@ -157,6 +159,8 @@ public class Aplicacion {
                             break;
                         }
 
+                        System.out.println("Ingrese el numero del pais al que le desea cargar sus directores" +
+                                " y cuerpos tecnicos de su respectiva seleccion, porfavor.");
                         scannear.listarPaises(paises);
                         int indice3 = (scannear.numValido(1, paises.size())) - 1;
                         Pais paisDT = paises.get(indice3);
@@ -185,16 +189,12 @@ public class Aplicacion {
     }
 
 
-
-
-
-
-
     private void menuEventos() {
         ArrayList<Partido> todosPartidos = obtenerTodosLosPartidos();
         if (todosPartidos.isEmpty()) { System.out.println("No hay partidos planificados."); return; }
        // scannear.ingresarEventosPartido(todosPartidos);
     }
+
 
     private void menuInformes() {
         Informes informes = new Informes();
