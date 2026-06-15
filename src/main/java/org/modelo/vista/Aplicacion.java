@@ -134,6 +134,15 @@ public class Aplicacion {
 
                 switch (eleccionUsuario) {
                     case 1:
+                        Pais pais = scannear.cargarPais();
+                        paises.add(pais);
+                        if (!mundial.getSedes().isEmpty()) {
+                            System.out.println("El pais se cargó correctamente, ahora debemos asignarle una sede...");
+                            scannear.listarSedes(mundial);
+                            int indice = (scannear.numValido(sc, 1, mundial.getSedes().size())) - 1;
+                            mundial.getSedes().get(indice).setPais(pais);
+                            System.out.println("País asignado a la sede correctamente.");
+                        }
                     case 2:
                     case 3:
                     case 4:
@@ -143,9 +152,20 @@ public class Aplicacion {
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
                 sc.nextLine();
+            } catch (Exception e) {
+                e.getMessage();
+            }
+            finally {
+                sc.close();
             }
         }
     }
+
+
+
+
+
+
 
     private void menuEventos() {
         ArrayList<Partido> todosPartidos = obtenerTodosLosPartidos();
@@ -229,6 +249,7 @@ public class Aplicacion {
         }
     }
 
+    //------------------------------------------------------------------------------
     private ArrayList<Partido> obtenerTodosLosPartidos() {
         ArrayList<Partido> todos = new ArrayList<Partido>();
         for (Sede s : mundial.getSedes())
