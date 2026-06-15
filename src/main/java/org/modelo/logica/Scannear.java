@@ -81,7 +81,7 @@ public class Scannear {
                     System.out.println((i + 1) + "-" + nombres[i]);
                 }
                 System.out.println("ELija el numero de la Fase a crear:");
-                int indice = numValido(sc,1, nombres.length) - 1;
+                int indice = numValido(1, nombres.length) - 1;
 
                 fase = new Fase(nombres[indice], new ArrayList<Partido>(),new ArrayList<Grupo>());
 
@@ -119,7 +119,7 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
             for (int i = 0; i < cantidad; i++) {
                 listarPaises(paises);
                 System.out.print("Seleccione el número de País cuya selección quiere agregar: ");
-                int indice = numValido(sc, 1, paises.size()) - 1;
+                int indice = numValido(1, paises.size()) - 1;
                 Pais pais = paises.get(indice);
 
                 if (pais.getSeleccion() == null) {
@@ -234,11 +234,10 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
             sc.nextLine();
 
             seleccion = new Seleccion(federacion, camisetaPrincipal, camisetaSecundaria, cabezaGrupo, ranking, pais);
-            pais.setSeleccion(seleccion);
             System.out.println("Selección creada correctamente. Continuemos con los jugadores...");
 
             System.out.print("¿Cuántos jugadores desea añadir?: ");
-            int cantidad = sc.nextInt();
+            int cantidad = sc.nextInt(); //puede ingresar negativos
             sc.nextLine();
 
             for (int i = 0; i < cantidad; i++) {
@@ -268,7 +267,13 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
         } catch (InputMismatchException e) {
             System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
             sc.nextLine();
+        } catch (Exception e) {
+            e.getMessage();
         }
+        finally {
+            sc.close();
+        }
+
         return seleccion;
     }
 
@@ -316,6 +321,11 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
         } catch(InputMismatchException e) {
             System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
             sc.nextLine();
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        finally {
+            sc.close();
         }
     }
 
@@ -337,7 +347,8 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
 
 
         //---------------------------------------------------------------------------
-        public static int numValido (Scanner sc,int min, int max){
+        public static int numValido (int min, int max) {
+            Scanner sc = new Scanner(System.in);
             int op;
 
             do {
@@ -382,7 +393,7 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
                 System.out.println((i + 1) + ". " + posiciones[i]);
             }
             System.out.print("Elija la posición: ");
-            return posiciones[numValido(sc, 1, posiciones.length) - 1];
+            return posiciones[numValido(1, posiciones.length) - 1];
         }
 
         private Rol elegirRol(Scanner sc) {
@@ -391,7 +402,7 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
                 System.out.println((i + 1) + ". " + roles[i]);
             }
             System.out.print("Elija el rol: ");
-            return roles[numValido(sc, 1, roles.length) - 1];
+            return roles[numValido(1, roles.length) - 1];
         }
 }
 
