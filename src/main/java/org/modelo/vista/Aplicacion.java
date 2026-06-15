@@ -65,6 +65,7 @@ public class Aplicacion {
         }
     }
 
+
     public void menuInfraestructura() {
         boolean volver = false;
 
@@ -109,6 +110,7 @@ public class Aplicacion {
         }
     }
 
+
     private void menuDelegaciones() {
         boolean volver = false;
 
@@ -152,6 +154,28 @@ public class Aplicacion {
                         System.out.println("La seleccion junto a sus jugadores se cargaron correctamente.");
                         break;
                     case 3:
+                        if (paises.isEmpty()) {
+                            System.out.println("Cargue primero un país.");
+                            break;
+                        }
+
+                        System.out.println("Ingrese el numero del pais al que le desea cargar sus directores" +
+                                " y cuerpos tecnicos de su respectiva seleccion, porfavor.");
+                        scannear.listarPaises(paises);
+                        int indice3 = (scannear.numValido(1, paises.size())) - 1;
+                        Pais paisDT = paises.get(indice3);
+                        if (paisDT.getSeleccion() == null) {
+                            System.out.println("Ese país no tiene selección.");
+                            break;
+                        }
+                        ArrayList<DirectorTecnico> DTs = scannear.cargarDirectores();
+                        paisDT.getSeleccion().setDirectoresTecnicos(DTs);
+                        System.out.println("Todos sus Directores Tecnicos fueron cargados correctamente...continuemos");
+
+                        ArrayList<CuerpoTecnico> CTs = scannear.cargarCuerpos();
+                        paisDT.getSeleccion().setCuerposTecnicos(CTs);
+                        System.out.println("Todo su Cuerpo Tecnico se cargo correctamente.");
+                        break;
                     case 4:
                         volver = true;
                         break;
@@ -165,16 +189,12 @@ public class Aplicacion {
     }
 
 
-
-
-
-
-
     private void menuEventos() {
         ArrayList<Partido> todosPartidos = obtenerTodosLosPartidos();
         if (todosPartidos.isEmpty()) { System.out.println("No hay partidos planificados."); return; }
        // scannear.ingresarEventosPartido(todosPartidos);
     }
+
 
     private void menuInformes() {
         Informes informes = new Informes();

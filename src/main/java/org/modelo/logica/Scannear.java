@@ -215,7 +215,7 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
         return new Pais(nombre, bandera);
     }
 
-    public Seleccion cargarSeleccionYJugadores(Pais pais) {
+    public Seleccion cargarSeleccionYJugadores(Pais pais) throws NumNegativoException {
         Scanner sc = new Scanner(System.in);
         Seleccion seleccion = null;
 
@@ -237,8 +237,12 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
             System.out.println("Selección creada correctamente. Continuemos con los jugadores...");
 
             System.out.print("¿Cuántos jugadores desea añadir?: ");
-            int cantidad = sc.nextInt(); //puede ingresar negativos
+            int cantidad = sc.nextInt();
             sc.nextLine();
+
+            if (cantidad <= 0) {
+                throw new NumNegativoException("Parece que ingresaste un numero negativo o cero, pruebe nuevamente.");
+            }
 
             for (int i = 0; i < cantidad; i++) {
                 System.out.println("-- Jugador " + (i + 1) + " --");
@@ -267,7 +271,10 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
         } catch (InputMismatchException e) {
             System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
             sc.nextLine();
-        } catch (Exception e) {
+        } catch (NumNegativoException e) {
+            System.out.println(e.getMessage());
+        }
+        catch (Exception e) {
             e.getMessage();
         }
         finally {
@@ -277,60 +284,104 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
         return seleccion;
     }
 
-    public void cargarCuerpoYDirector(Seleccion seleccion) {
+    public ArrayList<DirectorTecnico> cargarDirectores() throws NumNegativoException {
         Scanner sc = new Scanner(System.in);
+        ArrayList<DirectorTecnico> directores = new ArrayList<DirectorTecnico>();
+        boolean salir = false;
 
-        try {
-            // Director Técnico
-            System.out.print("¿Cuántos Directores Técnicos desea añadir?: ");
-            int cantidadDT = sc.nextInt(); sc.nextLine();
+        while(salir == false) {
+            try {
+                System.out.print("¿Cuántos Directores Técnicos desea añadir?: ");
+                int cantidadDT = sc.nextInt();
+                sc.nextLine();
 
-            for (int i = 0; i < cantidadDT; i++) {
-                System.out.println("-- Director Técnico " + (i + 1) + " --");
-                System.out.print("Nombre: ");
-                String nombre = sc.nextLine();
-                System.out.print("Año de nacimiento: ");
-                int nacimiento = sc.nextInt(); sc.nextLine();
-                System.out.print("Año de nombramiento: ");
-                int nombramiento = sc.nextInt(); sc.nextLine();
+                if (cantidadDT <= 0) {
+                    throw new NumNegativoException("Parece que ingresaste un numero negativo o cero, pruebe nuevamente.");
+                }
 
-                DirectorTecnico dt = new DirectorTecnico(nombre, nacimiento, nombramiento);
-                seleccion.agregarDirectorTecnico(dt);
-                System.out.println("Director Técnico " + (i + 1) + " agregado correctamente.");
+                for (int i = 0; i < cantidadDT; i++) {
+                    System.out.println("-- Director Técnico " + (i + 1) + " --");
+                    System.out.print("Nombre: ");
+                    String nombre = sc.nextLine();
+                    System.out.print("Año de nacimiento: ");
+                    int nacimiento = sc.nextInt(); sc.nextLine();
+                    System.out.print("Año de nombramiento: ");
+                    int nombramiento = sc.nextInt(); sc.nextLine();
+
+                    DirectorTecnico dt = new DirectorTecnico(nombre, nacimiento, nombramiento);
+                    directores.add(dt);
+                    System.out.println("Director Técnico " + (i + 1) + " agregado correctamente.");
+                }
+
+                salir = true;
+            } catch(InputMismatchException e) {
+                System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
+                sc.nextLine();
+            } catch (NumNegativoException e) {
+                System.out.println(e.getMessage());
             }
-
-            // Cuerpo Técnico
-            System.out.print("¿Cuántos integrantes del Cuerpo Técnico desea añadir?: ");
-            int cantidadCT = sc.nextInt(); sc.nextLine();
-
-            for (int i = 0; i < cantidadCT; i++) {
-                System.out.println("-- Cuerpo Técnico " + (i + 1) + " --");
-                System.out.print("Nombre: ");
-                String nombre = sc.nextLine();
-                System.out.print("Año de nacimiento: ");
-                int nacimiento = sc.nextInt(); sc.nextLine();
-
-                // Elegir rol
-                Rol rol = elegirRol(sc);
-
-                CuerpoTecnico ct = new CuerpoTecnico(nombre, nacimiento, rol);
-                seleccion.agregarCuerpoTecnico(ct);
-                System.out.println("Integrante del Cuerpo Técnico " + (i + 1) + " agregado correctamente.");
+            catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-            //---------------- CT ---------
-        } catch(InputMismatchException e) {
-            System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
-            sc.nextLine();
-        } catch (Exception e) {
-            e.getMessage();
+            finally {
+                sc.close();
+            }
         }
-        finally {
-            sc.close();
-        }
+
+        return directores;
     }
 
+    public ArrayList<CuerpoTecnico> cargarCuerpos() throws NumNegativoException {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<CuerpoTecnico> cuerposT = new ArrayList<CuerpoTecnico>();
+        boolean salir = false;
+
+        while (salir == false) {
+            try {
+                System.out.print("¿Cuántos integrantes del Cuerpo Técnico desea añadir?: ");
+                int cantidadCT = sc.nextInt();
+                sc.nextLine();
+
+                if (cantidadCT <= 0) {
+                    throw new NumNegativoException("Parece que ingresaste un numero negativo o cero, pruebe nuevamente.");
+                }
+
+                for (int i = 0; i < cantidadCT; i++) {
+                    System.out.println("-- Cuerpo Técnico " + (i + 1) + " --");
+                    System.out.print("Nombre: ");
+                    String nombre = sc.nextLine();
+                    System.out.print("Año de nacimiento: ");
+                    int nacimiento = sc.nextInt();
+                    sc.nextLine();
+
+                    // Elegir rol
+                    Rol rol = elegirRol(sc);
+
+                    CuerpoTecnico ct = new CuerpoTecnico(nombre, nacimiento, rol);
+                    cuerposT.add(ct);
+                    System.out.println("Integrante del Cuerpo Técnico " + (i + 1) + " agregado correctamente.");
+                }
+
+                salir = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
+                sc.nextLine();
+            } catch (NumNegativoException e) {
+                System.out.println(e.getMessage());
+            }
+            catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+            finally {
+                sc.close();
+            }
+        }
+
+        return cuerposT;
+    }
+
+
 //no se corta la linea esta ;( aaaaaa
-    //revisar en ejecucion si hay q poner while rodeando los trys
 
 
 
