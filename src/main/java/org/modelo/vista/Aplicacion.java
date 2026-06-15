@@ -152,6 +152,26 @@ public class Aplicacion {
                         System.out.println("La seleccion junto a sus jugadores se cargaron correctamente.");
                         break;
                     case 3:
+                        if (paises.isEmpty()) {
+                            System.out.println("Cargue primero un país.");
+                            break;
+                        }
+
+                        scannear.listarPaises(paises);
+                        int indice3 = (scannear.numValido(1, paises.size())) - 1;
+                        Pais paisDT = paises.get(indice3);
+                        if (paisDT.getSeleccion() == null) {
+                            System.out.println("Ese país no tiene selección.");
+                            break;
+                        }
+                        ArrayList<DirectorTecnico> DTs = scannear.cargarDirectores();
+                        paisDT.getSeleccion().setDirectoresTecnicos(DTs);
+                        System.out.println("Todos sus Directores Tecnicos fueron cargados correctamente...continuemos");
+
+                        ArrayList<CuerpoTecnico> CTs = scannear.cargarCuerpos();
+                        paisDT.getSeleccion().setCuerposTecnicos(CTs);
+                        System.out.println("Todo su Cuerpo Tecnico se cargo correctamente.");
+                        break;
                     case 4:
                         volver = true;
                         break;
