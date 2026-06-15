@@ -69,19 +69,22 @@ public class Scannear {
     }
 
 
-    public Fase configurarFases(ArrayList<Fase> fases){
+    public Fase configurarFases(){
         Scanner sc = new Scanner(System.in);
         Fase fase = null;
         boolean excepcion = false;
-        NombreFase[] nombres = NombreFase.values();
+
         while (!excepcion){
             try {
-                for (int i=0; i<nombres.length; i++){
-                    System.out.println(i + "-" + nombres[i]);
+                NombreFase[] nombres = NombreFase.values();
+                for (int i = 0; i < nombres.length; i++) {
+                    System.out.println((i + 1) + "-" + nombres[i]);
                 }
                 System.out.println("ELija el numero de la Fase a crear:");
-                int indice = sc.nextInt();
-                fase = new Fase(nombres[indice]);
+                int indice = numValido(1, nombres.length) - 1;
+
+                fase = new Fase(nombres[indice], new ArrayList<Partido>(),new ArrayList<Grupo>());
+
                 System.out.println("Fases creadas correctamente.");
                 excepcion = true;
             } catch (Exception e) {
@@ -94,9 +97,10 @@ public class Scannear {
     }
 
 //----------------------------------------------------------------------
-public Grupo configurarGrupo(ArrayList<Pais> paises) {
-    Grupo grupo = null;
+public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
     Scanner sc = new Scanner(System.in);
+    Grupo grupo = null;
+
     boolean excepcion = false;
 
     while (!excepcion) {
@@ -107,15 +111,28 @@ public Grupo configurarGrupo(ArrayList<Pais> paises) {
             System.out.println("Descripción:");
             String descripcion = sc.nextLine();
 
-            grupo = new Grupo(identificacion, descripcion);
-            listarPaises();
-            for (int i = 0; i < 4; i++) {
-                System.out.println("Seleccione una selección:");
-                int indice = sc.nextInt();
+            grupo = new Grupo(identificacion, descripcion, fase, new ArrayList<Seleccion>());
+
+            System.out.print("¿Cuántas selecciones desea agregar a este grupo?: ");
+            int cantidad = sc.nextInt(); sc.nextLine();
+
+            for (int i = 0; i < cantidad; i++) {
+                listarPaises(paises);
+                System.out.print("Seleccione el número de País cuya selección quiere agregar: ");
+                int indice = numValido(1, paises.size()) - 1;
                 Pais pais = paises.get(indice);
+
+                if (pais.getSeleccion() == null) {
+                    System.out.println("Este país no tiene selección cargada, saltando...");
+                    continue;
+                }
+
                 grupo.agregarSeleccion(pais.getSeleccion());
+                pais.getSeleccion().setGrupo(grupo);
+                System.out.println(pais.getSeleccion().getNombreFederacion() + " agregada al grupo.");
             }
-            System.out.println("Grupo creado correctamente.");
+
+            System.out.println("Grupo" + identificacion + "creado correctamente.");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
@@ -164,7 +181,7 @@ public Grupo configurarGrupo(ArrayList<Pais> paises) {
         boolean excepcion = false;
         Estadio estadio = null;
 
-        while (excepcion == false) {
+        while (!excepcion) {
             try {
                 System.out.println("Nombre del Estadio: ");
                 String nombreEstadio = sc.nextLine();
@@ -190,179 +207,126 @@ public Grupo configurarGrupo(ArrayList<Pais> paises) {
 
     public Pais cargarPais() {
         Scanner sc = new Scanner(System.in);
-        List<Sede> sedes = mundial.getSedes();
-        boolean excepcion = false;
+        System.out.print("Nombre del país: ");
+        String nombre = sc.nextLine();
+        System.out.print("Bandera (descripción): ");
+        String bandera = sc.nextLine();
 
-        System.out.println("Ingrese nombre del pais participante: ");
-        String nombrePais = sc.nextLine();
-        System.out.println("Ingrese la bandera correspondiente: ");
-        String banderaPais = sc.nextLine();
-
-        Pais pais = new Pais(nombrePais, banderaPais);
-        System.out.println("El pais se creó correctamente, vamos a asignarlo a una Sede.");
-        if (sedes.isEmpty()) {
-            System.out.println("Parece que aún no se registraron sedes, vuelva a intentarlo.");
-            return;
-        }
-        listarSedes();
-
-        while (excepcion == false) {
-            try {
-                System.out.println("Ingrese el número de Sede que le desea asignar al Pais: ");
-                int eleccionUsuario = numValido(sc, 1, sedes.size());
-                sc.nextLine();
-
-                int indice = eleccionUsuario - 1;
-                Sede sede = sedes.get(indice);
-                sede.setPais(pais);
-
-                System.out.println("Muchas gracias, la Sede ya tiene un Pais asignado.");
-                excepcion = true;
-            } catch (InputMismatchException e) {
-                System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
-                sc.nextLine();
-            }
-        }
+        return new Pais(nombre, bandera);
     }
 
-
-    public void cargarSeleccionyJugadores() {
+    public Seleccion cargarSeleccionYJugadores(Pais pais) {
         Scanner sc = new Scanner(System.in);
-
-        if (paises.isEmpty()) {
-            System.out.println("Porfavor, ingrese un País antes de comenzar con esta sección.");
-            return;
-        }
+        Seleccion seleccion = null;
 
         try {
-            listarPaises();
-            System.out.println("Seleccione el número de País para asignar la Selección: ");
-            int indice = numValido(sc, 1, paises.size()) - 1;
-            sc.nextLine();
-            Pais pais = paises.get(indice);
-
-            if (pais.getSeleccion() != null) {
-                System.out.println("Este país ya tiene una selección asignada.");
-                return;
-            }
-
-
-            System.out.println("Comenzemos a cargar una seleccion a este pais, ingrese el nombre de Federación: ");
+            System.out.print("Nombre de la federación: ");
             String federacion = sc.nextLine();
-            System.out.println("Ingrese la camiseta principal: ");
+            System.out.print("Camiseta principal: ");
             String camisetaPrincipal = sc.nextLine();
-            System.out.println("Ingrese la camiseta secundaria: ");
+            System.out.print("Camiseta secundaria: ");
             String camisetaSecundaria = sc.nextLine();
-            sc.nextLine();
-            System.out.println("¿Su selección es Cabeza de grupo? (true o false): ");
+            System.out.print("¿Es cabeza de grupo? (true/false): ");
             boolean cabezaGrupo = sc.nextBoolean();
             sc.nextLine();
-            System.out.println("Ingrese el ranking de su Seleccion: ");
+            System.out.print("Ranking FIFA: ");
             int ranking = sc.nextInt();
-
-
-            Seleccion seleccion = new Seleccion(federacion, camisetaPrincipal, camisetaSecundaria, cabezaGrupo, ranking, pais);
-            pais.setSeleccion(seleccion);
-            System.out.println("La seleccion se creó correctamente. Continuemos con sus jugadores...");
-
-
-            System.out.println("¿Cuantos jugadores desea añadir?: ");
-            int cantidadJugadores = sc.nextInt();
             sc.nextLine();
 
-            for (int i = 0; i < cantidadJugadores; i++) {
-                System.out.println("Ingrese el nombre del jugador " + (i + 1) + ": ");
+            seleccion = new Seleccion(federacion, camisetaPrincipal, camisetaSecundaria, cabezaGrupo, ranking, pais);
+            System.out.println("Selección creada correctamente. Continuemos con los jugadores...");
+
+            System.out.print("¿Cuántos jugadores desea añadir?: ");
+            int cantidad = sc.nextInt(); //puede ingresar negativos
+            sc.nextLine();
+
+            for (int i = 0; i < cantidad; i++) {
+                System.out.println("-- Jugador " + (i + 1) + " --");
+                System.out.print("Nombre: ");
                 String nombre = sc.nextLine();
-                System.out.println("Ingrese la fecha de nacimiento del jugador " + (i + 1) + ": ");
+                System.out.print("Año de nacimiento: ");
                 int nacimiento = sc.nextInt();
-                System.out.println("Ingrese el número del jugador " + (i + 1) + ": ");
+                sc.nextLine();
+                System.out.print("Dorsal: ");
                 int dorsal = sc.nextInt();
-                System.out.println("Ingrese el peso del jugador " + (i + 1) + ": ");
+                sc.nextLine();
+                System.out.print("Peso: ");
                 float peso = sc.nextFloat();
-                System.out.println("Ingrese la altura del jugador " + (i + 1) + ": ");
+                sc.nextLine();
+                System.out.print("Altura: ");
                 float altura = sc.nextFloat();
-                System.out.println("Ingrese la posición del jugador " + (i + 1) +
-                        " (¡Verifique escribir una opción correctamente! -> Arquero, Defensor, Mediocampista, Delantero): ");
-                String posicionJug = sc.nextLine();
+                sc.nextLine();
 
-                Posicion posicion = null;
-                boolean posicionValida = false;
-
-                while (!posicionValida) {
-                    try {
-                        posicion = Posicion.valueOf(posicionJug);
-                        posicionValida = true;
-                    } catch (IllegalArgumentException e) {
-                        System.out.println("Parece que la posición ingresada no es válida, intente nuevamente: ");
-                        posicionJug = sc.nextLine();
-                    }
-                }
+                // Elegir posición mostrando opciones numeradas
+                Posicion posicion = elegirPosicion(sc);
 
                 Jugador jugador = new Jugador(nombre, nacimiento, dorsal, posicion, peso, altura);
                 seleccion.agregarJugador(jugador);
-                System.out.println("Jugador " + (i+1) + " agregado correctamente.");
+                System.out.println("Jugador " + (i + 1) + " agregado correctamente.");
             }
-        }
-        catch (InputMismatchException e) {
+        } catch (InputMismatchException e) {
             System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
             sc.nextLine();
+        } catch (Exception e) {
+            e.getMessage();
         }
+        finally {
+            sc.close();
+        }
+
+        return seleccion;
     }
 
-    public static void cargarCuerpoyDirector() {
+    public void cargarCuerpoYDirector(Seleccion seleccion) {
         Scanner sc = new Scanner(System.in);
 
-        if (paises.isEmpty()) {
-            System.out.println("Primero debe cargar al menos un País con su Selección para empezar con esta sección.");
-            return;
-        }
-
         try {
-            listarPaises();
-            System.out.println("¿La seleccion de que pais desea asignarle su Cuerpo y Director Tecnico?");
-            int numeroUsuario = numValido(sc, 1, paises.size()) - 1;
-            sc.nextLine();
+            // Director Técnico
+            System.out.print("¿Cuántos Directores Técnicos desea añadir?: ");
+            int cantidadDT = sc.nextInt(); sc.nextLine();
 
-            Pais paisElegido = paises.get(numeroUsuario);
-            if(paisElegido.getSeleccion() == null) {
-                System.out.println("Este pais no tiene una seleccion cargada. Porfavor, cargue primero una selección.");
-                return;
+            for (int i = 0; i < cantidadDT; i++) {
+                System.out.println("-- Director Técnico " + (i + 1) + " --");
+                System.out.print("Nombre: ");
+                String nombre = sc.nextLine();
+                System.out.print("Año de nacimiento: ");
+                int nacimiento = sc.nextInt(); sc.nextLine();
+                System.out.print("Año de nombramiento: ");
+                int nombramiento = sc.nextInt(); sc.nextLine();
+
+                DirectorTecnico dt = new DirectorTecnico(nombre, nacimiento, nombramiento);
+                seleccion.agregarDirectorTecnico(dt);
+                System.out.println("Director Técnico " + (i + 1) + " agregado correctamente.");
             }
-            Seleccion seleccionElegida = paisElegido.getSeleccion();
 
-            // ------------------ DT ------------
+            // Cuerpo Técnico
+            System.out.print("¿Cuántos integrantes del Cuerpo Técnico desea añadir?: ");
+            int cantidadCT = sc.nextInt(); sc.nextLine();
 
-            System.out.println("Vamos a comenzar cargando a los Directores Tecnicos de la seleccion "
-                    + seleccionElegida.getNombreFederacion() + " ¿Cuantos desea añadir?: ");
-            int cantidadDT = sc.nextInt();
-            sc.nextLine();
+            for (int i = 0; i < cantidadCT; i++) {
+                System.out.println("-- Cuerpo Técnico " + (i + 1) + " --");
+                System.out.print("Nombre: ");
+                String nombre = sc.nextLine();
+                System.out.print("Año de nacimiento: ");
+                int nacimiento = sc.nextInt(); sc.nextLine();
 
-            for(int i = 0; i < cantidadDT; i++) {
-                System.out.println("Nombre del DT numero " + (i+1) + ":");
-                String nombreDT = sc.nextLine();
-                System.out.println("Fecha de nacimiento del DT numero " + (i+1) + ":");
-                int nacimientoDT = sc.nextInt();
-                sc.nextLine();
-                System.out.println("Fecha de nombramiento del DT numero " + (i+1) + ":");
-                int nombramientoDT = sc.nextInt();
-                sc.nextLine();
+                // Elegir rol
+                Rol rol = elegirRol(sc);
 
-                DirectorTecnico dt = new DirectorTecnico(nombreDT, nacimientoDT, nombramientoDT);
-                seleccionElegida.agregarDirectorTecnico(dt);
-                System.out.println("Director Tecnico numero " + (i+1) + " agregado correctamente.");
+                CuerpoTecnico ct = new CuerpoTecnico(nombre, nacimiento, rol);
+                seleccion.agregarCuerpoTecnico(ct);
+                System.out.println("Integrante del Cuerpo Técnico " + (i + 1) + " agregado correctamente.");
             }
-            System.out.println("¡Tu seleccion ya tiene sus Directores Tecnicos! Continuemos con el Cuerpo Tecnico...");
-
-
-
             //---------------- CT ---------
-        }
-        catch(InputMismatchException e) {
+        } catch(InputMismatchException e) {
             System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
             sc.nextLine();
+        } catch (Exception e) {
+            e.getMessage();
         }
-
-
+        finally {
+            sc.close();
+        }
     }
 
 //no se corta la linea esta ;( aaaaaa
@@ -383,7 +347,8 @@ public Grupo configurarGrupo(ArrayList<Pais> paises) {
 
 
         //---------------------------------------------------------------------------
-        public static int numValido (Scanner sc,int min, int max){
+        public static int numValido (int min, int max) {
+            Scanner sc = new Scanner(System.in);
             int op;
 
             do {
@@ -420,6 +385,24 @@ public Grupo configurarGrupo(ArrayList<Pais> paises) {
                 }
                 System.out.println((i + 1) + ". " + p + " | Seleccion -> " + sel);
             }
+        }
+
+        private Posicion elegirPosicion(Scanner sc) {
+            Posicion[] posiciones = Posicion.values();
+            for (int i = 0; i < posiciones.length; i++) {
+                System.out.println((i + 1) + ". " + posiciones[i]);
+            }
+            System.out.print("Elija la posición: ");
+            return posiciones[numValido(1, posiciones.length) - 1];
+        }
+
+        private Rol elegirRol(Scanner sc) {
+            Rol[] roles = Rol.values();
+            for (int i = 0; i < roles.length; i++) {
+                System.out.println((i + 1) + ". " + roles[i]);
+            }
+            System.out.print("Elija el rol: ");
+            return roles[numValido(1, roles.length) - 1];
         }
 }
 
