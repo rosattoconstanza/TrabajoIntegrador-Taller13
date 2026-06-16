@@ -133,6 +133,7 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
             }
 
             System.out.println("Grupo" + identificacion + "creado correctamente.");
+            excepcion = true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
