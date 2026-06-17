@@ -33,10 +33,8 @@ public class Scannear {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-            finally {
-                sc.close();
-            }
         }
+
         return mundial;
     }
     //-----------------------------------------------------------------------
@@ -59,10 +57,12 @@ public class Scannear {
 
                 System.out.println("Fases creadas correctamente.");
                 excepcion = true;
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
+                System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
+                sc.nextLine();
+            }
+            catch (Exception e) {
                 System.out.println(e.getMessage());
-            } finally {
-                sc.close();
             }
         }
         return fase;
@@ -86,7 +86,8 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
             grupo = new Grupo(identificacion, descripcion, fase, new ArrayList<Seleccion>());
 
             System.out.print("¿Cuántas selecciones desea agregar a este grupo?: ");
-            int cantidad = sc.nextInt(); sc.nextLine();
+            int cantidad = sc.nextInt();
+            sc.nextLine();
 
             for (int i = 0; i < cantidad; i++) {
                 listarPaises(paises);
@@ -106,10 +107,12 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
 
             System.out.println("Grupo" + identificacion + "creado correctamente.");
             excepcion = true;
-        } catch (Exception e) {
+        } catch (InputMismatchException e) {
+            System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
+            sc.nextLine();
+        }
+        catch (Exception e) {
             System.out.println(e.getMessage());
-        } finally {
-            sc.close();
         }
     }
     return grupo;
@@ -313,42 +316,43 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
         } catch (Exception e) {
             System.out.println("Error. Formato de fecha/hora incorrecto o dato inválido. Intente nuevamente.");
         }
-    } // Cierra el while
+    }
+    // Cierra el while
     return partido;
 }
 
 //----------------------------------------------------------------------------------
-public Arbitro crearArbitro(ArrayList<Pais> paises) {
-    Scanner sc = new Scanner(System.in);
-    System.out.println("Nombre del árbitro:");
-    String nombreArbitro = sc.nextLine();
-    System.out.println("Fecha de nacimiento del árbitro (Ej: 19800512):");
-    int fechaNacimArbitro = sc.nextInt();
-    sc.nextLine();
-    System.out.println("Años de experiencia del árbitro:");
-    int aniosExpeArbitro = sc.nextInt();
-    sc.nextLine();
-    Pais paisArbitro = null;
-    while (paisArbitro == null) {
-        System.out.println("Países disponibles:");
-        for (Pais p : paises) {
-            System.out.println("- " + p.getNombre());
-        }
-        System.out.println("Escriba el País del árbitro:");
-        String pais = sc.nextLine();
-        for (Pais p : paises) {
-            if (p.getNombre().equalsIgnoreCase(pais)) {
-                paisArbitro = p;
-                break;
+    public Arbitro crearArbitro(ArrayList<Pais> paises) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nombre del árbitro:");
+        String nombreArbitro = sc.nextLine();
+        System.out.println("Fecha de nacimiento del árbitro (Ej: 19800512):");
+        int fechaNacimArbitro = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Años de experiencia del árbitro:");
+        int aniosExpeArbitro = sc.nextInt();
+        sc.nextLine();
+        Pais paisArbitro = null;
+        while (paisArbitro == null) {
+            System.out.println("Países disponibles:");
+            for (Pais p : paises) {
+                System.out.println("- " + p.getNombre());
+            }
+            System.out.println("Escriba el País del árbitro:");
+            String pais = sc.nextLine();
+            for (Pais p : paises) {
+                if (p.getNombre().equalsIgnoreCase(pais)) {
+                    paisArbitro = p;
+                    break;
+                }
+            }
+            if (paisArbitro == null) {
+                System.out.println("País no encontrado. Escriba el nombre tal cual aparece en la lista.");
             }
         }
-        if (paisArbitro == null) {
-            System.out.println("País no encontrado. Escriba el nombre tal cual aparece en la lista.");
-        }
+        System.out.println("Árbitro creado exitosamente!");
+        return new Arbitro(nombreArbitro, fechaNacimArbitro, aniosExpeArbitro, paisArbitro);
     }
-    System.out.println("Árbitro creado exitosamente!");
-    return new Arbitro(nombreArbitro, fechaNacimArbitro, aniosExpeArbitro, paisArbitro);
-}
 //----------------------------------------------------------------------------------
 
     public Evento registrarEventoCampo(Partido partido) {
@@ -447,6 +451,7 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
                 sc.nextLine();
             }
         }
+
         return sede;
     }
 
@@ -469,9 +474,6 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
                 sc.nextLine();
             } catch (Exception e) {
                 e.getMessage();
-            }
-            finally {
-                sc.close();
             }
         }
         return estadio;
@@ -551,9 +553,6 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
         catch (Exception e) {
             e.getMessage();
         }
-        finally {
-            sc.close();
-        }
 
         return seleccion;
     }
@@ -596,9 +595,6 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
             }
             catch (Exception e) {
                 System.out.println(e.getMessage());
-            }
-            finally {
-                sc.close();
             }
         }
 
@@ -645,9 +641,6 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
             }
             catch (Exception e) {
                 System.out.println(e.getMessage());
-            }
-            finally {
-                sc.close();
             }
         }
 
