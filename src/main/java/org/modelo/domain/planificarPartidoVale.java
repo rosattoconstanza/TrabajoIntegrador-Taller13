@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class planificarPartidoVale {
 
 
-
     public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos, ArrayList<Pais> paises, ArrayList<Estadio> estadios, ArrayList<Arbitro> arbitros) {
         Scanner sc = new Scanner(System.in);
         Partido partido = null;
@@ -41,7 +40,7 @@ public class planificarPartidoVale {
                 Seleccion local = null;
                 Seleccion visitante = null;
 
-                // 2. SELECCIÓN DE EQUIPOS (Con lógica separada si es Fase de Grupos o Eliminatoria)
+                //SELECCIÓN DE EQUIPOS (si es Fase de Grupos o Eliminatoria)
                 if (faseSeleccionada.getNombre() == NombreFase.Grupos) {
                     System.out.println("\nGrupos disponibles:");
                     for (Grupo grupo : grupos) {
@@ -92,8 +91,12 @@ public class planificarPartidoVale {
 
                     for (Pais p : paises) {
                         if (p.getSeleccion() != null) {
-                            if (p.getSeleccion().getNombreFederacion().equalsIgnoreCase(nombreLocal)) local = p.getSeleccion();
-                            if (p.getSeleccion().getNombreFederacion().equalsIgnoreCase(nombreVisitante)) visitante = p.getSeleccion();
+                            if (p.getSeleccion().getNombreFederacion().equalsIgnoreCase(nombreLocal)) {
+                                local = p.getSeleccion();
+                            }
+                            if (p.getSeleccion().getNombreFederacion().equalsIgnoreCase(nombreVisitante)) {
+                                visitante = p.getSeleccion();
+                            }
                         }
                     }
                 }
@@ -126,13 +129,13 @@ public class planificarPartidoVale {
                 sc.nextLine(); // Limpiar el buffer del teclado
 
                 // 4. SELECCIÓN DE ESTADIO (Listando los existentes)
-                System.out.println("\nEstadios disponibles:");
+                System.out.println("Estadios disponibles:");
                 for (int i = 0; i < estadios.size(); i++) {
                     System.out.println((i + 1) + ". " + estadios.get(i).getNombre() + " (Capacidad: " + estadios.get(i).getCapacidad() + ")");
                 }
                 System.out.println("Seleccione el NÚMERO del Estadio:");
                 int indiceEstadio = sc.nextInt() - 1;
-                sc.nextLine(); // Limpiar buffer
+                sc.nextLine();
 
                 if (indiceEstadio < 0 || indiceEstadio >= estadios.size()) {
                     System.out.println("Error: Estadio inválido. Intente nuevamente.");
@@ -150,12 +153,12 @@ public class planificarPartidoVale {
                 participaciones[1].setPartido(partido);
 
                 // 6. ASIGNACIÓN DE ÁRBITROS
-                System.out.println("\n¿Cuántos árbitros tendrá este partido?:");
+                System.out.println("Cuántos árbitros tendrá este partido?:");
                 int cantidadArbitros = sc.nextInt();
                 sc.nextLine();
 
                 for (int i = 0; i < cantidadArbitros; i++) {
-                    System.out.println("\nÁrbitros registrados:");
+                    System.out.println("Árbitros registrados:");
                     for (int j = 0; j < arbitros.size(); j++) {
                         System.out.println((j + 1) + ". " + arbitros.get(j).getNombre());
                     }
@@ -183,7 +186,6 @@ public class planificarPartidoVale {
                             break;
                         }
                     }
-
                     if (categoriaArbitro != null) {
                         Arbitraje arbitraje = new Arbitraje(categoriaArbitro, arbitroSeleccionado, partido);
                         arbitroSeleccionado.agregarArbitraje(arbitraje);
@@ -196,16 +198,116 @@ public class planificarPartidoVale {
 
                 // 7. VINCULAR Y FINALIZAR
                 faseSeleccionada.agregarPartidos(partido);
-                System.out.println("\n¡Partido planificado y guardado correctamente!");
-                excepcion = true; // Corta el bucle while infinito
+                System.out.println("Partido planificado y guardado correctamente!");
+                excepcion = true; // Corta el bucle while infinito e indica éxito
 
             } catch (InputMismatchException e) {
-                System.out.println("\n[Error] Se esperaba un número. Intente nuevamente toda la carga del partido.");
-                sc.nextLine(); // Limpia la basura del scanner
+                System.out.println("Error. Se esperaba un número. Intente nuevamente toda la carga del partido.");
+                sc.nextLine();
             } catch (Exception e) {
-                System.out.println("\n[Error] Formato de fecha/hora incorrecto o dato inválido. Intente nuevamente.");
+                System.out.println("Error. Formato de fecha/hora incorrecto o dato inválido. Intente nuevamente.");
+            }
+        } // Cierra el while
+        return partido;
+    } // Cierra el método
+
+    public Arbitro crearArbitro(ArrayList<Pais> paises) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nombre del árbitro:");
+        String nombreArbitro = sc.nextLine();
+        System.out.println("Fecha de nacimiento del árbitro (Ej: 19800512):");
+        int fechaNacimArbitro = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Años de experiencia del árbitro:");
+        int aniosExpeArbitro = sc.nextInt();
+        sc.nextLine();
+        Pais paisArbitro = null;
+        while (paisArbitro == null) {
+            System.out.println("Países disponibles:");
+            for (Pais p : paises) {
+                System.out.println("- " + p.getNombre());
+            }
+            System.out.println("Escriba el País del árbitro:");
+            String pais = sc.nextLine();
+            for (Pais p : paises) {
+                if (p.getNombre().equalsIgnoreCase(pais)) {
+                    paisArbitro = p;
+                    break;
+                }
+            }
+            if (paisArbitro == null) {
+                System.out.println("[Error] País no encontrado. Escriba el nombre tal cual aparece en la lista.");
             }
         }
-        return partido;
+        System.out.println("Árbitro creado exitosamente!");
+        return new Arbitro(nombreArbitro, fechaNacimArbitro, aniosExpeArbitro, paisArbitro);
     }
+
+    public Evento registrarEventoCampo(Partido partido) {
+        Scanner sc = new Scanner(System.in);
+        boolean excepcion = false;
+        Evento nuevoEvento= null;
+
+        while (!excepcion) {
+            try {
+        System.out.println("Minuto en que ocurrió el Evento:");
+        int minuto = sc.nextInt();
+        Seleccion local = partido.getParticipacion()[0].getSelecciones();
+        Seleccion visitante = partido.getParticipacion()[1].getSelecciones();
+
+        System.out.println("A qué equipo pertenece el evento?");
+        System.out.println("1. " + local.getNombreFederacion());
+        System.out.println("2. " + visitante.getNombreFederacion());
+        int opcionEquipo = sc.nextInt();
+        sc.nextLine();
+
+        Seleccion equipoSeleccionado = null;
+        if (opcionEquipo == 1) {
+            equipoSeleccionado = local;
+        } else {
+            equipoSeleccionado = visitante;
+        }
+        System.out.println("Jugadores de " + equipoSeleccionado.getNombreFederacion() + ":");
+        ArrayList<Jugador> listaJugadores = equipoSeleccionado.getJugadores();
+        for (int i = 0; i < listaJugadores.size(); i++) {
+            System.out.println((i + 1) + ".[" + listaJugadores.get(i).getDorsal() + "] " + listaJugadores.get(i).getNombre());
+        }
+        System.out.println("Seleccione el NÚMERO del jugador involucrado:");
+        int indiceJugador = sc.nextInt() - 1;
+        sc.nextLine();
+        Jugador jugadorInvolucrado = listaJugadores.get(indiceJugador);
+
+        //Seleccionar Tipo de Evento
+        for (TipoEvento tipo : TipoEvento.values()) {
+            System.out.println(tipo);
+        }
+        System.out.println("Seleccione el evento ocurrido:");
+        String eventoSeleccionado = sc.nextLine();
+        TipoEvento tipoElegido = null;
+
+        for (TipoEvento tipo : TipoEvento.values()) {
+            if (tipo.name().equalsIgnoreCase(eventoSeleccionado)) {
+                tipoElegido = tipo;
+                break; // Corta el bucle porque ya lo encontramos
+            }
+        }
+        nuevoEvento = new Evento(tipoElegido, minuto, jugadorInvolucrado);
+        jugadorInvolucrado.agregarEvento(nuevoEvento);
+        System.out.println("Evento registrado con éxito!");
+                excepcion = true; // Esto rompe el bucle while
+
+            } catch (InputMismatchException e) {
+                System.out.println("Error. Se esperaba un número entero. Se reinicia la carga.");
+                sc.nextLine();
+            } catch (NullPointerException e) {
+                System.out.println("Error. Faltan datos estructurales.");
+                excepcion = true;
+            } catch (Exception e) {
+                System.out.println("Error Desconocido: " + e.getMessage());
+                excepcion = true;
+            }
+        }
+        return nuevoEvento;
+    }
+
 
