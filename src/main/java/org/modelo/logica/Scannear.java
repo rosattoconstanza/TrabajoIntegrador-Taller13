@@ -14,6 +14,7 @@ public class Scannear {
 
         while (!excepcion) {
             try {
+                System.out.println("----ORGANIZEMOS EL MUNDIAL----");
                 System.out.println("Para comenzar, necesitamos datos iniciales: ");
                 System.out.println("Ingrese Año: ");
                 int anio = sc.nextInt();
