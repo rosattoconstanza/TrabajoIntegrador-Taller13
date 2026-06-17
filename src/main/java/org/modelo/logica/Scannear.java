@@ -31,6 +31,7 @@ public class Scannear {
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupcion, parece que se ingresó un " +
                         "texto que deberia ser un entero, intente nuevamente.");
+                sc.nextLine();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
