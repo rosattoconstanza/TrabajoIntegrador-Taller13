@@ -30,12 +30,12 @@ public class Aplicacion {
     private void menuPrincipal() {
         boolean salir = false;
 
-        while (salir == false) {
+        while (!salir) {
             try {
                 System.out.println("¡Bienvenido a la organización del Mundial de fútbol 2026! ¿Que desea hacer?:\n" +
                         "1. Gestión de Infraestructura.\n" + "2. Administración de Delegaciones.\n" +
                         "3.Organización Deportiva.\n" + "4.Registro de Eventos de Campo.\n" + "5.Informes.\n" + "6. Salir.");
-                int eleccionUsuario = scannear.numValido(1, 6);
+                int eleccionUsuario = Scannear.numValido(1, 6);
                 switch (eleccionUsuario) {
                     case 1:
                         menuInfraestructura();
@@ -69,11 +69,11 @@ public class Aplicacion {
     public void menuInfraestructura() {
         boolean volver = false;
 
-        while (volver == false) {
+        while (!volver) {
             try {
                 System.out.println("¿En que nos enfocamos?\n" + "1. Registrar Sede. \n" +
                         "2. Registrar Estadio a Sede. \n" + "3. Volver.");
-                int eleccionusuario = scannear.numValido(1, 3);
+                int eleccionusuario = Scannear.numValido(1, 3);
 
                 switch(eleccionusuario) {
                     case 1: Sede sede = scannear.registrarSede();
@@ -88,7 +88,7 @@ public class Aplicacion {
 
                         scannear.listarSedes(mundial);
                         System.out.println("Ingrese el número de Sede que le desea añadir un Estadio: ");
-                        int eleccionUsuario = scannear.numValido(1, mundial.getSedes().size());
+                        int eleccionUsuario = Scannear.numValido(1, mundial.getSedes().size());
 
                         int indice = eleccionUsuario - 1;
                         Sede sedeElegida = mundial.getSedes().get(indice);
@@ -114,12 +114,12 @@ public class Aplicacion {
     private void menuDelegaciones() {
         boolean volver = false;
 
-        while (volver == false) {
+        while (!volver) {
             try {
                 System.out.println("¿En que nos enfocamos?\n" + "1. Cargar Pais participante.\n" +
                         "2. Cargar Seleccion y su lista de jugadores.\n" + "3. Cargar Cuerpo Tecnico y Director Tecnico.\n" +
                         "4. Volver.");
-                int eleccionUsuario = scannear.numValido(1, 4);
+                int eleccionUsuario = Scannear.numValido(1, 4);
 
                 switch (eleccionUsuario) {
                     case 1:
@@ -129,7 +129,7 @@ public class Aplicacion {
                             System.out.println("El pais se cargó correctamente, ahora debemos asignarle una sede," +
                                     " ingrese el numero correspondiente...");
                             scannear.listarSedes(mundial);
-                            int indice = (scannear.numValido(1, mundial.getSedes().size())) - 1;
+                            int indice = (Scannear.numValido(1, mundial.getSedes().size())) - 1;
                             mundial.getSedes().get(indice).setPais(pais);
                             System.out.println("País asignado a la sede correctamente.");
                         }
@@ -140,8 +140,8 @@ public class Aplicacion {
                             break;
                         }
                         System.out.println("Ingrese el numero del pais de la seleccion que desea cargar, porfavor.");
-                        scannear.listarPaises(paises);
-                        int indice2 = (scannear.numValido(1, paises.size())) - 1;
+                        Scannear.listarPaises(paises);
+                        int indice2 = (Scannear.numValido(1, paises.size())) - 1;
                         Pais paisSel = paises.get(indice2);
 
                         if (paisSel.getSeleccion() != null) {
@@ -161,8 +161,8 @@ public class Aplicacion {
 
                         System.out.println("Ingrese el numero del pais al que le desea cargar sus directores" +
                                 " y cuerpos tecnicos de su respectiva seleccion, porfavor.");
-                        scannear.listarPaises(paises);
-                        int indice3 = (scannear.numValido(1, paises.size())) - 1;
+                        Scannear.listarPaises(paises);
+                        int indice3 = (Scannear.numValido(1, paises.size())) - 1;
                         Pais paisDT = paises.get(indice3);
                         if (paisDT.getSeleccion() == null) {
                             System.out.println("Ese país no tiene selección.");
@@ -191,14 +191,25 @@ public class Aplicacion {
 
     private void menuEventos() {
         ArrayList<Partido> todosPartidos = obtenerTodosLosPartidos();
-        if (todosPartidos.isEmpty()) { System.out.println("No hay partidos planificados."); return; }
-       // scannear.ingresarEventosPartido(todosPartidos);
+        if (todosPartidos.isEmpty()) {
+            System.out.println("No hay partidos planificados.");
+            return;
+        }
+        for (int i = 0; i < todosPartidos.size(); i++) {
+            Partido p = todosPartidos.get(i);
+            System.out.println((i + 1) + ". " + p.getFecha() + " — " +
+                    p.getParticipacion()[0].getSelecciones().getNombreFederacion() +
+                    " vs " +
+                    p.getParticipacion()[1].getSelecciones().getNombreFederacion());
+        }
+        System.out.print("Seleccione el partido: ");
+        int idx = Scannear.numValido(1, todosPartidos.size()) - 1;
+       // scannear.ingresarEventosPartido(todosPartidos.get(idx));
     }
 
 
     private void menuInformes() {
         Informes informes = new Informes();
-        Scanner sc = new Scanner(System.in); //Como sacas este scanner de aca juani
         boolean volver = false;
 
         while (!volver) {
@@ -212,20 +223,20 @@ public class Aplicacion {
                     "7. Estadísticas por Estadio\n" +
                     "8. Estadísticas por Ciudad\n" +
                     "9. Volver");
-            int op = scannear.numValido(1, 9);
+            int op = Scannear.numValido(1, 9);
 
             switch (op) {
                 case 1:
                     if (grupos.isEmpty()) { System.out.println("No hay grupos."); break; }
                     for (int i = 0; i < grupos.size(); i++)
                         System.out.println((i+1) + ". Grupo " + grupos.get(i).getIdentificacion());
-                    int gIdx = scannear.numValido(1, grupos.size()) - 1;
+                    int gIdx = Scannear.numValido(1, grupos.size()) - 1;
                     informes.tablaPosicionesPorGrupo(grupos.get(gIdx));
                     break;
                 case 2:
                     if (paises.isEmpty()) { System.out.println("No hay países."); break; }
-                    scannear.listarPaises(paises);
-                    Seleccion s2 = paises.get(scannear.numValido(1, paises.size()) - 1).getSeleccion();
+                    Scannear.listarPaises(paises);
+                    Seleccion s2 = paises.get(Scannear.numValido(1, paises.size()) - 1).getSeleccion();
                     if (s2 == null) { System.out.println("Sin selección."); break; }
                     informes.resultadosPorSeleccion(s2);
                     break;
@@ -237,12 +248,12 @@ public class Aplicacion {
                     break;
                 case 5:
                     if (paises.isEmpty()) { System.out.println("No hay países."); break; }
-                    scannear.listarPaises(paises);
-                    Seleccion s5 = paises.get(scannear.numValido(1, paises.size()) - 1).getSeleccion();
+                    Scannear.listarPaises(paises);
+                    Seleccion s5 = paises.get(Scannear.numValido(1, paises.size()) - 1).getSeleccion();
                     if (s5 == null || s5.getJugadores().isEmpty()) { System.out.println("Sin jugadores."); break; }
                     for (int i = 0; i < s5.getJugadores().size(); i++)
                         System.out.println((i+1) + ". " + s5.getJugadores().get(i).getNombre());
-                    Jugador j5 = s5.getJugadores().get(scannear.numValido(1, s5.getJugadores().size()) - 1);
+                    Jugador j5 = s5.getJugadores().get(Scannear.numValido(1, s5.getJugadores().size()) - 1);
                     informes.informeDisciplinarioPorJugador(j5, s5);
                     break;
                 case 6:
@@ -250,20 +261,22 @@ public class Aplicacion {
                     if (partidos.isEmpty()) { System.out.println("No hay partidos."); break; }
                     for (int i = 0; i < partidos.size(); i++)
                         System.out.println((i+1) + ". " + partidos.get(i).getFecha() + " - " +
-                                partidos.get(i).getParticipacion()[0].getSelecciones().getNombreFederacion() + " vs " +
+                                partidos.get(i).getParticipacion()[0].getSelecciones().getNombreFederacion() +
+                                " vs " +
                                 partidos.get(i).getParticipacion()[1].getSelecciones().getNombreFederacion());
-                    informes.fichaTecnicaPartido(partidos.get(scannear.numValido(1, partidos.size()) - 1));
+                    informes.fichaTecnicaPartido(partidos.get(Scannear.numValido(1, partidos.size()) - 1));
                     break;
                 case 7:
                     ArrayList<Estadio> estadios = obtenerTodosLosEstadios();
                     if (estadios.isEmpty()) { System.out.println("No hay estadios."); break; }
                     for (int i = 0; i < estadios.size(); i++)
                         System.out.println((i+1) + ". " + estadios.get(i).getNombre());
-                    informes.estadisticasPorEstadio(estadios.get(scannear.numValido(1, estadios.size()) - 1));
+                    informes.estadisticasPorEstadio(estadios.get(Scannear.numValido(1, estadios.size()) - 1));
                     break;
                 case 8:
-                    System.out.println("Ingrese ciudad: ");
-                    informes.estadisticasPorCiudad(sc.nextLine(), mundial);
+                    System.out.print("Ingrese ciudad: ");
+                    String ciudad = new Scanner(System.in).nextLine();
+                    informes.estadisticasPorCiudad(ciudad, mundial);
                     break;
                 case 9:
                     volver = true;
