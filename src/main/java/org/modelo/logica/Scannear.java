@@ -263,6 +263,10 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
             participaciones[0].setPartido(partido);
             participaciones[1].setPartido(partido);
 
+            //Vinculamos cada Participacion a la lista de su Seleccion
+            local.getParticipacion().add(participaciones[0]);
+            visitante.getParticipacion().add(participaciones[1]);
+
             // 6. ASIGNACIÓN DE ÁRBITROS
             System.out.println("Cuántos árbitros tendrá este partido?:");
             int cantidadArbitros = sc.nextInt();
@@ -309,6 +313,7 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
 
             // 7. VINCULAR Y FINALIZAR
             faseSeleccionada.agregarPartidos(partido);
+            estadioSeleccionado.agregarPartidos(partido);
             System.out.println("Partido planificado y guardado correctamente!");
             excepcion = true; // Corta el bucle while infinito e indica éxito
 
@@ -405,8 +410,15 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
                         break;
                     }
                 }
+
+                if (tipoElegido == null){
+                    System.out.println("Tipo de evento no reconocido. Escriba el nombre tal cual aparece en la lista.");
+                    continue;
+                }
+
                 nuevoEvento = new Evento(tipoElegido, minuto, jugadorInvolucrado);
                 jugadorInvolucrado.agregarEvento(nuevoEvento);
+                partido.getEventos().add(nuevoEvento);
                 System.out.println("Evento registrado con éxito!");
                 excepcion = true; // Esto rompe el bucle while
 

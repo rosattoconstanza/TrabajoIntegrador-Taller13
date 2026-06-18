@@ -11,7 +11,7 @@ public class Fase {
 
     /** Constructores parametrizados y por defecto */
     public Fase(NombreFase nombre){
-        this(null, new ArrayList<Partido>(), new ArrayList<Grupo>());
+        this(nombre, new ArrayList<Partido>(), new ArrayList<Grupo>());
     }
 
     public Fase(NombreFase nombre, ArrayList<Partido> partidos) { //sin GRUPO al tener multiplicidad cero

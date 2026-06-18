@@ -224,6 +224,7 @@ public class Aplicacion {
                         Grupo nuevoGrupo = scannear.configurarGrupo(paises, faseElegida);
                         if (nuevoGrupo != null) {
                             grupos.add(nuevoGrupo);
+                            faseElegida.agregarGrupos(nuevoGrupo);
                         }
                         break;
                     case 3:
