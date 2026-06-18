@@ -85,7 +85,7 @@ public class Aplicacion {
                     case 2:
                         if (mundial.getSedes().isEmpty()) {
                             System.out.println("Parece que aún no se registraron sedes, vuelva a intentarlo.");
-                            return;
+                            break;
                         }
 
                         scannear.listarSedes(mundial);
@@ -151,8 +151,6 @@ public class Aplicacion {
                             break;
                         }
                         Seleccion seleccion = scannear.cargarSeleccionYJugadores(paisSel);
-                        paisSel.setSeleccion(seleccion);
-                        seleccion.setPais(paisSel);
                         System.out.println("La seleccion junto a sus jugadores se cargaron correctamente.");
                         break;
                     case 3:

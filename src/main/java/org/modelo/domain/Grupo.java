@@ -11,9 +11,8 @@ public class Grupo {
     private ArrayList<Seleccion> seleccion;
 
     /** Constructores parametrizado y por defecto */
-    public Grupo(String identificacion, String descripcion, Fase fase){
+    public Grupo(){
         this("", "", null, new ArrayList<Seleccion>());
-
     }
 
     public Grupo(String identificacion, String descripcion, Fase fase, ArrayList<Seleccion> seleccion) {

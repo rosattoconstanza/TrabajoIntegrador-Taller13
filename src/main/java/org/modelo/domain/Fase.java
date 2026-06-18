@@ -10,7 +10,7 @@ public class Fase {
     private ArrayList<Partido> partidos;
 
     /** Constructores parametrizados y por defecto */
-    public Fase(NombreFase grupos){
+    public Fase(NombreFase nombre){
         this(null, new ArrayList<Partido>(), new ArrayList<Grupo>());
     }
 

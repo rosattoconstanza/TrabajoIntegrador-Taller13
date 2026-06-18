@@ -19,7 +19,7 @@ public class Sede {
         this.alturaNivelMar = alturaNivelMar;
         this.clima = clima;
         this.zonaHoraria = zonaHoraria;
-        this.pais = pais;
+        this.pais = null;
         this.estadios = new ArrayList<Estadio>();
     }
     /** Constructor parametrizado */

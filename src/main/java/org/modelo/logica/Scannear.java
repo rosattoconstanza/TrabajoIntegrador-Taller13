@@ -512,6 +512,7 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
             sc.nextLine();
 
             seleccion = new Seleccion(federacion, camisetaPrincipal, camisetaSecundaria, cabezaGrupo, ranking, pais);
+            pais.setSeleccion(seleccion);
             System.out.println("Selección creada correctamente. Continuemos con los jugadores...");
 
             System.out.print("¿Cuántos jugadores desea añadir?: ");
