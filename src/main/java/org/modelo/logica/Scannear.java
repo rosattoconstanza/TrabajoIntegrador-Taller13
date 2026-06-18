@@ -509,7 +509,7 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
         return new Pais(nombre, bandera);
     }
 
-    public Seleccion cargarSeleccionYJugadores(Pais pais) throws NumNegativoException {
+    public Seleccion cargarSeleccionYJugadores(Pais pais) {
         Scanner sc = new Scanner(System.in);
         Seleccion seleccion = null;
 
@@ -557,7 +557,7 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
                 sc.nextLine();
 
                 // Elegir posición mostrando opciones numeradas
-                Posicion posicion = elegirPosicion(sc);
+                Posicion posicion = elegirPosicion();
 
                 Jugador jugador = new Jugador(nombre, nacimiento, dorsal, posicion, peso, altura);
                 seleccion.agregarJugador(jugador);
@@ -576,7 +576,7 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
         return seleccion;
     }
 
-    public ArrayList<DirectorTecnico> cargarDirectores() throws NumNegativoException {
+    public ArrayList<DirectorTecnico> cargarDirectores() {
         Scanner sc = new Scanner(System.in);
         ArrayList<DirectorTecnico> directores = new ArrayList<DirectorTecnico>();
         boolean salir = false;
@@ -620,7 +620,7 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
         return directores;
     }
 
-    public ArrayList<CuerpoTecnico> cargarCuerpos() throws NumNegativoException {
+    public ArrayList<CuerpoTecnico> cargarCuerpos() {
         Scanner sc = new Scanner(System.in);
         ArrayList<CuerpoTecnico> cuerposT = new ArrayList<CuerpoTecnico>();
         boolean salir = false;
@@ -644,7 +644,7 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
                     sc.nextLine();
 
                     // Elegir rol
-                    Rol rol = elegirRol(sc);
+                    Rol rol = elegirRol();
 
                     CuerpoTecnico ct = new CuerpoTecnico(nombre, nacimiento, rol);
                     cuerposT.add(ct);
@@ -724,7 +724,7 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
             }
         }
 
-        private Posicion elegirPosicion(Scanner sc) {
+        private Posicion elegirPosicion() {
             Posicion[] posiciones = Posicion.values();
             for (int i = 0; i < posiciones.length; i++) {
                 System.out.println((i + 1) + ". " + posiciones[i]);
@@ -733,7 +733,7 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
             return posiciones[numValido(1, posiciones.length) - 1];
         }
 
-        private Rol elegirRol(Scanner sc) {
+        private Rol elegirRol() {
             Rol[] roles = Rol.values();
             for (int i = 0; i < roles.length; i++) {
                 System.out.println((i + 1) + ". " + roles[i]);
