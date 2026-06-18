@@ -3,12 +3,12 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+/** Clase Partido.
+ * Asociada con clase Estadio y Fase.
+ * Composicion con Evento.
+ * Asociada con Seleccion (creando Participacion) y Arbitro (creando Arbitraje).
+ */
 public class Partido {
-    /** Clase Partido.
-     * Asociada con clase Estadio y Fase.
-     * Composicion con Evento.
-     * Asociada con Seleccion (creando Participacion) y Arbitro (creando Arbitraje).
-     */
     private LocalDate fecha;
     private LocalTime horario;
     private int duracion;
