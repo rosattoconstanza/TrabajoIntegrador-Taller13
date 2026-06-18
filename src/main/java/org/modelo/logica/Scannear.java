@@ -345,6 +345,10 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
             for (Pais p : paises) {
                 System.out.println("- " + p.getNombre());
             }
+            if (paises.isEmpty()){
+                System.out.println("No hay paises cargados, vuelva a intentarlo una vez cargados.");
+                continue;
+            }
             System.out.println("Escriba el País del árbitro:");
             String pais = sc.nextLine();
             for (Pais p : paises) {
