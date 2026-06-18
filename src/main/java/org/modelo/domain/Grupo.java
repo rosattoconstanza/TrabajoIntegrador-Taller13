@@ -1,7 +1,7 @@
 package org.modelo.domain;
 import java.util.ArrayList;
 
-public class Grupo {
+public class  Grupo {
     /**Clase Grupo.
      * Asociada con clase Fase y Selección.
      */
@@ -68,6 +68,11 @@ public class Grupo {
         for (Participacion miParticipacion : s.getParticipacion()) {
 
             Partido partido = miParticipacion.getPartido();
+
+            if (partido.getFase() == null ||
+                    !partido.getFase().getNombre().equals(this.fase.getNombre())) {
+                continue; // salta partidos que no son de esta fase
+            }  //Solo los partidos que pasen este filtro llegan al cálculo de goles y puntos.
 
             Participacion[] participacionesDelPartido = partido.getParticipacion();
             Participacion p1 = participacionesDelPartido[0];

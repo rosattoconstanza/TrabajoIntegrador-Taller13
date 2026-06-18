@@ -62,7 +62,7 @@ public class Aplicacion {
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un entero, intente nuevamente.");
             } catch (Exception e) {
-                e.getMessage();
+                System.out.println("Error: " + e.getMessage());
             }
         }
     }
@@ -107,7 +107,7 @@ public class Aplicacion {
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un entero, intente nuevamente.");
             } catch (Exception e) {
-                e.getMessage();
+                System.out.println("Error: " + e.getMessage());
             }
         }
     }
@@ -183,7 +183,7 @@ public class Aplicacion {
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
             } catch (Exception e) {
-                e.getMessage();
+                System.out.println("Error: " + e.getMessage());
             }
         }
     }

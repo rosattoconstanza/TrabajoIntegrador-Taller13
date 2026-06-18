@@ -34,8 +34,8 @@ public class Jugador extends Persona {
         this.posicion = posicion;
         this.peso = peso;
         this.altura = altura;
+        this.eventos = new ArrayList<>(); // ← esto no viola el UML, lo cumple
     }
-
 
     /** Getters */
     public int getDorsal() {

@@ -329,41 +329,48 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
 }
 
 //----------------------------------------------------------------------------------
-    public Arbitro crearArbitro(ArrayList<Pais> paises) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Nombre del árbitro:");
-        String nombreArbitro = sc.nextLine();
-        System.out.println("Fecha de nacimiento del árbitro (Ej: 19800512):");
-        int fechaNacimArbitro = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Años de experiencia del árbitro:");
-        int aniosExpeArbitro = sc.nextInt();
-        sc.nextLine();
-        Pais paisArbitro = null;
-        while (paisArbitro == null) {
-            System.out.println("Países disponibles:");
-            for (Pais p : paises) {
-                System.out.println("- " + p.getNombre());
-            }
-            if (paises.isEmpty()){
-                System.out.println("No hay paises cargados, vuelva a intentarlo una vez cargados.");
-                continue;
-            }
-            System.out.println("Escriba el País del árbitro:");
-            String pais = sc.nextLine();
-            for (Pais p : paises) {
-                if (p.getNombre().equalsIgnoreCase(pais)) {
-                    paisArbitro = p;
-                    break;
-                }
-            }
-            if (paisArbitro == null) {
-                System.out.println("País no encontrado. Escriba el nombre tal cual aparece en la lista.");
+public Arbitro crearArbitro(ArrayList<Pais> paises) {
+    if (paises == null || paises.isEmpty()) {
+        System.out.println("No hay países cargados en el sistema. Debe registrar al menos un país antes de crear un árbitro.");
+        return null;
+    }
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Nombre del árbitro:");
+    String nombreArbitro = sc.nextLine();
+
+    System.out.println("Fecha de nacimiento del árbitro (Ej: 19800512):");
+    int fechaNacimArbitro = sc.nextInt();
+    sc.nextLine();
+
+    System.out.println("Años de experiencia del árbitro:");
+    int aniosExpeArbitro = sc.nextInt();
+    sc.nextLine();
+
+    Pais paisArbitro = null;
+
+    while (paisArbitro == null) {
+        System.out.println("\nPaíses disponibles:");
+        for (Pais p : paises) {
+            System.out.println("- " + p.getNombre());
+        }
+
+        System.out.println("Escriba el País del árbitro:");
+        String pais = sc.nextLine();
+
+        for (Pais p : paises) {
+            if (p.getNombre().equalsIgnoreCase(pais)) {
+                paisArbitro = p;
+                break;
             }
         }
-        System.out.println("Árbitro creado exitosamente!");
-        return new Arbitro(nombreArbitro, fechaNacimArbitro, aniosExpeArbitro, paisArbitro);
+        if (paisArbitro == null) {
+            System.out.println("País no encontrado. Escriba el nombre tal cual aparece en la lista.");
+        }
     }
+
+    System.out.println("Árbitro creado exitosamente!");
+    return new Arbitro(nombreArbitro, fechaNacimArbitro, aniosExpeArbitro, paisArbitro);
+}
 //----------------------------------------------------------------------------------
 
     public Evento registrarEventoCampo(Partido partido) {
