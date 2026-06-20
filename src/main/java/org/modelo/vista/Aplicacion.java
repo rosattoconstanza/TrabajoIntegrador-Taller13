@@ -132,7 +132,9 @@ public class Aplicacion {
                                     " ingrese el numero correspondiente...");
                             scannear.listarSedes(mundial);
                             int indice = (Scannear.numValido(1, mundial.getSedes().size())) - 1;
-                            mundial.getSedes().get(indice).setPais(pais);
+                            Sede sedeElegida = mundial.getSedes().get(indice);
+                            sedeElegida.setPais(pais);
+                            pais.agregarSede(sedeElegida);
                             System.out.println("País asignado a la sede correctamente.");
                         }
                         break;
@@ -220,6 +222,11 @@ public class Aplicacion {
                         }
                         int indiceFase = Scannear.numValido(1, fases.size()) - 1;
                         Fase faseElegida = fases.get(indiceFase);
+
+                        if (faseElegida.getNombre() != NombreFase.Grupos) {
+                            System.out.println("Los grupos solo pueden crearse dentro de la Fase de Grupos.");
+                            break;
+                        }
 
                         Grupo nuevoGrupo = scannear.configurarGrupo(paises, faseElegida);
                         if (nuevoGrupo != null) {

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c91c9272-7ae7-4212-bec0-238fa5a572f8" name="Changes" comment="...">
+    <list default="true" id="c91c9272-7ae7-4212-bec0-238fa5a572f8" name="Changes" comment="arbitro principal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Aplicacion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781743404003</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="arbitro principal">
+      <option name="closed" value="true" />
+      <created>1781971003949</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1781971003949</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +170,7 @@
     <MESSAGE value="Fase" />
     <MESSAGE value="&quot;Clases&quot;" />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="arbitro principal" />
+    <option name="LAST_COMMIT_MESSAGE" value="arbitro principal" />
   </component>
 </project>

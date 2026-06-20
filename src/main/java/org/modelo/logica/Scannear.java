@@ -505,6 +505,7 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
                 String nombreEstadio = sc.nextLine();
                 System.out.println("Capacidad del Estadio: ");
                 int capacidadEstadio = sc.nextInt();
+                sc.nextLine();
 
                 estadio = new Estadio(nombreEstadio, capacidadEstadio);
                 excepcion = true;
@@ -512,7 +513,7 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
                 sc.nextLine();
             } catch (Exception e) {
-                e.getMessage();
+                System.out.println("Ocurrio un error inesperado: " + e.getMessage());
             }
         }
         return estadio;
