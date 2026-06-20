@@ -268,46 +268,60 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
             visitante.getParticipacion().add(participaciones[1]);
 
             // 6. ASIGNACIÓN DE ÁRBITROS
-            System.out.println("Cuántos árbitros tendrá este partido?:");
-            int cantidadArbitros = sc.nextInt();
-            sc.nextLine();
+            boolean tienePrincipal = false;
 
-            for (int i = 0; i < cantidadArbitros; i++) {
-                System.out.println("Árbitros registrados:");
-                for (int j = 0; j < arbitros.size(); j++) {
-                    System.out.println((j + 1) + ". " + arbitros.get(j).getNombre());
-                }
-                System.out.println("Seleccione el NÚMERO del árbitro " + (i + 1) + ":");
-                int indiceArbitro = sc.nextInt() - 1;
+            while (!tienePrincipal) {
+                System.out.println("Cuántos árbitros tendrá este partido? (debe incluir al menos 1 Principal):");
+                int cantidadArbitros = sc.nextInt();
                 sc.nextLine();
 
-                if (indiceArbitro < 0 || indiceArbitro >= arbitros.size()) {
-                    System.out.println("Árbitro no válido. Se omite esta asignación.");
-                    continue; // Pasa al siguiente árbitro del ciclo for
-                }
-                Arbitro arbitroSeleccionado = arbitros.get(indiceArbitro);
+                for (int i = 0; i < cantidadArbitros; i++) {
+                    System.out.println("Árbitros registrados:");
+                    for (int j = 0; j < arbitros.size(); j++) {
+                        System.out.println((j + 1) + ". " + arbitros.get(j).getNombre());
+                    }
+                    System.out.println("Seleccione el NÚMERO del árbitro " + (i + 1) + ":");
+                    int indiceArbitro = sc.nextInt() - 1;
+                    sc.nextLine();
 
-                System.out.println("Roles disponibles:");
-                for (CategoriaArbitro opcion : CategoriaArbitro.values()) {
-                    System.out.println("- " + opcion);
-                }
-                System.out.println("Escriba el rol de este árbitro:");
-                String categoria = sc.nextLine();
-                CategoriaArbitro categoriaArbitro = null;
+                    if (indiceArbitro < 0 || indiceArbitro >= arbitros.size()) {
+                        System.out.println("Árbitro no válido. Se omite esta asignación.");
+                        continue;
+                    }
+                    Arbitro arbitroSeleccionado = arbitros.get(indiceArbitro);
 
-                for (CategoriaArbitro opcion : CategoriaArbitro.values()) {
-                    if (opcion.name().equalsIgnoreCase(categoria)) {
-                        categoriaArbitro = opcion;
-                        break;
+                    System.out.println("Roles disponibles:");
+                    for (CategoriaArbitro opcion : CategoriaArbitro.values()) {
+                        System.out.println("- " + opcion);
+                    }
+                    System.out.println("Escriba el rol de este árbitro:");
+                    String categoria = sc.nextLine();
+                    CategoriaArbitro categoriaArbitro = null;
+
+                    for (CategoriaArbitro opcion : CategoriaArbitro.values()) {
+                        if (opcion.name().equalsIgnoreCase(categoria)) {
+                            categoriaArbitro = opcion;
+                            break;
+                        }
+                    }
+                    if (categoriaArbitro != null) {
+                        Arbitraje arbitraje = new Arbitraje(categoriaArbitro, arbitroSeleccionado, partido);
+                        arbitroSeleccionado.agregarArbitraje(arbitraje);
+                        partido.agregarArbitraje(arbitraje);
+                        System.out.println("Árbitro asignado con éxito.");
+
+                        if (categoriaArbitro == CategoriaArbitro.Principal) {
+                            tienePrincipal = true;
+                        }
+                    } else {
+                        System.out.println("Rol no válido. No se asignó este árbitro.");
                     }
                 }
-                if (categoriaArbitro != null) {
-                    Arbitraje arbitraje = new Arbitraje(categoriaArbitro, arbitroSeleccionado, partido);
-                    arbitroSeleccionado.agregarArbitraje(arbitraje);
-                    partido.agregarArbitraje(arbitraje);
-                    System.out.println("Árbitro asignado con éxito.");
-                } else {
-                    System.out.println("Rol no válido. No se asignó este árbitro.");
+
+                if (!tienePrincipal) {
+                    System.out.println("El partido no puede guardarse sin un árbitro Principal. " +
+                            "Vuelva a cargar el equipo de arbitraje.");
+                    partido.getArbitraje().clear();
                 }
             }
 
@@ -577,7 +591,7 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
             System.out.println(e.getMessage());
         }
         catch (Exception e) {
-            e.getMessage();
+            System.out.println("Ocurrio un error inesperado:" + e.getMessage());
         }
 
         return seleccion;
