@@ -1,21 +1,43 @@
 package org.modelo.domain;
 import java.util.ArrayList;
 
+/**
+ * Clase Arbitro.
+ * Hereda de la clase Persona.
+ * Está asociada con la clase Pais y con la clase Partido (a través de Arbitraje).
+ *
+ * @author Rosatto Constanza
+ * @version 1.0
+ */
 public class Arbitro extends Persona {
-    /** Clase Arbitro hereda de Persona.
-     * Asociada con clase Pais.
-     * Asociada con Partido (creando Arbitraje).
-     */
 
     private int aniosExperiencia;
     private Pais pais;
     private ArrayList<Arbitraje> arbitraje;
 
-    /** Constructores parametrizados y por defecto */
+    /**
+     * Constructor por defecto de la clase Arbitro.
+     * Inicializa los atributos con valores predeterminados.
+     *
+     * @author Rosatto Constanza
+     * @version 1.0
+     */
     public Arbitro() {
         this("", 0, 0, null, new ArrayList<Arbitraje>());
     }
 
+    /**
+     * Constructor parametrizado completo.
+     *
+     * @param nombre Nombre del árbitro
+     * @param fecNacimiento Fecha de nacimiento del árbitro
+     * @param aniosExperiencia Años de experiencia como árbitro
+     * @param pais País al que representa el árbitro
+     * @param arbitraje Lista de arbitrajes que realizó
+     *
+     * @author Rosatto Constanza
+     * @version 1.0
+     */
     public Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais, ArrayList<Arbitraje> arbitraje) {
         super(nombre, fecNacimiento);
         this.aniosExperiencia = aniosExperiencia;
@@ -23,6 +45,18 @@ public class Arbitro extends Persona {
         this.arbitraje= arbitraje;
     }
 
+    /**
+     * Constructor parametrizado básico.
+     * Inicializa un árbitro sin arbitrajes registrados (multiplicidad 0..*).
+     *
+     * @param nombre Nombre del árbitro
+     * @param fecNacimiento Fecha de nacimiento del árbitro
+     * @param aniosExperiencia Años de experiencia como árbitro
+     * @param pais País al que representa el árbitro
+     *
+     *  @author Rosatto Constanza
+     *  @version 1.0
+     */
     public Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais) {
         //sin ARBITRAJE por multiplicidad 0...*
         super(nombre, fecNacimiento);
@@ -30,37 +64,54 @@ public class Arbitro extends Persona {
         this.pais = pais;
     }
 
+    /**
+     * Obtiene los años de experiencia del árbitro.
+     *
+     * @return años de experiencia
+     */
+    public int getAniosExperiencia() { return aniosExperiencia; }
 
-    /** Getters */
-    public int getAniosExperiencia() {
-        return aniosExperiencia;
-    }
+    /**
+     * Obtiene el país al que representa el árbitro.
+     *
+     * @return país del árbitro
+     */
+    public Pais getPais() { return pais; }
 
-    public Pais getPais() {
-        return pais;
-    }
+    /**
+     * Obtiene la lista de arbitrajes realizados por el árbitro.
+     *
+     * @return lista de arbitrajes
+     */
+    public ArrayList<Arbitraje> getArbitraje() { return arbitraje; }
 
-    public ArrayList<Arbitraje> getArbitraje() {
-        return arbitraje;
-    }
+    /**
+     * Establece los años de experiencia del árbitro.
+     *
+     * @param aniosExperiencia nuevos años de experiencia
+     */
+    public void setAniosExperiencia(int aniosExperiencia) { this.aniosExperiencia = aniosExperiencia; }
 
-    /** Setters */
-    public void setAniosExperiencia(int aniosExperiencia) {
-        this.aniosExperiencia = aniosExperiencia;
-    }
+    /**
+     * Establece el país del árbitro.
+     *
+     * @param pais nuevo país asociado
+     */
+    public void setPais(Pais pais) { this.pais = pais; }
 
-    public void setPais(Pais pais) {
-        this.pais = pais;
-    }
+    /**
+     * Establece la lista completa de arbitrajes del árbitro.
+     *
+     * @param arbitraje nueva lista de arbitrajes
+     */
+    public void setArbitraje(ArrayList<Arbitraje> arbitraje) { this.arbitraje = arbitraje; }
 
-    public void setArbitraje(ArrayList<Arbitraje> arbitraje) {
-        this.arbitraje = arbitraje;
-    }
-
-    /** Agregar Arbitraje (Asociacion) */
-    public void agregarArbitraje(Arbitraje a) {
-        this.arbitraje.add(a);
-    }
+    /**
+     * Agrega un arbitraje a la lista del árbitro.
+     *
+     * @param a arbitraje a agregar
+     */
+    public void agregarArbitraje(Arbitraje a) { this.arbitraje.add(a); }
 
     //ANTES DE HACER METODOS/INTERACTUAR CON "ARBITRAJE", VERIFICAR QUE NO ESTE VACIA LA LISTA
 }

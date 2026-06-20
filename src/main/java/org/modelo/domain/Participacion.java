@@ -1,19 +1,34 @@
 package org.modelo.domain;
 
+/**
+ * Clase Participacion.
+ * Clase agregada que surge de la asociación entre las clases Partido y Seleccion.
+ * Representa la actuación de una selección dentro de un partido específico.
+ *
+ * @author Rosatto Constanza, Alegre Juani
+ * @version 1.1
+ */
 public class Participacion {
-    /** Clase Agregada Participacion.
-     * Surge de la asociacion de la clase Partido y la clase Seleccion.
-     */
 
     private boolean esLocal;
     private Seleccion selecciones;
     private Partido partido;
 
-    /** Constructores parametrizado y por defecto */
+    /**
+     * Constructor por defecto de la clase Participacion.
+     * Inicializa los atributos con valores predeterminados.
+     */
     public Participacion(){
         this(false, null, null);
     }
 
+    /**
+     * Constructor parametrizado de la clase Participacion.
+     *
+     * @param esLocal Indica si la selección juega como local
+     * @param selecciones Selección que participa
+     * @param partido Partido en el que participa
+     */
     public Participacion(boolean esLocal, Seleccion selecciones, Partido partido) {
         this.esLocal = esLocal;
         this.partido = partido;
@@ -21,10 +36,12 @@ public class Participacion {
     }
 
 
-    /** Metodos propios de la clase.
-     *  Cuenta los goles echos por esta Seleccion en este Partido,
-     *  recorriendo todos los eventos del partido y contando los de tipo Gol,
-     *  cuyo Jugador pertenezca a la Seleccion de esta Participacion.
+    /**
+     * Cuenta los goles convertidos por esta selección en este partido.
+     * Recorre los eventos del partido y filtra los de tipo Gol cuyo jugador
+     * pertenezca a la selección de esta participación.
+     *
+     * @return cantidad de goles convertidos
      */
     public int cantidadGoles() {
         int goles = 0;
@@ -38,7 +55,11 @@ public class Participacion {
         return goles;
     }
 
-    /** Cuenta las tarjetas amarrillas recibidas por esta Seleccion en este Partido */
+    /**
+     * Cuenta las tarjetas amarillas recibidas por esta selección en este partido.
+     *
+     * @return cantidad de tarjetas amarillas
+     */
     public int cantidadTarjAmarillas() {
         int amarillas = 0;
         for (Evento e : partido.getEventos()) {
@@ -51,8 +72,11 @@ public class Participacion {
         return amarillas;
     }
 
-    /** Cuenta las tarjetas rojas recibidas por esta Seleccion en este Partido.
-     *  Se incluyen TarjetaRoja y DobleAmarrilla (ambas implican expulsion).
+    /**
+     * Cuenta las tarjetas rojas recibidas por esta selección en este partido.
+     * Incluye TarjetaRoja y DobleAmarilla, ya que ambas implican expulsión.
+     *
+     * @return cantidad de tarjetas rojas
      */
     public int cantidadTarjRojas(){
         int rojas = 0;
@@ -67,30 +91,48 @@ public class Participacion {
     }
 
 
-    /** Getters */
-    public boolean getEsLocal() {
-        return esLocal;
-    }
+    /**
+     * Indica si la selección participó como local en el partido.
+     *
+     * @return true si es local, false si es visitante
+     */
+    public boolean getEsLocal() { return esLocal; }
 
-    public Partido getPartido() {
-        return partido;
-    }
+    /**
+     * Obtiene el partido al que corresponde esta participación.
+     *
+     * @return partido asociado
+     */
+    public Partido getPartido() { return partido; }
 
+    /**
+     * Obtiene la selección que participa en el partido.
+     *
+     * @return selección asociada
+     */
     public Seleccion getSelecciones(){
         return selecciones;
     }
 
 
-    /** Setters */
-    public void setEsLocal(boolean esLocal) {
-        this.esLocal = esLocal;
-    }
+    /**
+     * Establece si la selección participa como local.
+     *
+     * @param esLocal nuevo valor de localía
+     */
+    public void setEsLocal(boolean esLocal) { this.esLocal = esLocal; }
 
-    public void setSelecciones(Seleccion selecciones) {
-        this.selecciones = selecciones;
-    }
+    /**
+     * Establece la selección asociada a esta participación.
+     *
+     * @param selecciones nueva selección
+     */
+    public void setSelecciones(Seleccion selecciones) { this.selecciones = selecciones; }
 
-    public void setPartido(Partido partido) {
-        this.partido = partido;
-    }
+    /**
+     * Establece el partido asociado a esta participación.
+     *
+     * @param partido nuevo partido
+     */
+    public void setPartido(Partido partido) { this.partido = partido; }
 }
