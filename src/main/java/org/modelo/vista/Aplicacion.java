@@ -3,6 +3,16 @@ import org.modelo.domain.*;
 import org.modelo.logica.*;
 import java.util.*;
 
+/**
+ * Clase Aplicacion.
+ * Controla el flujo principal del sistema mediante menús por consola.
+ * Coordina las llamadas a Scannear (para la carga de datos) e Informes
+ * (para la generación de los reportes), y mantiene las listas globales
+ * de países, fases, grupos y árbitros del Mundial.
+ *
+ * @author Rosatto Constanza, Rougier Valentina, Alegre Juan
+ * @version 1.5
+ */
 public class Aplicacion {
     private Scannear scannear;
     private Mundial mundial;
@@ -11,7 +21,10 @@ public class Aplicacion {
     private ArrayList<Grupo> grupos;
     private ArrayList<Arbitro> arbitros;
 
-
+    /**
+     * Constructor de la clase Aplicacion.
+     * Inicializa el objeto Scannear y todas las listas globales del sistema.
+     */
     Aplicacion() {
         this.scannear = new Scannear();
         this.paises = new ArrayList<Pais>();
@@ -21,14 +34,21 @@ public class Aplicacion {
     }
 
 
-    //ARRANCA
+    /**
+     * Punto de entrada del sistema desde Main.
+     * Inicializa el Mundial pidiendo sus datos por consola
+     * y lanza el menú principal.
+     */
     public void ejecutar() {
         this.mundial = scannear.inicializarMundial();
         System.out.println("El Mundial se creo correctamente, muchas gracias.");
         menuPrincipal();
     }
 
-    // MENUS
+    /**
+     * Muestra el menú principal del sistema y redirige a cada submenú
+     * según la opción elegida por el usuario.
+     */
     private void menuPrincipal() {
         boolean salir = false;
 
@@ -67,6 +87,10 @@ public class Aplicacion {
         }
     }
 
+    /**
+     * Submenú de Gestión de Infraestructura.
+     * Permite registrar Sedes y agregar Estadios a una Sede existente.
+     */
     public void menuInfraestructura() {
         boolean volver = false;
 
@@ -112,7 +136,11 @@ public class Aplicacion {
         }
     }
 
-
+    /**
+     * Submenú de Administración de Delegaciones.
+     * Permite cargar Países, Selecciones con sus jugadores,
+     * y el Cuerpo Técnico junto al Director Técnico de cada selección.
+     */
     private void menuDelegaciones() {
         boolean volver = false;
 
@@ -190,6 +218,11 @@ public class Aplicacion {
         }
     }
 
+    /**
+     * Submenú de Organización Deportiva.
+     * Permite configurar Fases, Grupos, registrar Árbitros del torneo
+     * y planificar Partidos.
+     */
     private void menuOrganizacion() {
         boolean volver = false;
 
@@ -262,6 +295,11 @@ public class Aplicacion {
         }
     }
 
+            /**
+             * Submenú de Registro de Eventos de Campo.
+             * Permite seleccionar un partido ya planificado y registrarle
+             * un evento (gol, tarjeta, etc.) ocurrido durante el encuentro.
+             */
             private void menuEventos () {
                 System.out.println("\n-- REGISTRAR EVENTOS DE PARTIDO --");
                 ArrayList<Partido> partidos = obtenerTodosLosPartidos();
@@ -296,6 +334,13 @@ public class Aplicacion {
                 }
             }
 
+            /**
+             * Submenú de Informes.
+             * Permite acceder a los 6 informes del sistema: tabla de posiciones,
+             * resultados por selección, ranking de goleadores, informe disciplinario
+             * (por selección y por jugador), ficha técnica de partido y estadísticas
+             * de sedes (por estadio y por ciudad).
+             */
             private void menuInformes () {
                 Informes informes = new Informes();
                 boolean volver = false;
@@ -395,6 +440,13 @@ public class Aplicacion {
             }
 
             //------------------------------------------------------------------------------
+
+            /**
+             * Recorre todas las sedes y estadios del Mundial y devuelve
+             * todos los partidos planificados hasta el momento.
+             *
+             * @return lista con todos los partidos del Mundial
+             */
             private ArrayList<Partido> obtenerTodosLosPartidos () {
                 ArrayList<Partido> todos = new ArrayList<Partido>();
                 for (Sede s : mundial.getSedes())
@@ -403,6 +455,12 @@ public class Aplicacion {
                 return todos;
             }
 
+            /**
+             * Recorre todas las sedes del Mundial y devuelve todos los estadios
+             * registrados hasta el momento.
+             *
+             * @return lista con todos los estadios del Mundial
+             */
             private ArrayList<Estadio> obtenerTodosLosEstadios () {
                 ArrayList<Estadio> estadios = new ArrayList<Estadio>();
                 for (Sede s : mundial.getSedes())
@@ -410,6 +468,12 @@ public class Aplicacion {
                 return estadios;
             }
 
+            /**
+             * Recorre la lista de países y devuelve las selecciones
+             * que tienen asignada (descarta los países sin selección).
+             *
+             * @return lista con todas las selecciones del Mundial
+             */
             private ArrayList<Seleccion> obtenerTodasLasSelecciones () {
                 ArrayList<Seleccion> sels = new ArrayList<Seleccion>();
                 for (Pais p : paises)
@@ -417,4 +481,4 @@ public class Aplicacion {
                 return sels;
             }
 
-        }
+    }

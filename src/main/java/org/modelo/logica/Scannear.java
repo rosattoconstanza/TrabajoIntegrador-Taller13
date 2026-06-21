@@ -5,8 +5,23 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import org.modelo.domain.*;
 
+/**
+ * Clase Scannear.
+ * Centraliza toda la carga de datos del sistema a través de la consola (Scanner).
+ * Cada método crea y retorna el objeto correspondiente, dejando que la clase
+ * Aplicacion se encargue de guardarlo en las listas globales del sistema.
+ *
+ * @author Rosatto Constanza, Rougier Valentina, Alegre Juan
+ * @version 1.4
+ */
 public class Scannear {
     //------------------------------------------------------------
+    /**
+     * Solicita por consola los datos iniciales del Mundial (año, mascota,
+     * fecha de inicio y fecha de finalización) y crea el objeto Mundial.
+     *
+     * @return Mundial creado con los datos ingresados
+     */
     public Mundial inicializarMundial() {
         Scanner sc = new Scanner(System.in);
         boolean excepcion = false;
@@ -40,7 +55,12 @@ public class Scannear {
         return mundial;
     }
     //-----------------------------------------------------------------------
-
+    /**
+     * Solicita por consola el nombre de la fase a crear (de la lista de
+     * NombreFase) y crea el objeto Fase correspondiente.
+     *
+     * @return Fase creada
+     */
     public Fase configurarFases(){
         Scanner sc = new Scanner(System.in);
         Fase fase = null;
@@ -71,7 +91,15 @@ public class Scannear {
     }
 
 //----------------------------------------------------------------------
-public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
+    /**
+     * Solicita por consola los datos de un Grupo y le asigna selecciones
+     * a partir de los países ya registrados que tengan selección cargada.
+     *
+     * @param paises lista de países registrados, para elegir sus selecciones
+     * @param fase fase a la que pertenece el grupo
+     * @return Grupo creado con sus selecciones asignadas
+     */
+    public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
     Scanner sc = new Scanner(System.in);
     Grupo grupo = null;
 
@@ -120,7 +148,20 @@ public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
     return grupo;
 }
 //----------------------------------------------------------------------------------
-public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos, ArrayList<Pais> paises, ArrayList<Estadio> estadios, ArrayList<Arbitro> arbitros) {
+    /**
+     * Solicita por consola todos los datos necesarios para planificar un partido:
+     * fase, selecciones (local y visitante), fecha, horario, duración, estadio
+     * y equipo de arbitraje. Garantiza que el partido tenga asignado al menos
+     * un árbitro con rol Principal antes de guardarlo.
+     *
+     * @param fases lista de fases disponibles
+     * @param grupos lista de grupos disponibles
+     * @param paises lista de países disponibles (para selecciones en fases eliminatorias)
+     * @param estadios lista de estadios disponibles
+     * @param arbitros lista de árbitros disponibles
+     * @return Partido creado con sus participaciones y arbitraje asignados
+     */
+    public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos, ArrayList<Pais> paises, ArrayList<Estadio> estadios, ArrayList<Arbitro> arbitros) {
     Scanner sc = new Scanner(System.in);
     Partido partido = null;
     boolean excepcion = false;
@@ -343,7 +384,14 @@ public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos,
 }
 
 //----------------------------------------------------------------------------------
-public Arbitro crearArbitro(ArrayList<Pais> paises) {
+    /**
+     * Solicita por consola los datos de un Árbitro y lo asocia a un país
+     * ya registrado en el sistema.
+     *
+     * @param paises lista de países registrados, para elegir el país del árbitro
+     * @return Arbitro creado, o null si no hay países registrados
+     */
+    public Arbitro crearArbitro(ArrayList<Pais> paises) {
     if (paises == null || paises.isEmpty()) {
         System.out.println("No hay países cargados en el sistema. Debe registrar al menos un país antes de crear un árbitro.");
         return null;
@@ -386,7 +434,14 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
     return new Arbitro(nombreArbitro, fechaNacimArbitro, aniosExpeArbitro, paisArbitro);
 }
 //----------------------------------------------------------------------------------
-
+    /**
+     * Solicita por consola los datos de un Evento ocurrido durante un partido
+     * (minuto, equipo, jugador y tipo de evento) y lo registra tanto en el
+     * jugador involucrado como en el partido.
+     *
+     * @param partido partido en el que ocurre el evento
+     * @return Evento creado y registrado
+     */
     public Evento registrarEventoCampo(Partido partido) {
         Scanner sc = new Scanner(System.in);
         boolean excepcion = false;
@@ -462,7 +517,12 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
     }
 
 //----------------------------------------------------------------------------------
-
+    /**
+     * Solicita por consola los datos de una Sede (ciudad, altura sobre el
+     * nivel del mar, clima y zona horaria) y crea el objeto correspondiente.
+     *
+     * @return Sede creada
+     */
     public Sede registrarSede() {
         Scanner sc = new Scanner(System.in);
         Sede sede = null;
@@ -494,6 +554,12 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
         return sede;
     }
 
+    /**
+     * Solicita por consola los datos de un Estadio (nombre y capacidad)
+     * y crea el objeto correspondiente.
+     *
+     * @return Estadio creado
+     */
     public Estadio registrarEstadio() {
         Scanner sc = new Scanner(System.in);
         boolean excepcion = false;
@@ -520,7 +586,12 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
     }
 
     //--------------------------------------------------------------------------------
-
+    /**
+     * Solicita por consola los datos de un País (nombre y bandera)
+     * y crea el objeto correspondiente.
+     *
+     * @return Pais creado
+     */
     public Pais cargarPais() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nombre del país: ");
@@ -531,6 +602,14 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
         return new Pais(nombre, bandera);
     }
 
+    /**
+     * Solicita por consola los datos de una Selección y la asocia al país
+     * recibido. A continuación, solicita los datos de cada jugador y los
+     * agrega a la selección creada.
+     *
+     * @param pais país al que pertenece la selección a crear
+     * @return Seleccion creada con sus jugadores cargados
+     */
     public Seleccion cargarSeleccionYJugadores(Pais pais) {
         Scanner sc = new Scanner(System.in);
         Seleccion seleccion = null;
@@ -598,12 +677,18 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
         return seleccion;
     }
 
+    /**
+     * Solicita por consola la cantidad de Directores Técnicos a cargar
+     * y los datos de cada uno.
+     *
+     * @return lista de Directores Técnicos creados
+     */
     public ArrayList<DirectorTecnico> cargarDirectores() {
         Scanner sc = new Scanner(System.in);
         ArrayList<DirectorTecnico> directores = new ArrayList<DirectorTecnico>();
         boolean salir = false;
 
-        while(salir == false) {
+        while(!salir) {
             try {
                 System.out.print("¿Cuántos Directores Técnicos desea añadir?: ");
                 int cantidadDT = sc.nextInt();
@@ -642,12 +727,18 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
         return directores;
     }
 
+    /**
+     * Solicita por consola la cantidad de integrantes del Cuerpo Técnico
+     * a cargar y los datos de cada uno, incluyendo su rol.
+     *
+     * @return lista de integrantes del Cuerpo Técnico creados
+     */
     public ArrayList<CuerpoTecnico> cargarCuerpos() {
         Scanner sc = new Scanner(System.in);
         ArrayList<CuerpoTecnico> cuerposT = new ArrayList<CuerpoTecnico>();
         boolean salir = false;
 
-        while (salir == false) {
+        while (!salir) {
             try {
                 System.out.print("¿Cuántos integrantes del Cuerpo Técnico desea añadir?: ");
                 int cantidadCT = sc.nextInt();
@@ -688,25 +779,16 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
         return cuerposT;
     }
 
-
-//no se corta la linea esta ;( aaaaaa
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //---------------------------------------------------------------------------
-        public static int numValido (int min, int max) {
+    //---------------------------------------------------------------------------
+    /**
+     * Solicita por consola un número entero dentro de un rango válido,
+     * repitiendo la solicitud hasta que el valor ingresado sea correcto.
+     *
+     * @param min valor mínimo aceptado (inclusive)
+     * @param max valor máximo aceptado (inclusive)
+     * @return número entero válido ingresado por el usuario
+     */
+    public static int numValido (int min, int max) {
             Scanner sc = new Scanner(System.in);
             int op;
 
@@ -723,46 +805,70 @@ public Arbitro crearArbitro(ArrayList<Pais> paises) {
             return op;
         }
 
-        public void listarSedes(Mundial mundial) {
-            System.out.println("Sedes registradas:\n");
-            int i = 1;
-            for (Sede s : mundial.getSedes()) {
-                System.out.println(i++ + ". " + s);
-                for (Estadio e : s.getEstadios()) {
-                    System.out.println("Estadio -> " + e);
-                }
+    /**
+     * Imprime por consola todas las sedes registradas en el Mundial,
+     * junto con los estadios de cada una.
+     *
+     * @param mundial Mundial del que se obtienen las sedes
+     */
+    public void listarSedes(Mundial mundial) {
+        System.out.println("Sedes registradas:\n");
+        int i = 1;
+        for (Sede s : mundial.getSedes()) {
+            System.out.println(i++ + ". " + s);
+            for (Estadio e : s.getEstadios()) {
+                System.out.println("Estadio -> " + e);
             }
         }
+    }
 
-        public static void listarPaises (ArrayList<Pais> paises) {
-            System.out.println("Países registrados:\n");
-            for (int i = 0; i < paises.size(); i++) {
-                Pais p = paises.get(i);
-                String sel = "Sin selección";
-                if (p.getSeleccion() != null) {
-                    sel = p.getSeleccion().getNombreFederacion();
-                }
-                System.out.println((i + 1) + ". " + p + " | Seleccion -> " + sel);
+    /**
+     * Imprime por consola todos los países registrados, indicando
+     * el nombre de su selección si tiene una asignada.
+     *
+     * @param paises lista de países a mostrar
+     */
+    public static void listarPaises (ArrayList<Pais> paises) {
+        System.out.println("Países registrados:\n");
+        for (int i = 0; i < paises.size(); i++) {
+            Pais p = paises.get(i);
+            String sel = "Sin selección";
+            if (p.getSeleccion() != null) {
+                sel = p.getSeleccion().getNombreFederacion();
             }
+            System.out.println((i + 1) + ". " + p + " | Seleccion -> " + sel);
         }
+    }
 
-        private Posicion elegirPosicion() {
-            Posicion[] posiciones = Posicion.values();
-            for (int i = 0; i < posiciones.length; i++) {
-                System.out.println((i + 1) + ". " + posiciones[i]);
-            }
-            System.out.print("Elija la posición: ");
-            return posiciones[numValido(1, posiciones.length) - 1];
+    /**
+     * Muestra por consola las posiciones disponibles (enum Posicion)
+     * y retorna la elegida por el usuario.
+     *
+     * @return Posicion elegida
+     */
+    private Posicion elegirPosicion() {
+        Posicion[] posiciones = Posicion.values();
+        for (int i = 0; i < posiciones.length; i++) {
+            System.out.println((i + 1) + ". " + posiciones[i]);
         }
+        System.out.print("Elija la posición: ");
+        return posiciones[numValido(1, posiciones.length) - 1];
+    }
 
-        private Rol elegirRol() {
-            Rol[] roles = Rol.values();
-            for (int i = 0; i < roles.length; i++) {
-                System.out.println((i + 1) + ". " + roles[i]);
-            }
-            System.out.print("Elija el rol: ");
-            return roles[numValido(1, roles.length) - 1];
+    /**
+     * Muestra por consola los roles disponibles (enum Rol)
+     * y retorna el elegido por el usuario.
+     *
+     * @return Rol elegido
+     */
+    private Rol elegirRol() {
+        Rol[] roles = Rol.values();
+        for (int i = 0; i < roles.length; i++) {
+            System.out.println((i + 1) + ". " + roles[i]);
         }
+        System.out.print("Elija el rol: ");
+        return roles[numValido(1, roles.length) - 1];
+    }
 }
 
 
