@@ -1,6 +1,11 @@
 package org.modelo.domain;
 
+/**
+ * Representa las posiciones que pueden tomar los jugadores.
+ *
+ * @author Rosatto Constanza
+ * @version 1.0
+ */
 public enum Posicion {
-    /** Opciones de posiciones que pueden tomar los jugadores dentro de un Enum. */
     Arquero, Defensor, Mediocampista, Delantero
 }

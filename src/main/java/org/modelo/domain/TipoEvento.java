@@ -1,6 +1,11 @@
 package org.modelo.domain;
 
+/**
+ * Representa los tipos de eventos que pueden ocurrir en un partido.
+ *
+ * @author Rosatto Constanza
+ * @version 1.0
+ */
 public enum TipoEvento {
-    /** Opciones de eventos que pueden ocurrir dentro de un Enum. */
     Gol, TarjetaAmarilla, TarjetaRoja, PenalCometido, PenalConvertido, PenalErrado, DobleAmarilla, Sustitucion, Lesion
 }

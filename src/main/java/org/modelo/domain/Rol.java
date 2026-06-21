@@ -1,6 +1,11 @@
 package org.modelo.domain;
 
+/**
+ * Representa los roles que puede tomar el cuerpo técnico de una seleccion.
+ *
+ * @author Rosatto Constanza
+ * @version 1.0
+ */
 public enum Rol {
-    /** Opciones de roles que puede tomar el cuerpo tecnico dentro de un Enum. */
     AyudanteCampo, PreparadorFisico, Medico, Kinesiologo, EntrenadorArqueros, AnalistaVideos, Nutricionista, Psicologo
 }
