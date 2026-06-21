@@ -2,16 +2,25 @@ package org.modelo.logica;
 import org.modelo.domain.*;
 import java.util.*;
 
+/**
+ * Clase Informes.
+ * Contiene los 6 informes del sistema de gestión del Mundial:
+ * tabla de posiciones por grupo, resultados por selección, ranking de
+ * goleadores, informe disciplinario, ficha técnica de partido y
+ * estadísticas de sedes. Cada método imprime el informe directamente
+ * por consola.
+ *
+ * @author Alegre Juani
+ * @version 1.0
+ */
 public class Informes {
 
-    /** INFORME 1 - Tabla de posiciones por grupo
-    // Victoria = 3 pts | Empate = 1 pt | Derrota = 0 pts */
-
-    /** Recibe un Grupo.
-     * Copia la lista de selecciones para no tocar el original, y las ordena con Collections.sort.
-     * El Comparator le dice cómo comparar: llama a obtenerPuntos() de cada selección
-     * y resta, si el resultado es positivo las intercambia.
-     * Al final imprime cada selección con sus puntos.*/
+    /**
+     * Imprime la tabla de posiciones de un grupo, ordenada de mayor a menor
+     * puntaje (victoria = 3 puntos, empate = 1 punto, derrota = 0 puntos).
+     *
+     * @param grupo grupo a informar
+     */
     public void tablaPosicionesPorGrupo(Grupo grupo) {
 
         System.out.println("TABLA DE POSICIONES - Grupo: " + grupo.getIdentificacion());
@@ -32,13 +41,12 @@ public class Informes {
         }
     }
 
-    /** INFORME 2 — Resultados por selección */
-
-     /** Recibe una Seleccion.
-      * Recorre todas sus Participacion (un objeto por cada partido que jugó).
-      * En cada una agarra las dos participaciones del partido (p1 y p2), compara cuál es la propia con equals
-      * y la otra es el rival. Con los goles de cada una calcula si fue victoria, empate o derrota y suma los puntos.
-      * Al final muestra el total y la última fase jugada.*/
+    /**
+     * Imprime todos los partidos jugados por una selección, el resultado
+     * de cada uno, los puntos obtenidos y la última instancia alcanzada.
+     *
+     * @param seleccion selección a consultar
+     */
     public void resultadosPorSeleccion(Seleccion seleccion) {
 
         System.out.println("RESULTADOS - " + seleccion.getNombreFederacion());
@@ -80,13 +88,12 @@ public class Informes {
         System.out.println("Ultima instancia: " + ultimaFase);
     }
 
-    /** IMFORME 3 - Ranking de goleadores */
-
-    /** Recibe todas las selecciones.
-     * Recorre cada selección y cada jugador
-     * y llama a contarGolesTotal() que mira los eventos propios del jugador buscando los de tipo Gol.
-     * Si tiene al menos uno lo agrega a la lista.
-     * Después ordena esa lista con Collections.sort de mayor a menor goles e imprime el ranking numerado. */
+    /**
+     * Imprime el ranking de jugadores que convirtieron al menos un gol,
+     * ordenados de mayor a menor cantidad de goles.
+     *
+     * @param selecciones lista con todas las selecciones del Mundial
+     */
     public void rankingGoleadores(ArrayList<Seleccion> selecciones) {
         System.out.println("RANKING DE GOLEADORES");
 
@@ -129,13 +136,11 @@ public class Informes {
         }
     }
 
-    /** INFORME 4 — Informe disciplinario */
-
-    /** Por selección: recorre sus participaciones y suma cantidadTarjAmarillas() y cantidadTarjRojas()
-     * que ya tienen implementados en Participacion.
+    /**
+     * Imprime la cantidad de tarjetas amarillas y rojas de cada selección.
      *
-     Por jugador: recorre los eventos de cada partido de su selección,
-     filtra los que son del jugador pedido y cuenta amarillas y rojas.*/
+     * @param selecciones lista con todas las selecciones del Mundial
+     */
     public void informeDisciplinarioPorSeleccion(ArrayList<Seleccion> selecciones) {
         System.out.println("INFORME DISCIPLINARIO POR SELECCION");
 
@@ -150,7 +155,13 @@ public class Informes {
         }
     }
 
-    /** Imprime las tarjetas recibidas por un jugador especifico.*/
+    /**
+     * Imprime la cantidad de tarjetas amarillas y rojas de un jugador
+     * específico, dentro de su selección.
+     *
+     * @param jugador   jugador a consultar
+     * @param seleccion selección a la que pertenece el jugador
+     */
     public void informeDisciplinarioPorJugador(Jugador jugador, Seleccion seleccion) {
         System.out.println("INFORME DISCIPLINARIO - " + jugador.getNombre());
 
@@ -171,13 +182,13 @@ public class Informes {
         System.out.println("Tarjetas rojas: " + rojas);
     }
 
-    /** INFORME 5 — Ficha técnica de partido */
-
-    /** Recibe un Partido.
-     * Toma directamente p1 y p2 del array de participaciones (posición 0 y 1).
-     * Con eso muestra el resultado, después las alineaciones de cada equipo con dorsal y posición,
-     * después los árbitros,
-     * y finalmente los eventos ordenados por minuto con Collections.sort.*/
+    /**
+     * Imprime el detalle completo de un partido: fecha, horario, estadio,
+     * fase, resultado final, alineaciones de ambos equipos, árbitros
+     * asignados y eventos ocurridos ordenados por minuto.
+     *
+     * @param partido partido a informar
+     */
     public void fichaTecnicaPartido(Partido partido) {
         System.out.println("FICHA TECNICA DE PARTIDO");
         System.out.println("Fecha: " + partido.getFecha());
@@ -228,14 +239,12 @@ public class Informes {
         }
     }
 
-    /** INFORME 6 — Estadísticas de sedes */
-
-    /** Por estadio: el Estadio ya tiene su lista de partidos,
-     * así que simplemente la recorre e imprime cada partido con sus dos equipos.
+    /**
+     * Imprime la cantidad de partidos jugados en un estadio específico,
+     * junto con la fecha y los equipos de cada uno.
      *
-     Por ciudad: recorre las sedes del mundial,
-     compara el nombre de la ciudad con equals
-     y por cada estadio de esa sede imprime sus partidos.*/
+     * @param estadio estadio a consultar
+     */
     public void estadisticasPorEstadio(Estadio estadio) {
         System.out.println("ESTADISTICAS - " + estadio.getNombre());
 
@@ -249,7 +258,13 @@ public class Informes {
         System.out.println("Total de partidos: " + total);
     }
 
-    /** Imprime los partidos jugados en una ciudad especifica.*/
+    /**
+     * Imprime la cantidad de partidos jugados en una ciudad específica,
+     * recorriendo todas las sedes del Mundial ubicadas en esa ciudad.
+     *
+     * @param ciudad  nombre de la ciudad a consultar
+     * @param mundial Mundial del que se obtienen las sedes
+     */
     public void estadisticasPorCiudad(String ciudad, Mundial mundial) {
         System.out.println("ESTADISTICAS - Ciudad: " + ciudad);
 
@@ -269,7 +284,14 @@ public class Informes {
 
     /** MÉTODOS AUXILIARES PRIVADOS */
 
-    /** Cuenta los goles de un jugador recorriendo los eventos de todos los partidos de su seleccion. */
+    /**
+     * Cuenta los goles de un jugador recorriendo los eventos de todos
+     * los partidos jugados por su selección.
+     *
+     * @param jugador jugador a consultar
+     * @param sel     selección a la que pertenece el jugador
+     * @return cantidad de goles del jugador
+     */
     private int contarGolesJugador(Jugador jugador, Seleccion sel) {
         int goles = 0;
         for (Participacion p : sel.getParticipacion()) {
@@ -282,7 +304,13 @@ public class Informes {
         return goles;
     }
 
-    /** Cuenta los goles de un jugador recorriendo sus propios eventos. Se usa en el ranking de goleadores.*/
+    /**
+     * Cuenta los goles de un jugador recorriendo directamente
+     * su propia lista de eventos.
+     *
+     * @param jugador jugador a consultar
+     * @return cantidad de goles del jugador
+     */
     private int contarGolesTotal(Jugador jugador) {
         int goles = 0;
         if (jugador.getEventos() == null) return 0;

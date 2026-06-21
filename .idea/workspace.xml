@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c91c9272-7ae7-4212-bec0-238fa5a572f8" name="Changes" comment="javadoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/logica/NumNegativoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/logica/NumNegativoException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Aplicacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Informes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Informes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781998238552</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="javadoc">
+      <option name="closed" value="true" />
+      <created>1782002207042</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1782002207042</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
