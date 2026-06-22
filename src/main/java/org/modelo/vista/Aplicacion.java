@@ -11,7 +11,7 @@ import java.util.*;
  * de países, fases, grupos y árbitros del Mundial.
  *
  * @author Rosatto Constanza, Rougier Valentina, Alegre Juan
- * @version 1.5
+ * @version 1.6
  */
 public class Aplicacion {
     private Scannear scannear;
@@ -158,15 +158,25 @@ public class Aplicacion {
                     case 1:
                         Pais pais = scannear.cargarPais();
                         paises.add(pais);
-                        if (!mundial.getSedes().isEmpty()) {
-                            System.out.println("El pais se cargó correctamente, ahora debemos asignarle una sede," +
-                                    " ingrese el numero correspondiente...");
-                            scannear.listarSedes(mundial);
-                            int indice = (Scannear.numValido(1, mundial.getSedes().size())) - 1;
-                            Sede sedeElegida = mundial.getSedes().get(indice);
-                            sedeElegida.setPais(pais);
-                            pais.agregarSede(sedeElegida);
-                            System.out.println("País asignado a la sede correctamente.");
+
+                        System.out.println("¿Este país será sede? (1 = Sí, 2 = No)");
+                        int sedeOpcion = Scannear.numValido(1, 2);
+
+                        if (sedeOpcion == 1) {
+                            if (mundial.getSedes().isEmpty()) {
+                                System.out.println("No hay sedes cargadas. No se puede asignar una sede.");
+                            } else {
+                                scannear.listarSedes(mundial);
+                                int indice = Scannear.numValido(1, mundial.getSedes().size()) - 1;
+
+                                Sede sedeElegida = mundial.getSedes().get(indice);
+                                sedeElegida.setPais(pais);
+                                pais.agregarSede(sedeElegida);
+
+                                System.out.println("País asignado a la sede correctamente.");
+                            }
+                        } else {
+                            System.out.println("País cargado sin sede.");
                         }
                         break;
                     case 2:

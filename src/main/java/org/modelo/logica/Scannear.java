@@ -577,7 +577,7 @@ public class Scannear {
             try {
                 System.out.println("Nombre del Estadio: ");
                 String nombreEstadio = sc.nextLine();
-                System.out.println("Capacidad del Estadio: ");
+                System.out.println("Capacidad del Estadio (Solo numero): ");
                 int capacidadEstadio = sc.nextInt();
                 sc.nextLine();
 
