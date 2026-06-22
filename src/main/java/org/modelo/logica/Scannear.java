@@ -15,7 +15,6 @@ import org.modelo.domain.*;
  * @version 1.4
  */
 public class Scannear {
-    //------------------------------------------------------------
     /**
      * Solicita por consola los datos iniciales del Mundial (año, mascota,
      * fecha de inicio y fecha de finalización) y crea el objeto Mundial.
@@ -54,7 +53,9 @@ public class Scannear {
 
         return mundial;
     }
-    //-----------------------------------------------------------------------
+
+
+
     /**
      * Solicita por consola el nombre de la fase a crear (de la lista de
      * NombreFase) y crea el objeto Fase correspondiente.
@@ -90,7 +91,8 @@ public class Scannear {
         return fase;
     }
 
-//----------------------------------------------------------------------
+
+
     /**
      * Solicita por consola los datos de un Grupo y le asigna selecciones
      * a partir de los países ya registrados que tengan selección cargada.
@@ -148,7 +150,8 @@ public class Scannear {
     }
     return grupo;
 }
-//----------------------------------------------------------------------------------
+
+
     /**
      * Solicita por consola todos los datos necesarios para planificar un partido:
      * fase, selecciones (local y visitante), fecha, horario, duración, estadio
@@ -385,7 +388,7 @@ public class Scannear {
     return partido;
 }
 
-//----------------------------------------------------------------------------------
+
     /**
      * Solicita por consola los datos de un Árbitro y lo asocia a un país
      * ya registrado en el sistema.
@@ -436,7 +439,8 @@ public class Scannear {
     System.out.println("Árbitro creado exitosamente!");
     return new Arbitro(nombreArbitro, fechaNacimArbitro, aniosExpeArbitro, paisArbitro);
 }
-//----------------------------------------------------------------------------------
+
+
     /**
      * Solicita por consola los datos de un Evento ocurrido durante un partido
      * (minuto, equipo, jugador y tipo de evento) y lo registra tanto en el
@@ -520,7 +524,7 @@ public class Scannear {
         return nuevoEvento;
     }
 
-//----------------------------------------------------------------------------------
+
     /**
      * Solicita por consola los datos de una Sede (ciudad, altura sobre el
      * nivel del mar, clima y zona horaria) y crea el objeto correspondiente.
@@ -589,7 +593,7 @@ public class Scannear {
         return estadio;
     }
 
-    //--------------------------------------------------------------------------------
+
     /**
      * Solicita por consola los datos de un País (nombre y bandera)
      * y crea el objeto correspondiente.
@@ -783,6 +787,10 @@ public class Scannear {
 
         return cuerposT;
     }
+
+
+
+
 
     //---------------------------------------------------------------------------
     /**

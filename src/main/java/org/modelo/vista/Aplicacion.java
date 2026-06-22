@@ -54,6 +54,7 @@ public class Aplicacion {
 
         while (!salir) {
             try {
+                System.out.println("-------------------------------------------");
                 System.out.println("¡Bienvenido a la organización del Mundial de fútbol " + mundial.getAnio() + "! ¿Que desea hacer?:\n" +
                         "1. Gestión de Infraestructura.\n" + "2. Administración de Delegaciones.\n" +
                         "3.Organización Deportiva.\n" + "4.Registro de Eventos de Campo.\n" + "5.Informes.\n" + "6. Salir.");
@@ -96,6 +97,7 @@ public class Aplicacion {
 
         while (!volver) {
             try {
+                System.out.println("--------------------------------------");
                 System.out.println("¿En que nos enfocamos?\n" + "1. Registrar Sede. \n" +
                         "2. Registrar Estadio a Sede. \n" + "3. Volver.");
                 int eleccionusuario = Scannear.numValido(1, 3);
@@ -146,6 +148,7 @@ public class Aplicacion {
 
         while (!volver) {
             try {
+                System.out.println("--------------------------------------------");
                 System.out.println("¿En que nos enfocamos?\n" + "1. Cargar Pais participante.\n" +
                         "2. Cargar Seleccion y su lista de jugadores.\n" + "3. Cargar Cuerpo Tecnico y Director Tecnico.\n" +
                         "4. Volver.");
@@ -200,11 +203,11 @@ public class Aplicacion {
                         }
                         ArrayList<DirectorTecnico> DTs = scannear.cargarDirectores();
                         paisDT.getSeleccion().setDirectoresTecnicos(DTs);
-                        System.out.println("Todos sus Directores Tecnicos fueron cargados correctamente...continuemos");
+                        System.out.println("Todos sus Directores Técnicos fueron cargados correctamente...continuemos");
 
                         ArrayList<CuerpoTecnico> CTs = scannear.cargarCuerpos();
                         paisDT.getSeleccion().setCuerposTecnicos(CTs);
-                        System.out.println("Todo su Cuerpo Tecnico se cargo correctamente.");
+                        System.out.println("Todo su Cuerpo Técnico se cargo correctamente.");
                         break;
                     case 4:
                         volver = true;
@@ -228,6 +231,7 @@ public class Aplicacion {
 
         while (!volver) {
             try {
+                System.out.println("-------------------------------------------------");
                 System.out.println("¿En qué nos enfocamos?\n" + "1. Configurar Fases \n" +
                         "2. Configurar Grupo\n" + "3. Registrar Árbitros del Torneo\n" +
                         "4. Planificar Partido\n" + "5. Volver al Menú Principal");
