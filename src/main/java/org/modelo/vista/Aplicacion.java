@@ -54,7 +54,7 @@ public class Aplicacion {
 
         while (!salir) {
             try {
-                System.out.println("¡Bienvenido a la organización del Mundial de fútbol 2026! ¿Que desea hacer?:\n" +
+                System.out.println("¡Bienvenido a la organización del Mundial de fútbol " + mundial.getAnio() + "! ¿Que desea hacer?:\n" +
                         "1. Gestión de Infraestructura.\n" + "2. Administración de Delegaciones.\n" +
                         "3.Organización Deportiva.\n" + "4.Registro de Eventos de Campo.\n" + "5.Informes.\n" + "6. Salir.");
                 int eleccionUsuario = Scannear.numValido(1, 6);
@@ -295,53 +295,53 @@ public class Aplicacion {
         }
     }
 
-            /**
-             * Submenú de Registro de Eventos de Campo.
-             * Permite seleccionar un partido ya planificado y registrarle
-             * un evento (gol, tarjeta, etc.) ocurrido durante el encuentro.
-             */
-            private void menuEventos () {
-                System.out.println("\n-- REGISTRAR EVENTOS DE PARTIDO --");
-                ArrayList<Partido> partidos = obtenerTodosLosPartidos();
-                if (partidos.isEmpty()) {
-                    System.out.println("No hay partidos planificados en el sistema.");
-                    return;
-                }
+    /**
+    * Submenú de Registro de Eventos de Campo.
+    * Permite seleccionar un partido ya planificado y registrarle
+    * un evento (gol, tarjeta, etc.) ocurrido durante el encuentro.
+    */
+    private void menuEventos () {
+        System.out.println("\n-- REGISTRAR EVENTOS DE PARTIDO --");
+        ArrayList<Partido> partidos = obtenerTodosLosPartidos();
+        if (partidos.isEmpty()) {
+            System.out.println("No hay partidos planificados en el sistema.");
+            return;
+        }
 
-                try {
-                    // 2. Listamos los partidos usando exactamente la misma lógica que Juani usó en el Caso 6
-                    for (int i = 0; i < partidos.size(); i++) {
-                        System.out.println((i + 1) + ". " + partidos.get(i).getFecha() + " - " +
-                                partidos.get(i).getParticipacion()[0].getSelecciones().getNombreFederacion() +
-                                " vs " +
-                                partidos.get(i).getParticipacion()[1].getSelecciones().getNombreFederacion());
-                    }
-
-                    System.out.print("Seleccione el número de partido para registrar el evento: ");
-                    int pIdx = Scannear.numValido(1, partidos.size()) - 1;
-
-                    Partido partidoSeleccionado = partidos.get(pIdx);
-                    Evento nuevoEvento = scannear.registrarEventoCampo(partidoSeleccionado);
-
-                    if (nuevoEvento != null) {
-                        System.out.println("El evento se acopló con éxito a la simulación del partido.");
-                    }
-
-                } catch (NullPointerException e) {
-                    System.out.println("No se pudo procesar el partido. Verifique que los equipos tengan nombres y jugadores cargados.");
-                } catch (Exception e) {
-                    System.out.println("Ocurrió un fallo inesperado: " + e.getMessage());
-                }
+        try {
+            // 2. Listamos los partidos usando exactamente la misma lógica que Juani usó en el Caso 6
+            for (int i = 0; i < partidos.size(); i++) {
+                System.out.println((i + 1) + ". " + partidos.get(i).getFecha() + " - " +
+                        partidos.get(i).getParticipacion()[0].getSelecciones().getNombreFederacion() +
+                        " vs " +
+                        partidos.get(i).getParticipacion()[1].getSelecciones().getNombreFederacion());
             }
 
-            /**
-             * Submenú de Informes.
-             * Permite acceder a los 6 informes del sistema: tabla de posiciones,
-             * resultados por selección, ranking de goleadores, informe disciplinario
-             * (por selección y por jugador), ficha técnica de partido y estadísticas
-             * de sedes (por estadio y por ciudad).
-             */
-            private void menuInformes () {
+            System.out.print("Seleccione el número de partido para registrar el evento: ");
+            int pIdx = Scannear.numValido(1, partidos.size()) - 1;
+
+            Partido partidoSeleccionado = partidos.get(pIdx);
+            Evento nuevoEvento = scannear.registrarEventoCampo(partidoSeleccionado);
+
+            if (nuevoEvento != null) {
+                System.out.println("El evento se acopló con éxito a la simulación del partido.");
+            }
+
+        } catch (NullPointerException e) {
+            System.out.println("No se pudo procesar el partido. Verifique que los equipos tengan nombres y jugadores cargados.");
+        } catch (Exception e) {
+            System.out.println("Ocurrió un fallo inesperado: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Submenú de Informes.
+     * Permite acceder a los 6 informes del sistema: tabla de posiciones,
+     * resultados por selección, ranking de goleadores, informe disciplinario
+     * (por selección y por jugador), ficha técnica de partido y estadísticas
+     * de sedes (por estadio y por ciudad).
+     */
+    private void menuInformes () {
                 Informes informes = new Informes();
                 boolean volver = false;
 
@@ -432,53 +432,50 @@ public class Aplicacion {
                             String ciudad = new Scanner(System.in).nextLine();
                             informes.estadisticasPorCiudad(ciudad, mundial);
                             break;
-                        case 9:
-                            volver = true;
-                            break;
+                        case 9: volver = true; break;
                     }
                 }
-            }
-
-            //------------------------------------------------------------------------------
-
-            /**
-             * Recorre todas las sedes y estadios del Mundial y devuelve
-             * todos los partidos planificados hasta el momento.
-             *
-             * @return lista con todos los partidos del Mundial
-             */
-            private ArrayList<Partido> obtenerTodosLosPartidos () {
-                ArrayList<Partido> todos = new ArrayList<Partido>();
-                for (Sede s : mundial.getSedes())
-                    for (Estadio e : s.getEstadios())
-                        todos.addAll(e.getPartidos());
-                return todos;
-            }
-
-            /**
-             * Recorre todas las sedes del Mundial y devuelve todos los estadios
-             * registrados hasta el momento.
-             *
-             * @return lista con todos los estadios del Mundial
-             */
-            private ArrayList<Estadio> obtenerTodosLosEstadios () {
-                ArrayList<Estadio> estadios = new ArrayList<Estadio>();
-                for (Sede s : mundial.getSedes())
-                    estadios.addAll(s.getEstadios());
-                return estadios;
-            }
-
-            /**
-             * Recorre la lista de países y devuelve las selecciones
-             * que tienen asignada (descarta los países sin selección).
-             *
-             * @return lista con todas las selecciones del Mundial
-             */
-            private ArrayList<Seleccion> obtenerTodasLasSelecciones () {
-                ArrayList<Seleccion> sels = new ArrayList<Seleccion>();
-                for (Pais p : paises)
-                    if (p.getSeleccion() != null) sels.add(p.getSeleccion());
-                return sels;
-            }
-
     }
+
+    //------------------------------------------------------------------------------
+
+    /**
+     * Recorre todas las sedes y estadios del Mundial y devuelve
+     * todos los partidos planificados hasta el momento.
+     *
+     * @return lista con todos los partidos del Mundial
+     */
+    private ArrayList<Partido> obtenerTodosLosPartidos () {
+        ArrayList<Partido> todos = new ArrayList<Partido>();
+        for (Sede s : mundial.getSedes())
+            for (Estadio e : s.getEstadios())
+                todos.addAll(e.getPartidos());
+        return todos;
+    }
+
+    /**
+     * Recorre todas las sedes del Mundial y devuelve todos los estadios
+     * registrados hasta el momento.
+     *
+     * @return lista con todos los estadios del Mundial
+     */
+    private ArrayList<Estadio> obtenerTodosLosEstadios () {
+        ArrayList<Estadio> estadios = new ArrayList<Estadio>();
+        for (Sede s : mundial.getSedes())
+            estadios.addAll(s.getEstadios());
+        return estadios;
+    }
+
+    /**
+     * Recorre la lista de países y devuelve las selecciones
+     * que tienen asignada (descarta los países sin selección).
+     *
+     * @return lista con todas las selecciones del Mundial
+     */
+    private ArrayList<Seleccion> obtenerTodasLasSelecciones () {
+        ArrayList<Seleccion> sels = new ArrayList<Seleccion>();
+        for (Pais p : paises)
+            if (p.getSeleccion() != null) sels.add(p.getSeleccion());
+        return sels;
+    }
+}

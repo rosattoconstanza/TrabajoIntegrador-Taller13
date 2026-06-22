@@ -36,16 +36,16 @@ public class Scannear {
                 sc.nextLine();
                 System.out.println("Ingrese la mascota: ");
                 String mascota = sc.nextLine();
-                System.out.println("Ingrese fecha de inicio: ");
+                System.out.println("Ingrese fecha de inicio (ddmmaa): ");
                 int fechaInicio = sc.nextInt();
-                System.out.println("Ingrese fecha de finalización: ");
+                System.out.println("Ingrese fecha de finalización (ddmmaa): ");
                 int fechaFinal = sc.nextInt();
 
                 mundial = new Mundial(anio, mascota, fechaInicio, fechaFinal);
                 excepcion = true;
             } catch (InputMismatchException e) {
-                System.out.println("Lamentamos la interrupcion, parece que se ingresó un " +
-                        "texto que deberia ser un entero, intente nuevamente.");
+                System.out.println("Lamentamos la interrupción, parece que se ingresó un " +
+                        "texto que debería ser un entero, intente nuevamente.");
                 sc.nextLine();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -97,6 +97,7 @@ public class Scannear {
      *
      * @param paises lista de países registrados, para elegir sus selecciones
      * @param fase fase a la que pertenece el grupo
+     *
      * @return Grupo creado con sus selecciones asignadas
      */
     public Grupo configurarGrupo(ArrayList<Pais> paises, Fase fase) {
@@ -159,6 +160,7 @@ public class Scannear {
      * @param paises lista de países disponibles (para selecciones en fases eliminatorias)
      * @param estadios lista de estadios disponibles
      * @param arbitros lista de árbitros disponibles
+     *
      * @return Partido creado con sus participaciones y arbitraje asignados
      */
     public Partido planificarPartido(ArrayList<Fase> fases, ArrayList<Grupo> grupos, ArrayList<Pais> paises, ArrayList<Estadio> estadios, ArrayList<Arbitro> arbitros) {
@@ -389,6 +391,7 @@ public class Scannear {
      * ya registrado en el sistema.
      *
      * @param paises lista de países registrados, para elegir el país del árbitro
+     *
      * @return Arbitro creado, o null si no hay países registrados
      */
     public Arbitro crearArbitro(ArrayList<Pais> paises) {
@@ -440,6 +443,7 @@ public class Scannear {
      * jugador involucrado como en el partido.
      *
      * @param partido partido en el que ocurre el evento
+     *
      * @return Evento creado y registrado
      */
     public Evento registrarEventoCampo(Partido partido) {
@@ -608,6 +612,7 @@ public class Scannear {
      * agrega a la selección creada.
      *
      * @param pais país al que pertenece la selección a crear
+     *
      * @return Seleccion creada con sus jugadores cargados
      */
     public Seleccion cargarSeleccionYJugadores(Pais pais) {
@@ -671,7 +676,7 @@ public class Scannear {
             System.out.println(e.getMessage());
         }
         catch (Exception e) {
-            System.out.println("Ocurrio un error inesperado:" + e.getMessage());
+            System.out.println("Ocurrió un error inesperado:" + e.getMessage());
         }
 
         return seleccion;
@@ -786,6 +791,7 @@ public class Scannear {
      *
      * @param min valor mínimo aceptado (inclusive)
      * @param max valor máximo aceptado (inclusive)
+     *
      * @return número entero válido ingresado por el usuario
      */
     public static int numValido (int min, int max) {
