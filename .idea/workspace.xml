@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c91c9272-7ae7-4212-bec0-238fa5a572f8" name="Changes" comment="Doc de Pais">
+    <list default="true" id="c91c9272-7ae7-4212-bec0-238fa5a572f8" name="Changes" comment="&quot;Avanzando ando&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Rol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Rol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/TipoEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/TipoEvento.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ExportToHTMLSettings">
-    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../TrabajoIntegrador-Taller13\exportToHTML" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -32,7 +31,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/rosattoconstanza/TrabajoIntegrador-Taller13.git&quot;,
-    &quot;accountId&quot;: &quot;9aa3dc0e-8f9e-4b38-9fe9-67ea4a1a61ca&quot;
+    &quot;accountId&quot;: &quot;6f20a80a-87fc-429a-a621-2e33d1effb83&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -50,6 +49,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Software-Taller13 [compile].executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -149,31 +149,23 @@
       <option name="project" value="LOCAL" />
       <updated>1781734203113</updated>
     </task>
-    <task id="LOCAL-00008" summary="Doc de Sede">
+    <task id="LOCAL-00008" summary="&quot;Avanzando ando&quot;">
       <option name="closed" value="true" />
-      <created>1781871521692</created>
+      <created>1781734879233</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1781871521692</updated>
+      <updated>1781734879233</updated>
     </task>
-    <task id="LOCAL-00009" summary="Doc de Mundial">
+    <task id="LOCAL-00009" summary="&quot;Avanzando ando&quot;">
       <option name="closed" value="true" />
-      <created>1781872021320</created>
+      <created>1781798763371</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1781872021320</updated>
+      <updated>1781798763371</updated>
     </task>
-    <task id="LOCAL-00010" summary="Doc de Pais">
-      <option name="closed" value="true" />
-      <created>1781873617060</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1781873617061</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,9 +188,6 @@
     <MESSAGE value="Fase" />
     <MESSAGE value="&quot;Clases&quot;" />
     <MESSAGE value="&quot;Avanzando ando&quot;" />
-    <MESSAGE value="Doc de Sede" />
-    <MESSAGE value="Doc de Mundial" />
-    <MESSAGE value="Doc de Pais" />
-    <option name="LAST_COMMIT_MESSAGE" value="Doc de Pais" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Avanzando ando&quot;" />
   </component>
 </project>
