@@ -436,7 +436,6 @@ public class Scannear {
         }
     }
 
-    System.out.println("Árbitro creado exitosamente!");
     return new Arbitro(nombreArbitro, fechaNacimArbitro, aniosExpeArbitro, paisArbitro);
 }
 
