@@ -234,10 +234,19 @@ public class Partido {
      * @author Rougier Valentina
      * */
     public void agregarEvento(TipoEvento tipo, int minuto, Jugador jugador){
-        Evento evento = new Evento(tipo, minuto, jugador); //Composicion = el objeto se crea dentro
+        boolean participa = false;
+        for(Participacion p : participacion){
+            if(p != null && p.getSelecciones().getJugadores().contains(jugador)){
+                participa = true;
+                break;
+            }
+        }
+        if(!participa){
+            throw new IllegalArgumentException("El jugador no participa en este partido");
+        }
+        Evento evento = new Evento(tipo, minuto, jugador);
         eventos.add(evento);
     }
-
     /**
      * Agrega un árbitro al equipo de arbitraje del partido.
      *
