@@ -184,7 +184,7 @@ public class Aplicacion {
                             System.out.println("Porfavor, cargue primero un país.");
                             break;
                         }
-                        System.out.println("Ingrese el numero del pais de la seleccion que desea cargar, porfavor.");
+                        System.out.println("Ingrese el numero del país de la seleccion que desea cargar, por favor.");
                         Scannear.listarPaises(paises);
                         int indice2 = (Scannear.numValido(1, paises.size())) - 1;
                         Pais paisSel = paises.get(indice2);
@@ -193,7 +193,10 @@ public class Aplicacion {
                             System.out.println("Ya tiene selección asignada.");
                             break;
                         }
-                        Seleccion seleccion = scannear.cargarSeleccionYJugadores(paisSel);
+
+                        Seleccion seleccion = scannear.cargarSeleccionYJugadores();
+                        paisSel.setSeleccion(seleccion);
+                        seleccion.setPais(paisSel);
                         System.out.println("La seleccion junto a sus jugadores se cargaron correctamente.");
                         break;
                     case 3:

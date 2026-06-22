@@ -611,76 +611,78 @@ public class Scannear {
     }
 
     /**
-     * Solicita por consola los datos de una Selección y la asocia al país
-     * recibido. A continuación, solicita los datos de cada jugador y los
-     * agrega a la selección creada.
-     *
-     * @param pais país al que pertenece la selección a crear
+     * Solicita por consola los datos de una Selección. A continuación,
+     * solicita los datos de cada jugador y los agrega a la selección creada.
      *
      * @return Seleccion creada con sus jugadores cargados
      */
-    public Seleccion cargarSeleccionYJugadores(Pais pais) {
+    public Seleccion cargarSeleccionYJugadores() {
         Scanner sc = new Scanner(System.in);
         Seleccion seleccion = null;
+        boolean condicion = false;
 
-        try {
-            System.out.print("Nombre de la federación: ");
-            String federacion = sc.nextLine();
-            System.out.print("Camiseta principal: ");
-            String camisetaPrincipal = sc.nextLine();
-            System.out.print("Camiseta secundaria: ");
-            String camisetaSecundaria = sc.nextLine();
-            System.out.print("¿Es cabeza de grupo? (true/false): ");
-            boolean cabezaGrupo = sc.nextBoolean();
-            sc.nextLine();
-            System.out.print("Ranking FIFA: ");
-            int ranking = sc.nextInt();
-            sc.nextLine();
+        while(!condicion) {
+            try {
+                System.out.print("Nombre de la federación: ");
+                String federacion = sc.nextLine();
+                System.out.print("Camiseta principal: ");
+                String camisetaPrincipal = sc.nextLine();
+                System.out.print("Camiseta secundaria: ");
+                String camisetaSecundaria = sc.nextLine();
+                System.out.print("¿Es cabeza de grupo? (true/false): ");
+                boolean cabezaGrupo = sc.nextBoolean();
+                sc.nextLine();
+                System.out.print("Ranking FIFA: ");
+                int ranking = sc.nextInt();
+                sc.nextLine();
 
-            seleccion = new Seleccion(federacion, camisetaPrincipal, camisetaSecundaria, cabezaGrupo, ranking, pais);
-            pais.setSeleccion(seleccion);
-            System.out.println("Selección creada correctamente. Continuemos con los jugadores...");
 
-            System.out.print("¿Cuántos jugadores desea añadir?: ");
-            int cantidad = sc.nextInt();
-            sc.nextLine();
+                seleccion = new Seleccion(federacion, camisetaPrincipal, camisetaSecundaria, cabezaGrupo, ranking);
+                System.out.println("Selección creada correctamente. Continuemos con los jugadores...");
 
-            if (cantidad <= 0) {
-                throw new NumNegativoException("Parece que ingresaste un numero negativo o cero, pruebe nuevamente.");
+                System.out.print("¿Cuántos jugadores desea añadir?: ");
+                int cantidad = sc.nextInt();
+                sc.nextLine();
+
+                if (cantidad <= 0) {
+                    throw new NumNegativoException("Parece que ingresaste un numero negativo o cero, pruebe nuevamente.");
+                }
+
+                for (int i = 0; i < cantidad; i++) {
+                    System.out.println("-- Jugador " + (i + 1) + " --");
+                    System.out.print("Nombre: ");
+                    String nombre = sc.nextLine();
+                    System.out.print("Año de nacimiento: ");
+                    int nacimiento = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Dorsal: ");
+                    int dorsal = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Peso (kg): ");
+                    float peso = sc.nextFloat();
+                    sc.nextLine();
+                    System.out.print("Altura (cm): ");
+                    float altura = sc.nextFloat();
+                    sc.nextLine();
+
+                    // Elegir posición mostrando opciones numeradas
+                    Posicion posicion = elegirPosicion();
+
+                    Jugador jugador = new Jugador(nombre, nacimiento, dorsal, posicion, peso, altura);
+                    seleccion.agregarJugador(jugador);
+                    System.out.println("Jugador " + (i + 1) + " agregado correctamente.");
+
+                    condicion = true;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
+                sc.nextLine();
+            } catch (NumNegativoException e) {
+                System.out.println(e.getMessage());
             }
-
-            for (int i = 0; i < cantidad; i++) {
-                System.out.println("-- Jugador " + (i + 1) + " --");
-                System.out.print("Nombre: ");
-                String nombre = sc.nextLine();
-                System.out.print("Año de nacimiento: ");
-                int nacimiento = sc.nextInt();
-                sc.nextLine();
-                System.out.print("Dorsal: ");
-                int dorsal = sc.nextInt();
-                sc.nextLine();
-                System.out.print("Peso: ");
-                float peso = sc.nextFloat();
-                sc.nextLine();
-                System.out.print("Altura: ");
-                float altura = sc.nextFloat();
-                sc.nextLine();
-
-                // Elegir posición mostrando opciones numeradas
-                Posicion posicion = elegirPosicion();
-
-                Jugador jugador = new Jugador(nombre, nacimiento, dorsal, posicion, peso, altura);
-                seleccion.agregarJugador(jugador);
-                System.out.println("Jugador " + (i + 1) + " agregado correctamente.");
+            catch (Exception e) {
+                System.out.println("Ocurrió un error inesperado:" + e.getMessage());
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
-            sc.nextLine();
-        } catch (NumNegativoException e) {
-            System.out.println(e.getMessage());
-        }
-        catch (Exception e) {
-            System.out.println("Ocurrió un error inesperado:" + e.getMessage());
         }
 
         return seleccion;
