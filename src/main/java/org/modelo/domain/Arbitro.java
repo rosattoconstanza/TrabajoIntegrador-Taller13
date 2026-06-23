@@ -62,6 +62,7 @@ public class Arbitro extends Persona {
         super(nombre, fecNacimiento);
         this.aniosExperiencia = aniosExperiencia;
         this.pais = pais;
+        this.arbitraje = new ArrayList<Arbitraje>();
     }
 
     /**

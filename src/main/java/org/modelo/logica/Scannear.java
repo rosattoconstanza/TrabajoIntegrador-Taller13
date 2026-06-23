@@ -197,6 +197,10 @@ public class Scannear {
             Seleccion local = null;
             Seleccion visitante = null;
 
+            if (grupos.isEmpty()) {
+                System.out.println("No hay grupos configurados. Debe configurar grupos antes de planificar partidos.");
+                return null;
+            }
             //SELECCIÓN DE EQUIPOS (si es Fase de Grupos o Eliminatoria)
             if (faseSeleccionada.getNombre() == NombreFase.Grupos) {
                 System.out.println("\nGrupos disponibles:");
@@ -219,6 +223,16 @@ public class Scannear {
                     continue;
                 }
 
+                if (grupoSeleccionado.getSeleccion().isEmpty()) {
+                    System.out.println("El grupo no tiene selecciones asignadas. Debe configurarlas primero.");
+                    return null;
+                }
+
+                if (grupoSeleccionado.getSeleccion().size() < 2) {
+                    System.out.println("Deben existir al menos dos selecciones en el grupo para poder planificar un partido.");
+                    return null;
+                }
+
                 System.out.println("\nSelecciones en el Grupo " + grupoSeleccionado.getIdentificacion() + ":");
                 for (Seleccion seleccion : grupoSeleccionado.getSeleccion()) {
                     System.out.println("- " + seleccion.getNombreFederacion());
@@ -235,6 +249,18 @@ public class Scannear {
 
             } else {
                 // Si es Octavos, Cuartos, Semis o Final, busca en todos los países cargados
+                boolean haySelecciones = false;
+                for (Pais p : paises) {
+                    if (p.getSeleccion() != null) {
+                        haySelecciones = true;
+                        break;
+                    }
+                }
+                if (!haySelecciones) {
+                    System.out.println("No hay selecciones registradas. Debe cargarlas antes de planificar partidos.");
+                    return null;
+                }
+
                 System.out.println("\nSelecciones disponibles:");
                 for (Pais p : paises) {
                     if (p.getSeleccion() != null) {
@@ -314,6 +340,10 @@ public class Scannear {
             visitante.getParticipacion().add(participaciones[1]);
 
             // 6. ASIGNACIÓN DE ÁRBITROS
+            if (arbitros.isEmpty()) {
+                System.out.println("No hay árbitros registrados. Debe cargar árbitros antes de planificar un partido.");
+                return null;
+            }
             boolean tienePrincipal = false;
 
             while (!tienePrincipal) {
@@ -350,6 +380,8 @@ public class Scannear {
                             break;
                         }
                     }
+                    System.out.println("Categoria encontrada: " + categoriaArbitro);
+
                     if (categoriaArbitro != null) {
                         Arbitraje arbitraje = new Arbitraje(categoriaArbitro, arbitroSeleccionado, partido);
                         arbitroSeleccionado.agregarArbitraje(arbitraje);
@@ -376,13 +408,13 @@ public class Scannear {
             estadioSeleccionado.agregarPartidos(partido);
             System.out.println("Partido planificado y guardado correctamente!");
             excepcion = true; // Corta el bucle while infinito e indica éxito
-
-        } catch (InputMismatchException e) {
-            System.out.println("Error. Se esperaba un número. Intente nuevamente toda la carga del partido.");
-            sc.nextLine();
-        }catch (Exception e) {
-                System.out.println("ERROR REAL:");
-                e.printStackTrace();
+        }
+        catch (InputMismatchException e) {
+                System.out.println("Error. Se esperaba un número. Intente nuevamente.");
+                sc.nextLine();
+            }
+        catch (Exception e) {
+                System.out.println("Ocurrió un error inesperado.");
             }
     }
     // Cierra el while
