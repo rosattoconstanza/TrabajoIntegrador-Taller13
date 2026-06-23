@@ -619,7 +619,7 @@ public class Scannear {
                 System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
                 sc.nextLine();
             } catch (Exception e) {
-                System.out.println("Ocurrio un error inesperado: " + e.getMessage());
+                System.out.println("Ocurrió un error inesperado: " + e.getMessage());
             }
         }
         return estadio;
@@ -672,13 +672,9 @@ public class Scannear {
                 seleccion = new Seleccion(federacion, camisetaPrincipal, camisetaSecundaria, cabezaGrupo, ranking);
                 System.out.println("Selección creada correctamente. Continuemos con los jugadores...");
 
-                System.out.print("¿Cuántos jugadores desea añadir?: ");
-                int cantidad = sc.nextInt();
+                System.out.print("¿Cuántos jugadores desea añadir? (23 a 26 jugadores): ");
+                int cantidad = numValido(23, 26);
                 sc.nextLine();
-
-                if (cantidad <= 0) {
-                    throw new NumNegativoException("Parece que ingresaste un numero negativo o cero, pruebe nuevamente.");
-                }
 
                 for (int i = 0; i < cantidad; i++) {
                     System.out.println("-- Jugador " + (i + 1) + " --");
@@ -709,8 +705,6 @@ public class Scannear {
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
                 sc.nextLine();
-            } catch (NumNegativoException e) {
-                System.out.println(e.getMessage());
             }
             catch (Exception e) {
                 System.out.println("Ocurrió un error inesperado:" + e.getMessage());
@@ -892,7 +886,7 @@ public class Scannear {
      * Muestra por consola las posiciones disponibles (enum Posicion)
      * y retorna la elegida por el usuario.
      *
-     * @return Posicion elegida
+     * @return Posición elegida
      */
     private Posicion elegirPosicion() {
         Posicion[] posiciones = Posicion.values();
@@ -918,5 +912,3 @@ public class Scannear {
         return roles[numValido(1, roles.length) - 1];
     }
 }
-
-

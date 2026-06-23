@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c91c9272-7ae7-4212-bec0-238fa5a572f8" name="Changes" comment="Arreglado lo de Arbitro">
+    <list default="true" id="c91c9272-7ae7-4212-bec0-238fa5a572f8" name="Changes" comment="Arreglando detalles">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Arbitro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Arbitro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Fase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Fase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Mundial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Mundial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Pais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Pais.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Partido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Sede.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/domain/Sede.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Informes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Informes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/logica/Scannear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/modelo/vista/Aplicacion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,8 +95,7 @@
       <updated>1781234424695</updated>
       <workItem from="1781234426019" duration="842000" />
       <workItem from="1781262255759" duration="6053000" />
-      <workItem from="1782225251783" duration="6948000" />
-      <workItem from="1782248298042" duration="8077000" />
+      <workItem from="1782225251783" duration="6877000" />
     </task>
     <task id="LOCAL-00001" summary="MEtodos">
       <option name="closed" value="true" />
@@ -192,15 +185,7 @@
       <option name="project" value="LOCAL" />
       <updated>1782226610039</updated>
     </task>
-    <task id="LOCAL-00012" summary="Arreglado lo de Arbitro">
-      <option name="closed" value="true" />
-      <created>1782232222905</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1782232222905</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +212,6 @@
     <MESSAGE value="Doc de Mundial" />
     <MESSAGE value="Doc de Pais" />
     <MESSAGE value="Arreglando detalles" />
-    <MESSAGE value="Arreglado lo de Arbitro" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglado lo de Arbitro" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglando detalles" />
   </component>
 </project>

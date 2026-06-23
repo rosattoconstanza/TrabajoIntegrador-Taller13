@@ -27,14 +27,14 @@ public class Informes {
 
         ArrayList<Seleccion> sels = new ArrayList<Seleccion>(grupo.getSeleccion());
 
-        /** Ordenamos de mayor a menor puntos usando Collections.sort */
+        // Ordenamos de mayor a menor puntos usando Collections.sort
         Collections.sort(sels, new Comparator<Seleccion>() {
             public int compare(Seleccion a, Seleccion b) {
                 return grupo.obtenerPuntos(b) - grupo.obtenerPuntos(a);
             }
         });
 
-        /** Imprimimos cada seleccion con sus puntos */
+        // Imprimimos cada seleccion con sus puntos
         for (Seleccion s : sels) {
             System.out.println(s.getNombreFederacion() + " | " + grupo.obtenerPuntos(s) + " punto(s)");
 
@@ -57,7 +57,7 @@ public class Informes {
         for (Participacion miParticipacion : seleccion.getParticipacion()) {
             Partido partido = miParticipacion.getPartido();
 
-            /** Obtenemos el rival igual que en obtenerPuntos de Grupo */
+            // Obtenemos el rival igual que en obtenerPuntos de Grupo
             Participacion p1 = partido.getParticipacion()[0];
             Participacion p2 = partido.getParticipacion()[1];
             Participacion rivalParticipacion;
@@ -97,7 +97,7 @@ public class Informes {
     public void rankingGoleadores(ArrayList<Seleccion> selecciones) {
         System.out.println("RANKING DE GOLEADORES");
 
-        //Recolectamos todos los jugadores que hicieron al menos un gol /
+        //Recolectamos todos los jugadores que hicieron al menos un gol
         final ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
         final ArrayList<String> nombSels   = new ArrayList<String>();
 

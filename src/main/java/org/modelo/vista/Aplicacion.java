@@ -24,6 +24,9 @@ public class Aplicacion {
     /**
      * Constructor de la clase Aplicacion.
      * Inicializa el objeto Scannear y todas las listas globales del sistema.
+     *
+     * @author Rosatto Constanza
+     * @version 1.0
      */
     Aplicacion() {
         this.scannear = new Scannear();
@@ -38,6 +41,9 @@ public class Aplicacion {
      * Punto de entrada del sistema desde Main.
      * Inicializa el Mundial pidiendo sus datos por consola
      * y lanza el menú principal.
+     *
+     * @author Rosatto Constanza
+     * @version 1.0
      */
     public void ejecutar() {
         this.mundial = scannear.inicializarMundial();
