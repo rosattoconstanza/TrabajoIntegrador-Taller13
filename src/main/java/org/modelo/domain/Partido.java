@@ -22,8 +22,6 @@ public class Partido {
     private ArrayList<Arbitraje> arbitraje;
     private ArrayList<Evento> eventos;
 
-
-
     /**
      * Constructor por defecto de la clase Partido.
      * Inicializa los atributos con valores predeterminados.
@@ -62,7 +60,7 @@ public class Partido {
         this.fase = fase;
         this.participacion = participacion;
         this.arbitraje = arbitraje;
-        this.eventos = new ArrayList<Evento>(); //Composicion!
+        this.eventos = new ArrayList<Evento>();
     }
 
     //-------------------------------------------------------------------------------------
@@ -239,7 +237,7 @@ public class Partido {
             if(p != null && p.getSelecciones().getJugadores().contains(jugador)){
                 participa = true;
                 break;
-            }
+            } // Partido es una composicion por eso se crea dentro.
         }
         if(!participa){
             throw new IllegalArgumentException("El jugador no participa en este partido");

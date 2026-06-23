@@ -97,7 +97,7 @@ public class Informes {
     public void rankingGoleadores(ArrayList<Seleccion> selecciones) {
         System.out.println("RANKING DE GOLEADORES");
 
-        /** Recolectamos todos los jugadores que hicieron al menos un gol */
+        //Recolectamos todos los jugadores que hicieron al menos un gol /
         final ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
         final ArrayList<String> nombSels   = new ArrayList<String>();
 
@@ -110,15 +110,13 @@ public class Informes {
             }
         }
 
-        /** Ordenamos por goles de mayor a menor usando Collections.sort
-        Usamos una lista auxiliar de indices para mantener sincronizado nombSels */
+        // Ordenamos por goles de mayor a menor usando Collections.sort usamos una lista auxiliar de indices para mantener sincronizado nombSels
         ArrayList<Integer> indices = new ArrayList<Integer>();
         for (int i = 0; i < jugadores.size(); i++) {
             indices.add(i);
         }
 
-        /** No necesitamos seleccion para contar goles desde eventos del jugador
-        los goles ya estan en los eventos del partido, buscamos por jugador */
+        // No necesitamos seleccion para contar goles desde eventos del jugador los goles ya estan en los eventos del partido, buscamos por jugador */
         Collections.sort(indices, new Comparator<Integer>() {
             public int compare(Integer a, Integer b) {
                 int golesA = contarGolesTotal(jugadores.get(a));
@@ -127,7 +125,7 @@ public class Informes {
             }
         });
 
-        /** Imprimimos en el orden del sort */
+        //Imprimimos en el orden del sort
         for (int i = 0; i < indices.size(); i++) {
             int idx = indices.get(i);
             Jugador j = jugadores.get(idx);
@@ -201,7 +199,7 @@ public class Informes {
             System.out.println("Fase: " + partido.getFase().getNombre());
         }
 
-        /** Tomamos las dos participaciones directamente del array */
+        //Tomamos las dos participaciones directamente del array
         Participacion p1 = partido.getParticipacion()[0];
         Participacion p2 = partido.getParticipacion()[1];
 
@@ -209,7 +207,7 @@ public class Informes {
                 p1.getSelecciones().getNombreFederacion() + " " + p1.cantidadGoles() +
                 " - " + p2.cantidadGoles() + " " + p2.getSelecciones().getNombreFederacion());
 
-        /** Alineaciones */
+        //Alineaciones
         System.out.println("[LOCAL] " + p1.getSelecciones().getNombreFederacion());
         for (Jugador j : p1.getSelecciones().getJugadores()) {
             System.out.println("#" + j.getDorsal() + " " + j.getNombre() + " (" + j.getPosicion() + ")");
@@ -219,13 +217,13 @@ public class Informes {
             System.out.println("#" + j.getDorsal() + " " + j.getNombre() + " (" + j.getPosicion() + ")");
         }
 
-        /** Arbitros */
+        // Arbitros
         System.out.println("ARBITROS:");
         for (Arbitraje a : partido.getArbitraje()) {
             System.out.println(a.getRol() + ": " + a.getArbitro().getNombre());
         }
 
-        /** Eventos ordenados por minuto con Collections.sort */
+        //Eventos ordenados por minuto con Collections.sort
         ArrayList<Evento> evs = new ArrayList<Evento>(partido.getEventos());
         Collections.sort(evs, new Comparator<Evento>() {
             public int compare(Evento a, Evento b) {
@@ -282,7 +280,7 @@ public class Informes {
     }
 
 
-    /** MÉTODOS AUXILIARES PRIVADOS */
+    //MÉTODOS AUXILIARES PRIVADOS
 
     /**
      * Cuenta los goles de un jugador recorriendo los eventos de todos

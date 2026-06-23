@@ -113,7 +113,5 @@ public class Arbitro extends Persona {
      * @param a arbitraje a agregar
      */
     public void agregarArbitraje(Arbitraje a) { this.arbitraje.add(a); }
-
-    //ANTES DE HACER METODOS/INTERACTUAR CON "ARBITRAJE", VERIFICAR QUE NO ESTE VACIA LA LISTA
 }
 

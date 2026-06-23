@@ -124,6 +124,4 @@ public class Fase {
         this.grupos.add(g); //Ninguno o mas grupos por Fase
     }
 
-
-    //ANTES DE HACER METODOS/INTERACTUAR CON "GRUPO", VERIFICAR QUE NO ESTE VACIA LA LISTA
 }

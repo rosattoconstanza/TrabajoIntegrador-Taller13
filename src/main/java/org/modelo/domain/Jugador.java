@@ -61,7 +61,7 @@ public class Jugador extends Persona {
         this.posicion = posicion;
         this.peso = peso;
         this.altura = altura;
-        this.eventos = new ArrayList<>(); // ← esto no viola el UML, lo cumple
+        this.eventos = new ArrayList<>(); // ← esto no afecta el UML, lo cumple
     }
 
     /**
@@ -165,6 +165,5 @@ public class Jugador extends Persona {
         this.eventos.add(e); //0 o mas eventos por Jugador
     }
 
-    //ANTES DE HACER METODOS/INTERACTUAR CON "EVENTO", VERIFICAR QUE NO ESTE VACIA LA LISTA
 }
 

@@ -165,9 +165,8 @@ public class Pais {
      * @author Rougier Valentina
      */
     public void agregarSede(Sede s){
-        this.sedes.add(s); //Ninguna o mas sedes por Pais
+        this.sedes.add(s);
     }
-
     /**
      * Agrega una arbitro al país.
      *
@@ -176,9 +175,8 @@ public class Pais {
      * @author Rougier Valentina
      */
     public void agregarArbitro(Arbitro arbitro){
-        this.arbitros.add(arbitro); //Ninguno o mas arbitros por Pais
+        this.arbitros.add(arbitro);
     }
-
     /**
      * Devuelve una representación en texto del país.
      *
@@ -189,5 +187,3 @@ public class Pais {
         return "Nombre: " + nombre + ", Bandera: " + bandera;
     }
 }
-
-//ANTES DE HACER METODOS/INTERACTUAR CON "SEDE", "ARBITRO" O "SELECCION", VERIFICAR QUE NO ESTE VACIA LA LISTA/SEA NULL

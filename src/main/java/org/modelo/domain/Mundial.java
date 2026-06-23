@@ -171,6 +171,6 @@ public class Mundial {
      * @author Rougier Valentina
      */
     public void agregarSede(Sede s){
-        this.sedes.add(s); //1 o mas sedes por Mundial
+        this.sedes.add(s);
     }
 }

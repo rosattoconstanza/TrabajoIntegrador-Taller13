@@ -134,7 +134,7 @@ public class Sede {
      * @author Rougier Valentina
      */
     public void agregarEstadio(Estadio e){
-        this.estadios.add(e); //1 o mas Estadios por Sede
+        this.estadios.add(e);
     }
 //--------------------------------------------------------------------
     /**
