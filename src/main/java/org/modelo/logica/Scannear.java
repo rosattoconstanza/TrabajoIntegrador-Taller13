@@ -138,7 +138,7 @@ public class Scannear {
                 System.out.println(pais.getSeleccion().getNombreFederacion() + " agregada al grupo.");
             }
 
-            System.out.println("Grupo" + identificacion + "creado correctamente.");
+            System.out.println("Grupo " + identificacion + " creado correctamente.");
             excepcion = true;
         } catch (InputMismatchException e) {
             System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
@@ -338,7 +338,7 @@ public class Scannear {
 
                     System.out.println("Roles disponibles:");
                     for (CategoriaArbitro opcion : CategoriaArbitro.values()) {
-                        System.out.println("- " + opcion);
+                        System.out.println("-" + opcion);
                     }
                     System.out.println("Escriba el rol de este árbitro:");
                     String categoria = sc.nextLine();
@@ -380,9 +380,10 @@ public class Scannear {
         } catch (InputMismatchException e) {
             System.out.println("Error. Se esperaba un número. Intente nuevamente toda la carga del partido.");
             sc.nextLine();
-        } catch (Exception e) {
-            System.out.println("Error. Formato de fecha/hora incorrecto o dato inválido. Intente nuevamente.");
-        }
+        }catch (Exception e) {
+                System.out.println("ERROR REAL:");
+                e.printStackTrace();
+            }
     }
     // Cierra el while
     return partido;
