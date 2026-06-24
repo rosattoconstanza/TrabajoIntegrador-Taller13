@@ -19,8 +19,6 @@ public class DirectorTecnico extends Persona {
      * @param fecNacimiento Fecha de nacimiento
      * @param fechaNombramiento Fecha en la que fue nombrado director técnico
      *
-     * @author Rosatto Constanza
-     * @version 1.0
      */
     public DirectorTecnico(String nombre, int fecNacimiento, int fechaNombramiento) {
         super(nombre, fecNacimiento);
@@ -31,8 +29,6 @@ public class DirectorTecnico extends Persona {
      * Constructor por defecto de la clase DirectorTecnico.
      * Inicializa los atributos con valores predeterminados.
      *
-     * @author Rosatto Constanza
-     * @version 1.0
      */
     public DirectorTecnico() {
         this("", 0, 0);

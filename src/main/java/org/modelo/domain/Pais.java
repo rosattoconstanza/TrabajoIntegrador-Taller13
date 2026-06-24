@@ -21,8 +21,6 @@ public class Pais {
      * Constructor por defecto.
      * Inicializa los atributos con valores predeterminados.
      *
-     * @author Rosatto Constanza
-     * @version 1.0
      */
     public Pais(){
         this("", "", null, new ArrayList<Sede>(), new ArrayList<Arbitro>());
@@ -37,8 +35,6 @@ public class Pais {
      * @param sedes Lista de sedes pertenecientes al país
      * @param arbitros Lista de árbitros pertenecientes al país
      *
-     * @author Rougier Valentina
-     * @version 1.0
      */
     public Pais(String nombre, String bandera,Seleccion seleccion, ArrayList<Sede> sedes, ArrayList<Arbitro> arbitros) {
         this.nombre = nombre;
@@ -54,8 +50,6 @@ public class Pais {
      * @param nombre Nombre del país
      * @param bandera Bandera representativa del país
      *
-     * @author Rougier Valentina
-     * @version 1.0
      */
     public Pais(String nombre, String bandera) {
         this.nombre = nombre;
@@ -168,11 +162,9 @@ public class Pais {
         this.sedes.add(s);
     }
     /**
-     * Agrega una arbitro al país.
+     * Agrega un arbitro al país.
      *
      * @param arbitro - arbitro a agregar
-     *
-     * @author Rougier Valentina
      */
     public void agregarArbitro(Arbitro arbitro){
         this.arbitros.add(arbitro);

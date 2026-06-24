@@ -21,8 +21,6 @@ public class Arbitraje {
      * @param arbitro Árbitro asignado
      * @param partido Partido al que pertenece este arbitraje
      *
-     * @author Rosatto Constanza
-     * @version 1.0
      */
     public Arbitraje(CategoriaArbitro rol, Arbitro arbitro, Partido partido) {
         this.rol = rol;
@@ -34,8 +32,6 @@ public class Arbitraje {
      * Constructor por defecto de la clase Arbitraje.
      * Inicializa los atributos con valores predeterminados (null).
      *
-     * @author Rosatto Constanza
-     * @version 1.0
      */
     Arbitraje() {
         this(null, null, null);

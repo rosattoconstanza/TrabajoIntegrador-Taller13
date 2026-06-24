@@ -6,7 +6,7 @@ package org.modelo.logica;
  * una cantidad negativa o igual a cero en contextos donde no corresponde
  * (por ejemplo, al pedir cuántos jugadores o directores técnicos cargar).
  *
- * @author Rosatto Constanza, Alegre Juan
+ * @author Rosatto Constanza
  * @version 1.0
  */
 public class NumNegativoException extends Exception {

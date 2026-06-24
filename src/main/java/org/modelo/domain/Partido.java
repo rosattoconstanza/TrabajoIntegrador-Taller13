@@ -26,8 +26,6 @@ public class Partido {
      * Constructor por defecto de la clase Partido.
      * Inicializa los atributos con valores predeterminados.
      *
-     * @author Rosatto Constanza
-     * @version 1.0
      */
     public Partido() {
         this(null, null, 0, 0, null, null,
@@ -47,8 +45,6 @@ public class Partido {
      * @param participacion Arreglo de participaciones de las selecciones en el partido
      * @param arbitraje Lista de árbitros asignados al partido
      *
-     * @author Rougier Valentina
-     * @version 1.1
      */
     public Partido(LocalDate fecha, LocalTime horario, int duracion, int tiempoAdicional, Estadio estadio, Fase fase,
                    Participacion [] participacion,ArrayList<Arbitraje> arbitraje) {
@@ -229,7 +225,6 @@ public class Partido {
      * @param minuto Minuto del partido en el que ocurre el evento
      * @param jugador Jugador que realizó el evento en el partido
      *
-     * @author Rougier Valentina
      * */
     public void agregarEvento(TipoEvento tipo, int minuto, Jugador jugador){
         boolean participa = false;
@@ -250,7 +245,6 @@ public class Partido {
      *
      * @param a Arbitro y rol que se agrega al arbitraje del partido
      *
-     * @author Rosatto Constanza
      * */
     public void agregarArbitraje(Arbitraje a) {
         this.arbitraje.add(a);

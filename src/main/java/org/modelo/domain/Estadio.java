@@ -25,8 +25,6 @@ public class Estadio {
      * @param sede Sede a la que pertenece el estadio
      * @param partidos Lista de partidos disputados en el estadio
      *
-     * @author Rougier Valentina
-     * @version 1.0
      */
     public Estadio(String nombre, int capacidad, Sede sede, ArrayList<Partido> partidos) {
         this.nombre = nombre;
@@ -43,8 +41,6 @@ public class Estadio {
      * @param capacidad Capacidad máxima de espectadores
      * @param sede Sede a la que pertenece el estadio
      *
-     * @author Rougier Valentina
-     * @version 1.0
      */
     public Estadio(String nombre, int capacidad, Sede sede) {
         this.nombre = nombre;
@@ -60,8 +56,6 @@ public class Estadio {
      * @param nombre Nombre del estadio
      * @param capacidad Capacidad máxima de espectadores
      *
-     * @author Rougier Valentina
-     * @version 1.0
      */
     public Estadio(String nombre, int capacidad) {
         this.nombre = nombre;
@@ -73,8 +67,6 @@ public class Estadio {
      * Constructor por defecto.
      * Inicializa los atributos con valores predeterminados.
      *
-     * @author Rosatto Constanza
-     * @version 1.0
      */
     public Estadio(){
         this("", 0, null, new ArrayList<Partido>());
@@ -158,7 +150,6 @@ public class Estadio {
      *
      * @param p partido a agregar
      *
-     * @author Rougier Valentina
      */
     public void agregarPartidos(Partido p){
         partidos.add(p); //1 o mas partidos por Estadio

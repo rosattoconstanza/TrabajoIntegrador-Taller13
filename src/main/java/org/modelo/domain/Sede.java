@@ -25,8 +25,7 @@ public class Sede {
  * @param alturaNivelMar Altura sobre el nivel del mar de la sede
  * @param clima Clima característico de la sede
  * @param zonaHoraria Zona horaria correspondiente a la sede
- * @author Rougier Valentina
- * @version 1.0
+ *
  */
   public Sede(String ciudad, float alturaNivelMar, String clima, String zonaHoraria) {
         this.ciudad = ciudad;
@@ -46,8 +45,7 @@ public class Sede {
      * @param zonaHoraria    Zona horaria correspondiente a la sede
      * @param pais           País al que pertenece la sede
      * @param estadios       Lista de estadios asociados a la sede
-     * @author Rougier Valentina
-     * @version 1.0
+     *
      */
     public Sede(String ciudad, float alturaNivelMar, String clima, String zonaHoraria, Pais pais, ArrayList<Estadio> estadios) {
         this.ciudad = ciudad;
@@ -62,8 +60,6 @@ public class Sede {
      * Constructor por defecto de la clase Sede.
      * Inicializa los atributos con valores predeterminados.
      *
-     * @author Rosatto Constanza
-     * @version 1.0
      */
 
     public Sede() {

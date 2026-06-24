@@ -19,8 +19,6 @@ public class Arbitro extends Persona {
      * Constructor por defecto de la clase Arbitro.
      * Inicializa los atributos con valores predeterminados.
      *
-     * @author Rosatto Constanza
-     * @version 1.0
      */
     public Arbitro() {
         this("", 0, 0, null, new ArrayList<Arbitraje>());
@@ -35,8 +33,6 @@ public class Arbitro extends Persona {
      * @param pais País al que representa el árbitro
      * @param arbitraje Lista de arbitrajes que realizó
      *
-     * @author Rosatto Constanza
-     * @version 1.0
      */
     public Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais, ArrayList<Arbitraje> arbitraje) {
         super(nombre, fecNacimiento);
@@ -54,8 +50,6 @@ public class Arbitro extends Persona {
      * @param aniosExperiencia Años de experiencia como árbitro
      * @param pais País al que representa el árbitro
      *
-     *  @author Rosatto Constanza
-     *  @version 1.0
      */
     public Arbitro(String nombre, int fecNacimiento, int aniosExperiencia, Pais pais) {
         //sin ARBITRAJE por multiplicidad 0...*

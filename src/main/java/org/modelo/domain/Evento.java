@@ -21,8 +21,6 @@ public class Evento {
      * @param minuto Minuto del partido en que ocurrió
      * @param jugador Jugador involucrado en el evento
      *
-     * @author Rougier Valentina
-     * @version 1.0
      */
     public Evento(TipoEvento tipo, int minuto, Jugador jugador) {
         this.tipo = tipo;
@@ -34,8 +32,6 @@ public class Evento {
      * Constructor por defecto de la clase Evento.
      * Inicializa los atributos con valores predeterminados.
      *
-     * @author Rougier Valentina
-     * @version 1.0
      */
     public Evento(){
         this(null, 0, null);

@@ -10,7 +10,7 @@ import java.util.*;
  * estadísticas de sedes. Cada método imprime el informe directamente
  * por consola.
  *
- * @author Alegre Juani
+ * @author Alegre Juan
  * @version 1.0
  */
 public class Informes {

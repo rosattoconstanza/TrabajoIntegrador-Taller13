@@ -19,8 +19,6 @@ public class CuerpoTecnico extends Persona {
      * @param fecNacimiento Fecha de nacimiento
      * @param rol Rol que cumple dentro del cuerpo técnico
      *
-     * @author Rosatto Constanza
-     * @version 1.0
      */
     public CuerpoTecnico(String nombre, int fecNacimiento, Rol rol) {
         super(nombre, fecNacimiento);
@@ -32,8 +30,6 @@ public class CuerpoTecnico extends Persona {
      * Constructor por defecto de la clase CuerpoTecnico.
      * Inicializa los atributos con valores predeterminados.
      *
-     * @author Rosatto Constanza
-     * @version 1.0
      */
     public CuerpoTecnico() {
         this("", 0, null);

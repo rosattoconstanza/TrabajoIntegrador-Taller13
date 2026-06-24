@@ -22,8 +22,6 @@ public class Mundial {
      * Constructor por defecto.
      * Inicializa los atributos con valores predeterminados.
      *
-     * @author Rosatto Constanza
-     * @version 1.0
      */
 
     public Mundial(){
@@ -39,8 +37,6 @@ public class Mundial {
      * @param fechaHasta Fecha de finalización
      * @param sedes Lista de sedes del Mundial
      *
-     * @author Rougier Valentina
-     * @version 1.0
      */
     public Mundial(int anio, String mascota, int fechaDesde, int fechaHasta, ArrayList<Sede> sedes) {
         this.anio = anio;
@@ -58,8 +54,6 @@ public class Mundial {
      * @param fechaDesde Fecha de inicio
      * @param fechaHasta Fecha de finalización
      *
-     * @author Rougier Valentina
-     * @version 1.0
      */
     public Mundial(int anio, String mascota, int fechaDesde, int fechaHasta) {
         this.anio = anio;
@@ -167,8 +161,6 @@ public class Mundial {
      * Corresponde a la agregación entre Mundial y Sede.
      *
      * @param s sede a agregar
-     *
-     * @author Rougier Valentina
      */
     public void agregarSede(Sede s){
         this.sedes.add(s);
