@@ -928,7 +928,20 @@ public class Scannear {
         System.out.print("Elija el rol: ");
         return roles[numValido(1, roles.length) - 1];
     }
+
     //--------------------------------------------------------------------------
+
+    /**
+     * Busca una instancia de Fase dentro de una lista, a partir de su nombre.
+     *
+     * El método recorre la lista de fases y compara el nombre de cada una
+     * con el valor proporcionado. Si encuentra una coincidencia, devuelve
+     * la fase correspondiente. En caso contrario, retorna null
+     *
+     * @param fases lista de objetos de tipo Fase donde se realizará la búsqueda
+     * @param nombreFase nombre de la fase a buscar
+     * @return nombre de la Fase que coincide con el nombre dado, o null si no se encuentra
+     */
     private Fase buscarFase(ArrayList<Fase> fases, NombreFase nombreFase) {
         for (Fase f : fases) {
             if (f.getNombre() == nombreFase) {
@@ -937,6 +950,17 @@ public class Scannear {
         }
         return null;
     }
+
+
+    /**
+     * Obtiene la fase anterior a la fase actual dentro de la secuencia de un Mundial.
+     *
+     * El método determina la fase previa en función del valor recibido,
+     * siguiendo el orden lógico de progresión.
+     *
+     * @param faseActual la fase actual de la cual se desea obtener la fase anterior
+     * @return la fase inmediatamente anterior a faseActual, o null si no existe una fase previa definida
+     */
     private NombreFase obtenerFaseAnterior(NombreFase faseActual) {
         switch (faseActual) {
             case Dieciseisavos:
@@ -953,6 +977,23 @@ public class Scannear {
                 return null;
         }
     }
+
+
+    /** Determina si una fase puede ser planificada en función del estado
+     * de sus fases anteriores dentro de la secuencia de un Mundial.
+     *
+     * El método evalúa si la fase recibida cumple con las condiciones
+     * necesarias para ser planificada:
+     * - Si la fase es Grupos, puede planificarse directamente.
+     * - Para otras fases, se obtiene la fase anterior correspondiente.
+     * - Si la fase anterior no existe o no se encuentra en la lista, no puede planificarse.
+     * - Si la fase anterior no tiene partidos cargados, tampoco puede planificarse.
+     * - En caso contrario, la fase puede planificarse correctamente.
+     *
+     * @param fases lista de objetos de tipo Fase donde se buscará la fase anterior
+     * @param faseAEvaluar la fase que se desea evaluar
+     * @return true si la fase puede planificarse, o false si no cumple las condiciones necesarias
+     */
     private boolean puedePlanificarFase(ArrayList<Fase> fases, NombreFase faseAEvaluar) {
         if (faseAEvaluar == NombreFase.Grupos) {
             return true;
