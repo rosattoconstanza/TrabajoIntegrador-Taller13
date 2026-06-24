@@ -253,7 +253,7 @@ public class Aplicacion {
                 int eleccionUsuario = Scannear.numValido(1, 5);
                 switch (eleccionUsuario) {
                     case 1:
-                        Fase nuevaFase = scannear.configurarFases();
+                        Fase nuevaFase = scannear.configurarFases(fases);
                         if (nuevaFase != null) {
                             fases.add(nuevaFase); // La guardamos en lista global
                         }
@@ -289,7 +289,7 @@ public class Aplicacion {
                     case 3:
                         Arbitro nuevoArbitro = scannear.crearArbitro(paises);
                         if (nuevoArbitro != null) {
-                            arbitros.add(nuevoArbitro); // Lo guardás en tu lista global
+                            arbitros.add(nuevoArbitro); // Guarda en lista global
                             System.out.println("Árbitro registrado con éxito.");
                         }
                         break;

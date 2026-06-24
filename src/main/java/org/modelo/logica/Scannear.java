@@ -55,43 +55,57 @@ public class Scannear {
     }
 
 
-
     /**
      * Solicita por consola el nombre de la fase a crear (de la lista de
      * NombreFase) y crea el objeto Fase correspondiente.
      *
      * @return Fase creada
      */
-    public Fase configurarFases(){
+    public Fase configurarFases(ArrayList<Fase> fases) {
         Scanner sc = new Scanner(System.in);
         Fase fase = null;
         boolean excepcion = false;
 
-        while (!excepcion){
+        while (!excepcion) {
             try {
                 NombreFase[] nombres = NombreFase.values();
+
+                System.out.println("Fases disponibles:");
                 for (int i = 0; i < nombres.length; i++) {
-                    System.out.println((i + 1) + "-" + nombres[i]);
+                    System.out.println((i + 1) + " - " + nombres[i]);
                 }
-                System.out.println("ELija el numero de la Fase a crear:");
+                System.out.println("Elija el número de la Fase a crear:");
                 int indice = numValido(1, nombres.length) - 1;
 
-                fase = new Fase(nombres[indice], new ArrayList<Partido>(),new ArrayList<Grupo>());
+                NombreFase faseElegida = nombres[indice];
 
-                System.out.println("Fases creadas correctamente.");
+                // Verificar si la fase ya existe
+                boolean existe = false;
+                for (Fase f : fases) {
+                    if (f.getNombre() == faseElegida) {
+                        existe = true;
+                        break;
+                    }
+                }
+                if (existe) {
+                    System.out.println("La fase " + faseElegida + " ya fue creada.");
+                    System.out.println("Seleccione una fase diferente.");
+                    continue; // vuelve al inicio del while
+                }
+
+                fase = new Fase(faseElegida, new ArrayList<Partido>(), new ArrayList<Grupo>());
+                System.out.println("Fase creada correctamente.");
                 excepcion = true;
+
             } catch (InputMismatchException e) {
-                System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
+                System.out.println("Lamentamos la interrupción, parece que no ingresó un número. Intente nuevamente.");
                 sc.nextLine();
-            }
-            catch (Exception e) {
-                System.out.println(e.getMessage());
+            } catch (Exception e) {
+                System.out.println("Ocurrió un error inesperado.");
             }
         }
         return fase;
     }
-
-
 
     /**
      * Solicita por consola los datos de un Grupo y le asigna selecciones
@@ -140,17 +154,17 @@ public class Scannear {
 
             System.out.println("Grupo " + identificacion + " creado correctamente.");
             excepcion = true;
+
         } catch (InputMismatchException e) {
             System.out.println("Lamentamos la interrupción, parece que se no ingresó un número, intente nuevamente.");
             sc.nextLine();
         }
         catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Ocurrió un error inesperado.");
         }
     }
     return grupo;
 }
-
 
     /**
      * Solicita por consola todos los datos necesarios para planificar un partido:
@@ -173,7 +187,7 @@ public class Scannear {
 
     while (!excepcion) {
         try {
-            // 1. SELECCIÓN DE FASE
+            // Selección de Fase
             System.out.println("\nFases disponibles:");
             for (int i = 0; i < fases.size(); i++) {
                 System.out.println("- " + fases.get(i).getNombre());
@@ -201,7 +215,7 @@ public class Scannear {
                 System.out.println("No hay grupos configurados. Debe configurar grupos antes de planificar partidos.");
                 return null;
             }
-            //SELECCIÓN DE EQUIPOS (si es Fase de Grupos o Eliminatoria)
+            //Selección de Equipos (si es Fase de Grupos o Eliminatoria)
             if (faseSeleccionada.getNombre() == NombreFase.Grupos) {
                 System.out.println("\nGrupos disponibles:");
                 for (Grupo grupo : grupos) {
@@ -294,7 +308,7 @@ public class Scannear {
                 continue;
             }
 
-            // 3. DATOS DEL PARTIDO
+            // 3. Datos del Partido
             DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm");
 
@@ -311,7 +325,7 @@ public class Scannear {
             int tiempoAdicional = sc.nextInt();
             sc.nextLine();
 
-            // 4. SELECCIÓN DE ESTADIO (Listando los existentes)
+            // 4. Selección de Estadio (Listando los existentes)
             System.out.println("Estadios disponibles:");
             for (int i = 0; i < estadios.size(); i++) {
                 System.out.println((i + 1) + ". " + estadios.get(i).getNombre() + " (Capacidad: " + estadios.get(i).getCapacidad() + ")");
@@ -326,7 +340,7 @@ public class Scannear {
             }
             Estadio estadioSeleccionado = estadios.get(indiceEstadio);
 
-            // 5. CREACIÓN DEL PARTIDO Y PARTICIPACIONES
+            // 5. Creación del Partido y Participaciones
             Participacion[] participaciones = new Participacion[2];
             participaciones[0] = new Participacion(true, local, null);
             participaciones[1] = new Participacion(false, visitante, null);
@@ -339,7 +353,7 @@ public class Scannear {
             local.getParticipacion().add(participaciones[0]);
             visitante.getParticipacion().add(participaciones[1]);
 
-            // 6. ASIGNACIÓN DE ÁRBITROS
+            // 6. Asignación de Arbitros
             if (arbitros.isEmpty()) {
                 System.out.println("No hay árbitros registrados. Debe cargar árbitros antes de planificar un partido.");
                 return null;
@@ -421,7 +435,6 @@ public class Scannear {
     return partido;
 }
 
-
     /**
      * Solicita por consola los datos de un Árbitro y lo asocia a un país
      * ya registrado en el sistema.
@@ -497,7 +510,7 @@ public class Scannear {
                 System.out.println("A qué equipo pertenece el evento?");
                 System.out.println("1. " + local.getNombreFederacion());
                 System.out.println("2. " + visitante.getNombreFederacion());
-                int opcionEquipo = sc.nextInt();
+                int opcionEquipo = sc.nextInt(); //poner num valido
                 sc.nextLine();
 
                 Seleccion equipoSeleccionado = null;
@@ -512,7 +525,7 @@ public class Scannear {
                     System.out.println((i + 1) + ".[" + listaJugadores.get(i).getDorsal() + "] " + listaJugadores.get(i).getNombre());
                 }
                 System.out.println("Seleccione el NÚMERO del jugador involucrado:");
-                int indiceJugador = sc.nextInt() - 1;
+                int indiceJugador = sc.nextInt() - 1; //num valido agregar
                 sc.nextLine();
                 Jugador jugadorInvolucrado = listaJugadores.get(indiceJugador);
 
@@ -547,10 +560,8 @@ public class Scannear {
                 sc.nextLine();
             } catch (NullPointerException e) {
                 System.out.println("Error. Faltan datos estructurales.");
-                excepcion = true;
             } catch (Exception e) {
                 System.out.println("Error Desconocido: " + e.getMessage());
-                excepcion = true;
             }
         }
         return nuevoEvento;
@@ -758,7 +769,7 @@ public class Scannear {
                 System.out.println(e.getMessage());
             }
             catch (Exception e) {
-                System.out.println(e.getMessage());
+                System.out.println("Ocurrió un error inesperado:" + e.getMessage()); //menssje
             }
         }
 
@@ -810,15 +821,12 @@ public class Scannear {
                 System.out.println(e.getMessage());
             }
             catch (Exception e) {
-                System.out.println(e.getMessage());
+                System.out.println("Ocurrió un error inesperado:" + e.getMessage());
             }
         }
 
         return cuerposT;
     }
-
-
-
 
 
     //---------------------------------------------------------------------------
