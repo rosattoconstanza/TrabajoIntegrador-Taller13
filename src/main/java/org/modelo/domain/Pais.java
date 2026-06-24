@@ -156,7 +156,6 @@ public class Pais {
      *
      * @param s sede a agregar
      *
-     * @author Rougier Valentina
      */
     public void agregarSede(Sede s){
         this.sedes.add(s);

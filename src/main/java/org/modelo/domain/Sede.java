@@ -127,7 +127,6 @@ public class Sede {
      * Agrega un estadio a la sede.
      *
      * @param e estadio que se incorpora a la sede
-     * @author Rougier Valentina
      */
     public void agregarEstadio(Estadio e){
         this.estadios.add(e);
