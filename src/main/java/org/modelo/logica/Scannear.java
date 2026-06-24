@@ -208,6 +208,14 @@ public class Scannear {
                 continue; // Reinicia el bucle sin sacar al usuario
             }
 
+            NombreFase faseAnterior = obtenerFaseAnterior(faseSeleccionada.getNombre());
+
+            if (!puedePlanificarFase(fases, faseSeleccionada.getNombre())) {
+                System.out.println("No se puede planificar la fase " + faseSeleccionada.getNombre()
+                        + ". Primero debe planificar la fase " + faseAnterior + ".");
+                continue;
+            }
+
             Seleccion local = null;
             Seleccion visitante = null;
 
@@ -919,5 +927,44 @@ public class Scannear {
         }
         System.out.print("Elija el rol: ");
         return roles[numValido(1, roles.length) - 1];
+    }
+    //--------------------------------------------------------------------------
+    private Fase buscarFase(ArrayList<Fase> fases, NombreFase nombreFase) {
+        for (Fase f : fases) {
+            if (f.getNombre() == nombreFase) {
+                return f;
+            }
+        }
+        return null;
+    }
+    private NombreFase obtenerFaseAnterior(NombreFase faseActual) {
+        switch (faseActual) {
+            case Dieciseisavos:
+                return NombreFase.Grupos;
+            case Octavos:
+                return NombreFase.Dieciseisavos;
+            case Cuartos:
+                return NombreFase.Octavos;
+            case Semifinal:
+                return NombreFase.Cuartos;
+            case Final:
+                return NombreFase.Semifinal;
+            default:
+                return null;
+        }
+    }
+    private boolean puedePlanificarFase(ArrayList<Fase> fases, NombreFase faseAEvaluar) {
+        if (faseAEvaluar == NombreFase.Grupos) {
+            return true;
+        }
+        NombreFase faseAnteriorEnum = obtenerFaseAnterior(faseAEvaluar);
+        Fase faseAnterior = buscarFase(fases, faseAnteriorEnum);
+        if (faseAnterior == null) {
+            return false;
+        }
+        if (faseAnterior.getPartidos().isEmpty()) {
+            return false;
+        }
+        return true;
     }
 }
