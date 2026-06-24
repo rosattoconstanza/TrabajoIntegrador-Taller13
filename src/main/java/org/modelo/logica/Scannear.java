@@ -518,7 +518,7 @@ public class Scannear {
                 System.out.println("A qué equipo pertenece el evento?");
                 System.out.println("1. " + local.getNombreFederacion());
                 System.out.println("2. " + visitante.getNombreFederacion());
-                int opcionEquipo = sc.nextInt(); //poner num valido
+                int opcionEquipo = numValido(1, 2);
                 sc.nextLine();
 
                 Seleccion equipoSeleccionado = null;
@@ -533,7 +533,7 @@ public class Scannear {
                     System.out.println((i + 1) + ".[" + listaJugadores.get(i).getDorsal() + "] " + listaJugadores.get(i).getNombre());
                 }
                 System.out.println("Seleccione el NÚMERO del jugador involucrado:");
-                int indiceJugador = sc.nextInt() - 1; //num valido agregar
+                int indiceJugador = numValido(1, listaJugadores.size()) - 1;
                 sc.nextLine();
                 Jugador jugadorInvolucrado = listaJugadores.get(indiceJugador);
 
