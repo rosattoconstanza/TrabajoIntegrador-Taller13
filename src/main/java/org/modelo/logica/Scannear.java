@@ -700,8 +700,9 @@ public class Scannear {
                     seleccion.agregarJugador(jugador);
                     System.out.println("Jugador " + (i + 1) + " agregado correctamente.");
 
-                    condicion = true;
                 }
+                condicion = true;
+
             } catch (InputMismatchException e) {
                 System.out.println("Lamentamos la interrupción, parece que se ingresó un dato que no corresponde, intente nuevamente.");
                 sc.nextLine();
