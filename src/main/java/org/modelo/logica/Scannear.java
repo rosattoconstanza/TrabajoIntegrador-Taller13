@@ -394,13 +394,11 @@ public class Scannear {
                             break;
                         }
                     }
-                    System.out.println("Categoria encontrada: " + categoriaArbitro);
 
                     if (categoriaArbitro != null) {
                         Arbitraje arbitraje = new Arbitraje(categoriaArbitro, arbitroSeleccionado, partido);
                         arbitroSeleccionado.agregarArbitraje(arbitraje);
                         partido.agregarArbitraje(arbitraje);
-                        System.out.println("Árbitro asignado con éxito.");
 
                         if (categoriaArbitro == CategoriaArbitro.Principal) {
                             tienePrincipal = true;
@@ -411,9 +409,11 @@ public class Scannear {
                 }
 
                 if (!tienePrincipal) {
-                    System.out.println("El partido no puede guardarse sin un árbitro Principal. " +
-                            "Vuelva a cargar el equipo de arbitraje.");
+                    System.out.println("El partido no puede guardarse sin un árbitro Principal.");
+                    System.out.println("Vuelva a cargar el equipo de arbitraje.");
                     partido.getArbitraje().clear();
+                } else {
+                    System.out.println("Equipo arbitral cargado correctamente.");
                 }
             }
 
